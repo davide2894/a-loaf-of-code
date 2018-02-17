@@ -2,6 +2,7 @@
 layout: post
 title:  "Code test"
 author: "Davide"
+comments: true
 ---
 
 ## Look out, Itchy! He's Irish!
