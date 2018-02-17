@@ -1,8 +1,8 @@
 # Site settings
-title:          a.min.blog
+title:          a loaf of code
 description:    "personal blog"
-baseurl:        "/blog"
-url:            "https://davide2894.github.io/blog"
+baseurl:        "/a-loaf-of-code"
+url:            "https://davide2894.github.io/a-loaf-of-code"
 
 # Author
 author:         
