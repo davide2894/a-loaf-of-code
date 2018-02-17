@@ -1,11 +1,11 @@
 # Site settings
-title:          Another blog
-description:    "Minimal Jekyll theme for storytellers"
+title:          a.min.blog
+description:    "personal blog"
 baseurl:        "/blog"
-url:            "https://chesterhow.github.io"
+url:            "https://davide2894.github.io/blog"
 
 # Author
-author:
+author:         
   name:         Davide Iaiunese
   url:          https://github.com/davide2894
   email:        davide.iaiunese@gmail.com

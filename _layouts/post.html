@@ -9,8 +9,11 @@ layout: default
       <span>&nbsp;</span><time datetime="{{ page.date }}">{{ page.date | date: "%B %d, %Y" }}</time>
     {% endif %}
   </div>
-
+  {% if page.url == "/about/" %}
+  <h1 class="post-title about-title">{{ page.title }}</h1>
+  {% else %}
   <h1 class="post-title">{{ page.title }}</h1>
+  {% endif %}
   <div class="post-line"></div>
 
   {{ content }}
