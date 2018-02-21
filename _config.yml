@@ -1,7 +1,7 @@
 # Site settings
 title:          a loaf of code
 description:    "your regular dev"
-baseurl:        "" # does not include hostname
+baseurl:        "/" # does not include hostname
 
 # Author       
   name:         Davide Iaiunese
