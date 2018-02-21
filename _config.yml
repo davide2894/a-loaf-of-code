@@ -1,8 +1,8 @@
 # Site settings
 title:          a loaf of code
 description:    "your regular dev"
-baseurl:        "_site/" # does not include hostname
-url:            "davide2894.github.io/a-loaf-of-code/"
+baseurl:        "/a-loaf-of-code" # does not include hostname
+url:            "https://davide2894.github.io"
 
 # Author       
   name:         Davide Iaiunese
