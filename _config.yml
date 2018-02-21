@@ -1,6 +1,6 @@
 # Site settings
 title:          a loaf of code
-description:    "personal blog"
+description:    "your regular dev"
 baseurl:        "/a-loaf-of-code"
 url:            "https://davide2894.github.io/a-loaf-of-code"
 
