@@ -5,6 +5,7 @@ baseurl:        "/a-loaf-of-code" # does not include hostname
 url:            "https://davide2894.github.io"
 
 # Author       
+author:
   name:         Davide Iaiunese
   url:          https://github.com/davide2894
   email:        davide.iaiunese@gmail.com
