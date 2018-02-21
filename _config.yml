@@ -1,7 +1,6 @@
 # Site settings
 title:          a loaf of code
 description:    "your regular dev"
-destination:    /_site
 baseurl:        "" # does not include hostname
 
 # Author       
