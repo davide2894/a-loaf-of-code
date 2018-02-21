@@ -1,10 +1,10 @@
 # Site settings
 title:          a loaf of code
 description:    "your regular dev"
-baseurl:        "/a-loaf-of-code"
+destination:    /_site
+baseurl:        "" # does not include hostname
 
-# Author
-author:         
+# Author       
   name:         Davide Iaiunese
   url:          https://github.com/davide2894
   email:        davide.iaiunese@gmail.com
