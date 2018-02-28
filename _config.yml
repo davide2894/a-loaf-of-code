@@ -1,8 +1,8 @@
 # Site settings
 title:          Morning Dev
 description:    "chronicles of my coding journey"
-baseurl:        "/morning-dev" # does not include hostname
-url:            "https://davide2894.github.io"
+baseurl:        "/" # does not include hostname
+url:            "morningdev.com"
 
 # Author       
 author:
