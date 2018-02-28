@@ -1,7 +1,7 @@
 # Site settings
-title:          a loaf of code
+title:          Morning Developer
 description:    "your regular dev"
-baseurl:        "/a-loaf-of-code" # does not include hostname
+baseurl:        "/morning-dev" # does not include hostname
 url:            "https://davide2894.github.io"
 
 # Author       
