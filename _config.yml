@@ -1,7 +1,7 @@
 # Site settings
 title:          Morning Dev
 description:    "chronicles of my coding journey"
-baseurl:        "/" # does not include hostname
+baseurl:        "" # does not include hostname
 url:            "morningdev.com"
 
 # Author       
