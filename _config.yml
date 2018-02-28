@@ -1,13 +1,13 @@
 # Site settings
-title:          Morning Developer
-description:    "your regular dev"
+title:          Morning Dev
+description:    "chronicles of my coding journey"
 baseurl:        "/morning-dev" # does not include hostname
 url:            "https://davide2894.github.io"
 
 # Author       
 author:
   name:         Davide Iaiunese
-  url:          https://github.com/davide2894
+  url:          https://github.com/davide2894bas
   email:        davide.iaiunese@gmail.com
 
 # Build settings

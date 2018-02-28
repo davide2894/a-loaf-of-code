@@ -30,3 +30,17 @@ These are what I could think of:
 John, be honest please: am I thinking this too much? I mean, would it be generic to use davideiaiunese.com as a single domain to host both portfolio and blog?
 
 Thank you for the time you're dedicating to me. 
+
+davide iaiunese 
+
+dadev.me
+davidev.me
+davidev.org
+davcode.com
+davicode.com
+davcoding.com
+
+routinedeveloper.com
+routinedev.com
+
+codeatfive.com
