@@ -4,7 +4,7 @@ author: "Davide"
 permalink: /about/
 ---
 
-![a picture of me in Modena]({{ "assets/me.png" | absolute_url }})
+![a picture of me in Modena]({{ "assets/me.png" | relative_url }})
 
 Hi! I'm Davide Iaiunese - I know I know, a tongue-twister for a last name, right? - I am a Front-End Web Developer. 
 
