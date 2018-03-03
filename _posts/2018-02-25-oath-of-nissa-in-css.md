@@ -15,10 +15,10 @@ I took the opportunity to experiment a bit with tools speficically aimed for thi
 * [Gimp](https://www.gimp.org): image editing
 
 ## This is the original card: 
-![Oath of Nissa]({{"assets/postpics/mtg-original.jpeg" | relative_url}})
+![Oath of Nissa]({{"assets/nissa/mtg-original.webp" | relative_url}})
 
 ## This is the result:
-![Replica]({{ "assets/postpics/mtg-replica.png" | relative_url}})
+![Replica]({{ "assets/nissa/mtg-replica.webp" | relative_url}})
 
 ## Source code
 The entire code can be found on the [Github repository](https://github.com/davide2894/nissa?raw=true)

@@ -23,19 +23,8 @@ footer,
         position: relative;
         text-align: center;
     }
-
-    &-title {
-        @include transition(all .2s ease-out);
-        color: #333;
-        display: inline-block;
-        margin: 0 auto;
-        padding-right: .2rem;
-        box-sizing: border-box;
-        font-size: 3.8em;
-        font-weight: 800;
-        &:hover {
-            color: $blue;
-        }
+    .logo {
+        max-width: 100%;
     }
 
     ul {
@@ -66,19 +55,10 @@ footer,
         color: $default-color;
         font-family: $sans-serif;
     }
-}
-
-@media (min-width: 600px) {
-    .nav {
-        &-container {
-            text-align: left;
-        }
-
-        ul {
-            bottom: 0;
-            position: absolute;
-            right: 0;
-        }
+    .about-link {
+        color: #000;
+        font-weight: 800;
+        font-size: 1.5em;
     }
 }
 
@@ -90,7 +70,7 @@ footer {
     & .footer-list {
         display: flex;
         flex-direction: column;
-        margin: 0 auto;
+        margin: 0 auto;    
         padding: 0;
         list-style: none;
         font-size: 1rem;
@@ -114,35 +94,39 @@ footer {
     & .footer-item:hover {
         color: $blue;
     }
-
     @media screen and (min-width: 530px) {
         .footer-list {
             flex-direction: row;
-            justify-content: space-between;
+            justify-content: space-around;
         }
-        .footer-item {
-            position: relative;
-        }
-        .footer-item:not(::last-child) {
-            color: #000;
-        }
-        & .github::before,
-        & .linkedin::before,
-        & .email::before,
-        & .twitter::before {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 5px;
-            bottom: 0;
-            left: 0;
-            background-color: #333;
-            visibility: visible;
+        .footer-item:not(.copyright) {
+            border-bottom: 5px solid #333;
+            padding: 0;
         }
         .footer-item:hover:not(.copyright) {
-            padding-bottom: .8em;
-            transition: 0.1s ease-in-out;
+            padding-bottom: .3em;
+            border-color: $blue;
+            transition: .1s ease-in-out;
+        }
+        
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .nav {
+        &-container {
+            text-align: left;
+            display: flex;
+        }
+        .logo {
+            max-width: 50%;
+            margin-bottom: .7em;
+        }
+
+        ul {
+            bottom: 0;
+            position: absolute;
+            right: 0;
         }
     }
-
 }
