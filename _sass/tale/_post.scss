@@ -1,47 +1,55 @@
 .post {
 
-  &-info {
-    color: $default-tint;
-    font-family: $serif-secondary;
-    letter-spacing: 0.5px;
-    span {
-      font-style: italic;
+    &-info {
+        color: $default-tint;
+        font-family: $serif-secondary;
+        letter-spacing: 0.5px;
+        span {
+            font-style: italic;
+        }
     }
-  }
 
-  &-title {
-    color: $default-shade;
-    font-family: $sans-serif;
-    font-size: 2.5rem;
-    margin: 1rem 0;
-  }
+    &-title {
+        color: $default-shade;
+        font-family: $sans-serif;
+        font-size: 2.5em;
+        margin: 1rem 0;
+    }
 
-  p {
-    margin: 0 0 1rem;
-    text-align: justify;
-  }
+    h2 {
+        font-size: 2em;
+        margin-top: 1em;
+        margin-bottom: .2em;
+    }
+    p,
+    ul {
+        margin: 0 0 1rem;
+        font-family: $bree-serif;
+        font-size: 1.5em;
+        font-weight: 400;
+    }
 
-  a:hover {
-    text-decoration: underline;
-  }
+    a:hover {
+        text-decoration: underline;
+    }
 
-  img {
-    margin: 0 auto 0.5rem;
-  }
+    img {
+        margin: 0 auto 0.5rem;
+    }
 
-  img + em {
-    color: $default-tint;
-    display: block;
-    font-family: $sans-serif;
-    font-size: 0.9rem;
-    font-style: normal;
-    text-align: center;
-  }
+    img + em {
+        color: $default-tint;
+        display: block;
+        font-size: 0.9rem;
+        font-style: normal;
+        text-align: center;
+    }
 }
 
 /*
     About
 */
+
 .about-title {
     text-align: center;
     font-size: 3em;
