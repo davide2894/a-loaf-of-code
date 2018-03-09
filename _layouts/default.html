@@ -4,43 +4,64 @@
 {% include head.html %}
 
 <body>
-    <nav class="nav">
-        <div class="nav-container">
-            <a href="{{ site.baseurl }}/">
+    <div class="page-wrapper">
+        <nav class="nav">
+            <div class="nav-container">
+                <a href="{{ site.baseurl }}/">
                 <img class="logo" src="/assets/logo.svg" alt="blog logo">
             </a>
-            <ul>
-                <li class="list-item-about"><a class="about-link" href="{{ '/about' | prepend: site.baseurl }}">About</a></li>
+                <ul>
+                    <li class="list-item-about"><a class="about-link" href="{{ '/about' | prepend: site.baseurl }}">About</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <main>
+            {{ content }}
+        </main>
+
+        <footer>
+            <ul class="footer-list">
+                <a href="https://github.com/davide2894" target="_blank">
+                    <li class="footer-item github">Github</li>
+                </a>
+                <a href="https://www.linkedin.com/in/davideiaiunese/" target="_blank">
+                    <li class="footer-item linkedin">Linkedin</li>
+                </a>
+                <a href="mailto:davide.iaiunese@gmail.com" target="_blank">
+                    <li class="footer-item email">Email</li>
+                </a>
+                <a href="https://twitter.com/davideiaiunese" target="_blank">
+                    <li class="footer-item twitter">Twitter</li>
+                </a>
             </ul>
-        </div>
-    </nav>
 
-    <main>
-        {{ content }}
-    </main>
+            <div class="newsteller-container">
+                <h4 class="newsteller-title">Subscribe</h4>
+                <!-- <p class="newsteller-text"></p> -->
+                <form class="newsteller-form" action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('https://feedburner.google.com/fb/a/mailverify?uri=MorningDev', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
 
-    <footer>
-        <ul class="footer-list">
-            <a href="https://github.com/davide2894" target="_blank">
-                <li class="footer-item github">Github</li>
-            </a>
-            <a href="https://www.linkedin.com/in/davideiaiunese/" target="_blank">
-                <li class="footer-item linkedin">Linkedin</li>
-            </a>
-            <a href="mailto:davide.iaiunese@gmail.com" target="_blank">
-                <li class="footer-item email">Email</li>
-            </a>
-            <a href="https://twitter.com/davideiaiunese" target="_blank">
-                <li class="footer-item twitter">Twitter</li>
-            </a>
-            <li class="footer-item copyright">
+                    <p class="newsteller-text">Get new posts to your inbox</p>
+
+                    <input type="hidden" value="MorningDev" name="uri" />
+
+                    <input type="hidden" name="loc" value="en_US" />
+                    
+                    <input class="newsteller-email" type="text" name="email" placeholder="name@example.com" />
+
+                    <input class="newsteller-submit" type="submit" value="Subscribe" />
+
+                </form>
+            </div>
+
+            <div class="footer-item copyright">
                 &copy; <time datetime="{{ site.time }}">{{ site.time | date: '%Y' }}</time>
                 <span class="copyright-name">{{ site.author.name }}</span>
-            </li>
-        </ul>
-        </span>
+            </div>
+        </footer>
 
-    </footer>
+    </div>
+
 </body>
 
 </html>
