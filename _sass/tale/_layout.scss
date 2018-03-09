@@ -148,7 +148,7 @@ footer {
         text-transform: uppercase;
     }
     .newsteller-text {
-        font-family: $serif-primary;
+        font-family: $lato;
         font-weight: 600;
         color: #ddd;
         text-align: center;
@@ -190,6 +190,12 @@ footer {
 
 @media screen and (min-width: 600px) {
     .nav {
+        /* position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background: #ddd; */
+        
         &-container {
             text-align: left;
             display: flex;
