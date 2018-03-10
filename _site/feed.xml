@@ -1,4 +1,179 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-03-09T15:16:28+01:00</updated><id>http://localhost:4000/</id><title type="html">Morning Dev</title><subtitle>chronicles of my coding journey</subtitle><author><name>Davide Iaiunese</name><email>davide.iaiunese@gmail.com</email></author><entry><title type="html">Ugh, another coding blog?! Why?!</title><link href="http://localhost:4000/2018-03-06/issue1" rel="alternate" type="text/html" title="Ugh, another coding blog?! Why?!" /><published>2018-03-06T00:00:00+01:00</published><updated>2018-03-06T00:00:00+01:00</updated><id>http://localhost:4000/2018-03-06/issue1</id><content type="html" xml:base="http://localhost:4000/2018-03-06/issue1">&lt;p&gt;&lt;img src=&quot;/assets/posts/issue1/hey-why-not.webp&quot; alt=&quot;Hey, Why not?&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-03-10T08:34:50+01:00</updated><id>http://localhost:4000/</id><title type="html">Morning Dev</title><subtitle>chronicles of my coding journey</subtitle><author><name>Davide Iaiunese</name><email>davide.iaiunese@gmail.com</email></author><entry><title type="html">Google Developer Scholarship - a great opportunity to become a developer</title><link href="http://localhost:4000/2018-03-10/gdswu" rel="alternate" type="text/html" title="Google Developer Scholarship - a great opportunity to become a developer" /><published>2018-03-10T00:00:00+01:00</published><updated>2018-03-10T00:00:00+01:00</updated><id>http://localhost:4000/2018-03-10/gdswu</id><content type="html" xml:base="http://localhost:4000/2018-03-10/gdswu">&lt;p&gt;You want to become a developer. I encourage you to look for new opportunities.&lt;/p&gt;
+
+&lt;p&gt;I don’t have a job at the moment. The scholarship is still going on. I’m learning every day and having fun in the while. 
+The main goal is always the same: to become a professional web developer. 
+Keep that in mind. Always. Be persistent. Be patient.&lt;/p&gt;
+
+&lt;p&gt;If you are still in doubt, continue to read. What follows is my story with this scholarship.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-is-it&quot;&gt;What is it?&lt;/h2&gt;
+
+&lt;p&gt;The Google Developer Scholarship is a program sponsored by Google and taught by Udacity.
+Together, they have one mission: to reach out as many people as possible and promote code learning. 
+In fact this program is available for residents in EU, Russia, Israel, Egypt and my beloved Turkey.&lt;/p&gt;
+
+&lt;p&gt;The entire program consists of two parts:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Challenge&lt;/strong&gt; - or Phase One - and&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Nanodegree&lt;/strong&gt; - or Phase Two;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The 2017/2018 edition - the one I’m participating to - consists in four learning paths:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Web development&lt;/strong&gt; for beginners and intermediate&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Android development&lt;/strong&gt; for beginners and intermediate&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A great thing about it is that this year’s edition offers more opportunities than ever before. As a matter of fact each track offered 30.000 spots:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;20.000 for beginners&lt;/li&gt;
+  &lt;li&gt;10.000 for intermediate&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Then, after this initial period, only top 10% students of each track could progress to the Phase 2. It means only 10% could access the full, six months-long program.&lt;/p&gt;
+
+&lt;p&gt;So from the initial 60000 people &lt;strong&gt;only 6000&lt;/strong&gt; got to the second phase.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-i-applied-to-phase-one&quot;&gt;How I applied to Phase One&lt;/h2&gt;
+
+&lt;p&gt;It was an average October afternoon. I decided to check Facebook as it had been months since last time. I’m scrolling my feed and there I read about a Google Developer Scholarship opportunity.&lt;/p&gt;
+
+&lt;p&gt;Application was due by October 15, 2017.&lt;/p&gt;
+
+&lt;p&gt;There was a big chance here. I could continue to learn web development, I thought, but with all the good that came with this. It meant persistent mentoring, a guided path, a guarantee to learn from the best.&lt;/p&gt;
+
+&lt;p&gt;At first, it was tough to think of a reason that would make me worthy of it.&lt;/p&gt;
+
+&lt;p&gt;Then I calmed down, reasoned. I made already the decision to commit to coding and don’t look back. I was well aware I would dedicate body and soul to it, if accepted. This is what makes me worthy of it, I realized. Commitment. I had nothing to lose. Everything to gain.&lt;/p&gt;
+
+&lt;p&gt;So I spent the preceding weeks writing, deleting and rewriting my motivational letter.&lt;/p&gt;
+
+&lt;p&gt;October 15th arrived and it swallowed my application letter like a hungry, green blob. They inform me the selection result would arrive via email two weeks later.&lt;/p&gt;
+
+&lt;p&gt;Oh gosh.&lt;/p&gt;
+
+&lt;p&gt;The longest two weeks of my life. There were only few, blessed moments when I was not thinking about the announcement.&lt;/p&gt;
+
+&lt;p&gt;With all that anxiety in my body I didn’t sleep well the night before.&lt;/p&gt;
+
+&lt;p&gt;This is what I experienced.&lt;/p&gt;
+
+&lt;p&gt;I wake up, it’s 5 AM.&lt;/p&gt;
+
+&lt;p&gt;I Check my email.&lt;/p&gt;
+
+&lt;p&gt;Nothing.&lt;/p&gt;
+
+&lt;p&gt;An hour goes by.&lt;/p&gt;
+
+&lt;p&gt;I check again.&lt;/p&gt;
+
+&lt;p&gt;Nothing.&lt;/p&gt;
+
+&lt;p&gt;Anxiety rises.&lt;/p&gt;
+
+&lt;p&gt;Another hour. Still nothing.&lt;/p&gt;
+
+&lt;p&gt;I start to rethink my existence.&lt;/p&gt;
+
+&lt;p&gt;The day goes on while nothing relevant comes into my inbox.&lt;/p&gt;
+
+&lt;p&gt;It’s 5 PM.&lt;/p&gt;
+
+&lt;p&gt;Exhausted, I check again a last time. Finally, there it was.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/posts/gdswu/email-rejected.webp&quot; alt=&quot;GDN rejected email&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Rejected.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/posts/gdswu/homer-heart-attack.webp&quot; alt=&quot;Homer heart attack&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I could not avoid facing how sad I was about it. It was like I hit a wall with my bare face.&lt;/p&gt;
+
+&lt;p&gt;The most successful people met failure along the way, I thought, so I had to keep learning. I had to be strong, practice every day, all day long until I become good enough to get a job.&lt;/p&gt;
+
+&lt;p&gt;Two days later I see this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/posts/gdswu/email-accepted-p1.webp&quot; alt=&quot;GDN Phase One - Accepted email&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;A mistake.&lt;/p&gt;
+
+&lt;p&gt;I felt like Homer here,  when he had a heart attack and was transition between his body and heaven.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/posts/gdswu/homer-transition.webp&quot; alt=&quot;Homer transition&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;To this day I imagine a scholarship selector sitting on a chair making an evil laugh a la Montgomery Burns&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/posts/gdswu/mrburns.webp&quot; alt=&quot;Mr. Burns evil laugh&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;what-ive-learned&quot;&gt;What I’ve learned&lt;/h2&gt;
+&lt;p&gt;This scholarship challenge altered the way I see web development.&lt;/p&gt;
+
+&lt;p&gt;I discovered the other side of web development: to learn together with a community. It changed the way I see team work.&lt;/p&gt;
+
+&lt;p&gt;And you know why? Because good folks at Udacity decided to make participation to the community compulsory.&lt;/p&gt;
+
+&lt;p&gt;At the beginning it bothered me because I’m introvert by nature.&lt;/p&gt;
+
+&lt;p&gt;I used to avoid social interaction when possible. Day by day though, I started to see the true potential behind it. I saw why Udacity wanted us to interact and help each other.&lt;/p&gt;
+
+&lt;p&gt;Here I learned cooperative learning, mutual help, contribution to open source project. I learned the power of improving with people is the core heart of web development. The best part of it to be honest.&lt;/p&gt;
+
+&lt;p&gt;If I continued to learn alone I would have been a man in a cave who had never seen the world outside.&lt;/p&gt;
+
+&lt;p&gt;During this experience I learned the most and quickest I ever did in my life.&lt;/p&gt;
+
+&lt;p&gt;I grew both as a developer and as a person.&lt;/p&gt;
+
+&lt;p&gt;And for that I am grateful.&lt;/p&gt;
+
+&lt;p&gt;My plans have changed. I don’t want to only become a professional web developer. 
+I want also to be part of a greater reality than myself.
+I want to be part of a greater community. 
+I want to live a meaningful life. 
+I want to help other developers. 
+I want to grow together with and connect to people around the world with code.&lt;/p&gt;
+
+&lt;p&gt;Together is better indeed.&lt;/p&gt;
+
+&lt;p&gt;There it was, Phase 1 finished. In two weeks we would have known who was going to Phase 2: the main dish.&lt;/p&gt;
+
+&lt;h2 id=&quot;phase-two&quot;&gt;Phase Two&lt;/h2&gt;
+&lt;p&gt;On February 14th - Valentine’s Day - I received this&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/posts/gdswu/email-accepted-p2.webp&quot; alt=&quot;GDN Phase 2 - Accepted email&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I love you Udacity.&lt;/p&gt;
+
+&lt;p&gt;I was so euphoric to read that message that I jumped all over the house. My neighbors must have thought I lost my mind.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-is-different&quot;&gt;What is different&lt;/h2&gt;
+&lt;p&gt;Here is what:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Participation to community is not compulsory anymore&lt;/strong&gt;. By this time everyone learned the value behind it;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;A new, dedicated Slack workspace&lt;/strong&gt;. Recipients from all tracks converged here. Consider that there is 10% of the original 60.000 participants. It makes things way smoother. Also, community managers have an easier job to do now;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Each student has a mentor&lt;/strong&gt; who gives feedback on code, projects and the scholarship in general;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;We can take advantage of Udacity’s career portal&lt;/strong&gt;. It means we can receive 1 on 1 support to improve our professional profiles and prepare for interviews.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;August 15&lt;/strong&gt; is the ultimate deadline to finish the program. I can’t graduate if I don’t finish all the projects by then. It makes sense: we’re talking about a scholarship after all. 
+Based on this there are &lt;strong&gt;recommended deadlines&lt;/strong&gt; to submit projects. 
+I take them as compulsory so that I can avoid piling things up. Plus, it’s important to meet deadlines in a working environment. 
+Once a reviewer accepts my projects I build my own version. For example, these days I’m building my own portfolio.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;what-is-new&quot;&gt;What is new&lt;/h2&gt;
+&lt;p&gt;We are already almost month into it and I am so excited for the weeks to come. There are initiatives coming up, such as:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;two &lt;strong&gt;webinars&lt;/strong&gt; on March 21 an 22 to talk about life after graduation&lt;/li&gt;
+  &lt;li&gt;two &lt;strong&gt;hackatons&lt;/strong&gt; for Android tracks on April 14-15;&lt;/li&gt;
+  &lt;li&gt;two &lt;strong&gt;hackatons&lt;/strong&gt; for Web development tracks on April 21-22;&lt;/li&gt;
+  &lt;li&gt;our community managers will &lt;strong&gt;spotlight&lt;/strong&gt; the most outstanding students on a weekly basis. Read more &lt;a href=&quot;https://sites.google.com/knowlabs.com/gdnd2017/updates&quot;&gt;here&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;As you can see there are opportunities everywhere if you are serious about coding. Use socials too. That’s how I found out about this scholarship.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Take the risk&lt;/strong&gt;.&lt;/p&gt;</content><author><name>Davide</name></author><summary type="html">You want to become a developer. I encourage you to look for new opportunities.</summary></entry><entry><title type="html">Ugh, another coding blog?! Why?!</title><link href="http://localhost:4000/2018-03-06/issue1" rel="alternate" type="text/html" title="Ugh, another coding blog?! Why?!" /><published>2018-03-06T00:00:00+01:00</published><updated>2018-03-06T00:00:00+01:00</updated><id>http://localhost:4000/2018-03-06/issue1</id><content type="html" xml:base="http://localhost:4000/2018-03-06/issue1">&lt;p&gt;&lt;img src=&quot;/assets/posts/issue1/hey-why-not.webp&quot; alt=&quot;Hey, Why not?&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;It’s true.&lt;/p&gt;
 
