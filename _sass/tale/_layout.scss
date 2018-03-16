@@ -14,7 +14,7 @@
 main,
 .nav-container,
 .footer-list,
-.newsteller-container {
+.newsletter-container {
     max-width: 600px;
     width: 80%;
     margin: 0 auto;
@@ -123,7 +123,7 @@ footer {
             margin-right: 1em;
         }
     } */
-    .newsteller-container {
+    .newsletter-container {
         max-width: 400px;
         border-radius: 1em;
         display: flex;
@@ -133,39 +133,39 @@ footer {
         box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
         margin-bottom: 2em;
     }
-    .newsteller-container * {
+    .newsletter-container * {
         align-self: center;
         padding: 0;
     }
-    .newsteller-form {
+    .newsletter-form {
         text-align: center;
     }
-    .newsteller-title {
+    .newsletter-title {
         font-size: 1.5em;
         margin: 0;
         color: #fff;
         font-family: $lato;
         text-transform: uppercase;
     }
-    .newsteller-text {
+    .newsletter-text {
         font-family: $lato;
         font-weight: 600;
         color: #ddd;
         text-align: center;
     }
-    .newsteller-email,
-    .newsteller-submit {
+    .newsletter-email,
+    .newsletter-submit {
         display: inline-block;
         border-radius: 4px;
         padding: 0;
         align-self: center;
     }
-    .newsteller-email {
+    .newsletter-email {
         font-family: $serif-primary;
         text-align: center;
         font-size: .9em;
     }
-    .newsteller-submit {
+    .newsletter-submit {
         font-size: .6em;
         margin-left: 1em;
         padding: 0.5em;
@@ -176,13 +176,13 @@ footer {
     }
 
     @media screen and (min-width: 400px) {
-        .newsteller-title {
+        .newsletter-title {
             font-size: 2.5em;
         }
-        .newsteller-text {
+        .newsletter-text {
             font-size: 1.5em;
         }
-        .newsteller-submit {
+        .newsletter-submit {
             font-size: .7em;
         }
     }

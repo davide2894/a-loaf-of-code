@@ -1,23 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 
-{% include head.html %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- RSS Feed -->
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Morning Dev" />
+  <title>
+    
+       &middot; Morning Dev
+    
+  </title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bree+Serif">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/favicon/favlogo.ico">
+</head>
+
 
 <body>
     <div class="page-wrapper">
         <nav class="nav">
             <div class="nav-container">
-                <a href="{{ site.baseurl }}/">
+                <a href="/">
                 <img class="logo" src="/assets/logo.svg" alt="blog logo">
             </a>
                 <ul>
-                    <li class="list-item-about"><a class="about-link" href="{{ '/about' | prepend: site.baseurl }}">About</a></li>
+                    <li class="list-item-about"><a class="about-link" href="/about">About</a></li>
                 </ul>
             </div>
         </nav>
 
         <main>
-            {{ content }}
+            <div class="post">
+  <div class="post-info">
+    
+  </div>
+  
+  <h1 class="post-title about-title"></h1>
+  
+  <div class="post-line"></div>
+
+  <p><img src="/assets/me.webp" alt="a picture of me in Modena" /></p>
+
+<p>Hi! I’m Davide Iaiunese - I know I know, a tongue-twister for a last name, right? - I am a Front-End Web Developer.</p>
+
+<p>Why another coding blog? I want to document my journey to professional web development, I want to prove that it’s possible and that everybody can. And while I do it I want to contribute to our learning, to grow together.</p>
+
+
+  
+  
+
+</div>
+
+<div class="pagination">
+  
+  
+
+  <a href="#" class="top">Top</a>
+</div>
+
         </main>
 
         <footer>
@@ -55,8 +100,8 @@
             </div>
 
             <div class="footer-item copyright">
-                &copy; <time datetime="{{ site.time }}">{{ site.time | date: '%Y' }}</time>
-                <span class="copyright-name">{{ site.author.name }}</span>
+                &copy; <time datetime="2018-03-16 07:04:10 +0100">2018</time>
+                <span class="copyright-name">Davide Iaiunese</span>
             </div>
         </footer>
 
