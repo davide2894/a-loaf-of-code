@@ -28,7 +28,7 @@ I found a solution that I want to share with you.
 Here's what I did and what you should do too: 
 
 1. Create a web feed for your blog #outtanowhere
-2. Use Feed Burner to create a newsletter based on the rss feed:
+2. Use Feed Burner to create a newsletter based on the rss feed
 
 ## What RSS feed, Atom (RSS) feed, and FeedBurner are  
 
@@ -42,7 +42,7 @@ We are going to focus on Atom feeds. Why? Because Github Pages - where Jekyll ho
 
 *Disclaimer: for understanding purposes, every time I will refer to the term "feed" I mean the Atom standard.*
 
-So feeds come in a [XML](https://en.wikipedia.org/wi) (Extensible Markup Language) file format, because this very one is compatible with the most number of browsers and machines.
+So feeds come in a [XML](https://en.wikipedia.org/wiki/XML) (Extensible Markup Language) file format, because this very one is compatible with the most number of browsers and machines.
 
 **FeedBurner**, in opposition, is Google's own web feed **management provider**. In normal words, it means that you can register your feed and take advantage of services like:
 * feed optimization
@@ -75,7 +75,7 @@ Github Pages offers a simple way to add a feed to a Jekyll blog. In fact, assume
     ``` 
     
     
-Now check your _site folder: you should notice a new `feed.xml` file in there. That's what we are going to use with feedburner. 
+Now check your _site folder: you should notice a new `feed.xml` file in there. That's what we are going to use with FeedBurner. 
 
 
 ## 2. Create a FeedBurner account.
