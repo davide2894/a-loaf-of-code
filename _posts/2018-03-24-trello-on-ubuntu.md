@@ -5,8 +5,6 @@ author: "Davide"
 comments: true
 ---
 
-Hello guys! How are you?
-
 Today I want to talk about Trello.
 
 Trello is an app - available for mobile and desktop - that helps you organize your tasks on boards, each one containing tasks  - called cards - divided as you think best suits you. 
