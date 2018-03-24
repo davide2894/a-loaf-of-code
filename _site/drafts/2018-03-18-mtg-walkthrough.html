@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- RSS Feed -->
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Morning Dev" />
+  <title>
+    
+      mtg &middot; Morning Dev
+    
+  </title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bree+Serif">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/favicon/favlogo.ico">
+</head>
+
+
+<body>
+    <div class="page-wrapper">
+        <nav class="nav">
+            <div class="nav-container">
+                <a href="/">
+                <img class="logo" src="/assets/logo.svg" alt="blog logo">
+            </a>
+                <ul>
+                    <li class="list-item-about"><a class="about-link" href="/about">About</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <main>
+            <div class="post">
+  <div class="post-info">
+    
+  </div>
+  
+  <h1 class="post-title">mtg</h1>
+  
+  <div class="post-line"></div>
+
+  <p>TABLE OF CONTENTS</p>
+
+<ol>
+  <li>
+    <p>What is Magic, What is Nissa, What is Oath of the Gatewatch…</p>
+  </li>
+  <li>HTML structure without fonts or anything. Just the boxes, a card’s layout
+    <ul>
+      <li>find and link page that explains mtg card parts, from which to extract    the card’s html structure</li>
+      <li>first: structure written as plain text</li>
+      <li>scnd: convert into html</li>
+      <li>search text and past into it</li>
+    </ul>
+  </li>
+  <li>SCSS
+    <ul>
+      <li>Reset</li>
+      <li>body</li>
+      <li>card container/wrapper/whatever you wanna call it
+        <ul>
+          <li>(now #ddd, later on will turn to #000);</li>
+          <li>box-shadow: why, how I made it (show box shadow online tool with screenshot)</li>
+        </ul>
+      </li>
+      <li>card background:
+        <ul>
+          <li>for now use z-index: 1 and bg; #ddd
+  (* show how I made the green bg of the img
+  after the frame is layed out)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<p>For those few people who lived in a cave up until now - or haven’t nerded with cards in his/her life - Magic: The Gathering - or MTG, in short - is an amazing trading card game. The best thing about it is that it’s like chess and the fantasy genre met one day and hooked up. From this intercourse Magic was born. This is also the reason why it’s played by people of all ages: you can dive in this fantastic world, play the role of a planswalker: a being with magician-like powers - use the power of nature - darkness, light, forest, water, fire - to your own advantage in order to win the battle. And there are stories behind each deck that is on sale. Cards come in expansions, each one has its own story and they can be connected with oneanother tooo.</p>
+
+<p>So I’m learning web development, right? As a fan of the game I wanted to challenge myself. I thought: wouldn’t it be a freaking fun experience to try and replicate a Magic card in pure CSS? Heck yeah!</p>
+
+<p>One of my favorite cards is the mighty <a href="">Oath of Nissa</a> due to the expansion - and the story - she comes in - Oath of the Gatewatch - and the graphical look of it.</p>
+
+<p><a href="img path">Oath of Nissa</a></p>
+
+<h2 id="divide-and-conquer">Divide and Conquer</h2>
+
+<p>It seems overwhelming to replicate such piece of art in CSS. I know this feeling because I experienced it myself when I wanted to do such a thing. But hear me out: if there’s one single lesson I learned while coding a website or programming an algorithm is that no matter how something feels gigantic, impossible. No matter anything. It’s possible, because the only thing to do is to divide and conquer. Divide that huge problem into parts. Then divide each part in sub-parts. Then divide each sub-part into further sub-parts and so on, until you get a single task that is simple enoug that you can take it on your own. Now that you look at how the dismantled problem is not so scary anymore right? Almost like we unmasked Oz, ha?</p>
+
+<p>When I approached the problem, the first thing I did was to examine the card from a CSS point of view. I focused on one thing: figure out what could be its structure in terms of boxes. So let’s try to look at it now and do the same thing.</p>
+
+<p>So, the first obvious thing I notice is the black area on the back that <strong>wraps</strong> the entire card. In fact, as you can see all the card’s components (image, title, text, arts) is contained inside this black  area. Then it’s fair to say that we can consider this the container of the card itself, much like we would use a container div to contain the entire page content in it. So here it is our first box.</p>
+
+<p>The second major area I notice is the green background that comes right after the what-we-call-now container. You may doubt it but I can assure you it’s a background for the rest of the card content. In fact, if you pay close attention you may notice that there’s a third major area that lays on this background.</p>
+
+<p>The third area I notice, for that matters, is in fact the one that looks like is laying on the green background. There’s one detail about it that catches my attention though: it’s longer than background and it covers it, actually. This may seem something difficult to do, but trust me is it’s easy to realize. There’s one CSS property that adresses this problem more than we could ask for: the z-index. In fact, we can just give this third area a higher z-index than the background and solve the issue.</p>
+
+<p>To recap, there are three major area we noticed:</p>
+<ol>
+  <li>a black container</li>
+  <li>a green background</li>
+  <li>a gray area containing the card’s data</li>
+</ol>
+
+<p>Here’s a simple scheme illustrating this:</p>
+
+<p><img src="/assets/posts/mtg/scheme.svg" alt="schme" /></p>
+
+<p>I did a quick research on the structure behind a Magic card. <a href="https://mtg.gamepedia.com/Card_frame#Type_line">Here</a> I found the confirmation of my idea.</p>
+
+<p>It turns the first area is named border. The second area is as simple as background.
+The third area - the one containing all the important data -  on the other hand, is named <em>frame</em>. With relevance to our case, a card frame contains, in order:</p>
+<ul>
+  <li>a title area involving:
+    <ul>
+      <li>name</li>
+      <li>casting cost (the forest symbol on the far top right)</li>
+    </ul>
+  </li>
+  <li>the illustration</li>
+  <li>the type area (offcially named Type Line), which displays the following:
+    <ul>
+      <li>card type (obviously, which is Legendary Enchantment for us)</li>
+      <li>expansion symbol (the golden triangle-like one on the right)</li>
+    </ul>
+  </li>
+  <li>text box</li>
+  <li>power/toughness (not available for enchantment, so our card lacks it)</li>
+  <li>information below the text box, which can explained as follows:
+    <ul>
+      <li>left:
+        <ul>
+          <li>collector’s number - 140/184</li>
+          <li>rarity (R)</li>
+          <li>set (OGW - Oath of the Gatewatch)</li>
+          <li>card’s language (EN - English)</li>
+          <li>credits for the author of the illustration (props to them really, one of the best things about Magic are the illustrations indeed)</li>
+        </ul>
+      </li>
+      <li>middle: there’s a Holofoil stamp since the card we want to replicate is  rare (notice the gold-colored symbol on the Type Line)</li>
+      <li>right: copyright information</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Here’s the same scheme illustrating the card, but this time I added the new-found names on it
+<img src="/assets/posts/mtg/scheme-w-names.svg" alt="schme with names" /></p>
+
+<p>So not only we have a clear vision of how we should organize the card structure, now we also have excellent name suggestions for the various divs we are going to create.</p>
+
+<p>I say we have all the necessary information to build the HTML of the card. We have to translate our structure into HTML.</p>
+
+<h2 id="html">HTML</h2>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card-container"</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card-background"</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card-frame"</span><span class="nt">&gt;</span>
+
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"frame-header"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"name"</span><span class="nt">&gt;</span>Oath of Nissa<span class="nt">&lt;/h1&gt;</span>
+        <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"ms ms-g"</span> <span class="na">id=</span><span class="s">"mana-icon"</span><span class="nt">&gt;&lt;/i&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+
+      <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"frame-art"</span> <span class="na">src=</span><span class="s">"images/CZ5oiQ7WcAAi7y8.jpg"</span> <span class="na">alt=</span><span class="s">"nissa art"</span><span class="nt">&gt;</span>
+
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"frame-type-line"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"type"</span><span class="nt">&gt;</span>Legendary Enchantment<span class="nt">&lt;/h1&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"images/OGW_R.png"</span> <span class="na">id=</span><span class="s">"set-icon"</span> <span class="na">alt=</span><span class="s">"OGW-icon"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"frame-text-box"</span><span class="nt">&gt;</span>
+        
+        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"description ftb-inner-margin"</span><span class="nt">&gt;</span>When Oath of Nissa enters the battlefield, look at the top three cards of your library. You may reveal a creature, land, or planeswalker card from among them and put it into your hand. Put the rest on the bottom of your library in any order. <span class="nt">&lt;/p&gt;</span>
+        
+        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"description"</span><span class="nt">&gt;</span>You may spend mana as though it were mana of any color to cast planeswalker spells.<span class="nt">&lt;/p&gt;</span>
+        
+        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"flavour-text"</span><span class="nt">&gt;</span>"For the life of every plane, I will keep watch."<span class="nt">&lt;/p&gt;</span>
+      
+      <span class="nt">&lt;/div&gt;</span>
+
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"frame-bottom-info inner-margin"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fbi-left"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;p&gt;</span>140/184 R<span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;p&gt;</span>OGW <span class="ni">&amp;#x2022;</span> EN <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"paintbrush"</span> <span class="na">src=</span><span class="s">"images/paintbrush_white.png"</span> <span class="na">alt=</span><span class="s">"paintbrush icon"</span><span class="nt">&gt;</span> Wesley Burt<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fbi-center"</span><span class="nt">&gt;&lt;/div&gt;</span>
+
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fbi-right"</span><span class="nt">&gt;</span>
+          <span class="ni">&amp;#x99;</span> <span class="ni">&amp;amp;</span> <span class="ni">&amp;#169;</span> 2016 Wizards of the Coast
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+
+    <span class="nt">&lt;/div&gt;</span>
+
+  <span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>Again, when you see a snippet of code don’t get overwhelmed: as everything in code and programming, we can always divide a huge problem into smaller, simpler tasks. This goes for HTML too.</p>
+
+<p>Let’s give a look at this code.</p>
+
+<p>As you can see it reflects what we came up to in the previous section. There are three main divs:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card-container"</span><span class="nt">&gt;</span>
+
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card-background"</span><span class="nt">&gt;</span>
+
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card-frame"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    
+      <span class="nt">&lt;/div&gt;</span>
+    
+    <span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>The card-frame div is the one we must focus our attention to for the moment as it contains the main information. In fact, it is organized as follows, in this order:</p>
+
+<ul>
+  <li>the frame header (the title area), contains:
+    <ul>
+      <li>card name</li>
+      <li>
+        <p>casting cost</p>
+
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;div class="frame-header"&gt;
+  &lt;h1 class="name"&gt;Oath of Nissa&lt;/h1&gt;
+  &lt;i class="ms ms-g" id="mana-icon"&gt;&lt;/i&gt;
+&lt;/div&gt;
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>frame-art (the illustration)</p>
+  </li>
+  <li>frame-type-line, containing:
+    <ul>
+      <li>type</li>
+      <li>
+        <p>icon set</p>
+
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;div class="frame-type-line"&gt;
+  &lt;h1 class="type"&gt;Legendary Enchantment&lt;/h1&gt;
+  &lt;img src="images/OGW_R.png" id="set-icon" alt="OGW-icon"&gt;
+&lt;/div&gt;
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>frame-text-box, containing 3 paragraphs:
+    <ul>
+      <li>main description</li>
+      <li>instructions to play the card</li>
+      <li>
+        <p>the so-called flavour text, which is a short text that gives context to the card played and the set it is in</p>
+
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  &lt;div class="frame-text-box"&gt;
+        
+      &lt;p class="description ftb-inner-margin"&gt;When Oath of Nissa enters the battlefield, look at the top three cards of your library. You may reveal a creature, land, or planeswalker card from among them and put it into your hand. Put the rest on the bottom of your library in any order. &lt;/p&gt;
+            
+      &lt;p class="description"&gt; You may spend mana as though it were mana of any color to cast planeswalker spells.&lt;/p&gt;
+    
+      &lt;p class="flavour-text"&gt;"For the life of every plane, I will keep watch."&lt;/p&gt;
+ 
+  &lt;/div&gt;
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>finally there’s the frame-bottom, divided in three sub-parts, as explained before:
+    <ul>
+      <li>fbi-left for collector number, rarity (R), language (EN), credit to the illustrator</li>
+      <li>fbi-center for the holofoil stamp</li>
+      <li>
+        <p>fbi-right for copyright info</p>
+
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;div class="frame-bottom-info inner-margin"&gt;
+        
+  &lt;div class="fbi-left"&gt;
+    &lt;p&gt;140/184 R&lt;/p&gt;
+    &lt;p&gt;OGW &amp;#x2022; EN Wesley Burt&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class="fbi-center"&gt;&lt;/div&gt;
+
+  &lt;div class="fbi-right"&gt;
+    &amp;#x99; &amp;amp; &amp;#169; 2016 Wizards of the Coast
+  &lt;/div&gt;
+  
+&lt;/div&gt;
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>P.S. some may already have noticed, but I didn’t mention the little painbrush symbol at the bottom-left of the card. There is a reason for it: we’re going to add it later on.</p>
+
+<p>Here’s what the HTML for the card looks like:</p>
+
+<p><img src="/assets/posts/mtg/0.png" alt="html before reset" /></p>
+
+<p>Which is ok, but there’s still one thing we need to get rid of: the browser’s default styling. The reason behind it is pretty simple. You see, each browser default styling is slightly different one from another. So, in order to avoid inconsistencies, we are going to remove those defaults and reset everything to 0. Once we do that we can really make our own style from scratch.</p>
+
+<p>There’s a pretty popular online tool for this, the Meyerweb reset (which you can find <a href="https://meyerweb.com/eric/tools/css/reset/">here</a>). For the sake of keeping this post short, I’m not going to past it here. You just go to the mentioned link, copy the CSS code and then past it in your CSS file.</p>
+
+<p>Here’s how the HTML look like after the reset:</p>
+
+<p><img src="/assets/posts/mtg/1.png" alt="html after reset" /></p>
+
+<p>Ugly, huh? Well, not for so long!</p>
+
+<p>The time to add styling, the main and best part for this project, has come.</p>
+
+<h2 id="css-time">CSS time.</h2>
+
+<h3 id="card-container">Card container</h3>
+<p>As a first, let’s handle the card container. 
+We need to give it some width, height. 
+We need to center it in the page so that our work will look more polished in general. 
+Some margin to give some distance and space from the top of the page. 
+Some border radius to reflect what the original card’s broders are.
+Some shadow and a temporary black border, so that we know what we are doing.</p>
+
+<p>Here’s the code:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.card-container</span> <span class="p">{</span>
+    <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="no">black</span><span class="p">;</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">500px</span><span class="p">;</span>
+    <span class="nl">height</span><span class="p">:</span> <span class="m">700px</span><span class="p">;</span>
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span> <span class="nb">auto</span><span class="p">;</span>
+    <span class="nl">margin-top</span><span class="p">:</span> <span class="m">56px</span><span class="p">;</span>
+    <span class="nl">border-radius</span><span class="p">:</span> <span class="m">25px</span><span class="p">;</span>
+    <span class="nl">box-sizing</span><span class="p">:</span> <span class="n">border-box</span><span class="p">;</span>
+    <span class="nl">box-shadow</span><span class="p">:</span> <span class="m">-8px</span> <span class="m">9px</span> <span class="m">16px</span> <span class="m">-3px</span> <span class="no">gray</span><span class="p">;</span>
+  <span class="c">/*background: #171314; */</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This is what we get:</p>
+
+<p><img src="/assets/posts/mtg/2.png" alt="card-container" /></p>
+
+<p>It’s a little improvement, but not enough.</p>
+
+<p>Let’s keep going.</p>
+
+<h3 id="card-background-0">Card background: 0</h3>
+
+<p>As a start, let’s code an initial background so that we can start to see something more similar to a card.</p>
+
+<p>Let’s give it a height, but be careful to give it one that is lower that the container’s. I chose 600px.</p>
+
+<p>Let’s also put some margin. Here make sure to set it on all sides <em>except</em> the bottom, because that gap will be covered by the frame. I chose a 20px to the left, top and right.</p>
+
+<p>Let’s give some roundess to the border, as to reflect the card. Here I compared the original card with my work and played with pixels until I got a result I was satisfied by.</p>
+
+<p>At last, let’s give it some background color, just to make it noticeable the distinction between container and background.</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nc">.card-background</span> <span class="p">{</span>
+    <span class="nl">height</span><span class="p">:</span> <span class="m">600px</span><span class="p">;</span>
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">20px</span> <span class="m">20px</span> <span class="m">0</span> <span class="m">20px</span><span class="p">;</span>
+    <span class="nl">border-top-left-radius</span><span class="p">:</span> <span class="m">6px</span><span class="p">;</span>
+    <span class="nl">border-top-right-radius</span><span class="p">:</span> <span class="m">6px</span><span class="p">;</span>
+    <span class="nl">border-bottom-left-radius</span><span class="p">:</span> <span class="m">8%</span><span class="p">;</span>
+    <span class="nl">border-bottom-right-radius</span><span class="p">:</span> <span class="m">8%</span><span class="p">;</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="m">#bbb</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This is what it looks at the moment
+<img src="/assets/posts/mtg/3.png" alt="card-container with some gray bg" /></p>
+
+<p>Here’s the CodePen to check the card and the code we wrote until now</p>
+
+<p data-height="265" data-theme-id="dark" data-slug-hash="aYBoZp" data-default-tab="css,result" data-user="davide2894" data-embed-version="2" data-pen-title="mtg nissa " data-preview="true" class="codepen">See the Pen <a href="https://codepen.io/davide2894/pen/aYBoZp/">mtg nissa </a> by Davide (<a href="https://codepen.io/davide2894">@davide2894</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+
+  
+  
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://loafcode.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+</div>
+
+<div class="pagination">
+  
+  
+
+  <a href="#" class="top">Top</a>
+</div>
+
+        </main>
+
+        <footer>
+            <ul class="footer-list">
+                <a href="https://github.com/davide2894" target="_blank">
+                    <li class="footer-item github">Github</li>
+                </a>
+                <a href="https://www.linkedin.com/in/davideiaiunese/" target="_blank">
+                    <li class="footer-item linkedin">Linkedin</li>
+                </a>
+                <a href="mailto:davide.iaiunese@gmail.com" target="_blank">
+                    <li class="footer-item email">Email</li>
+                </a>
+                <a href="https://twitter.com/davideiaiunese" target="_blank">
+                    <li class="footer-item twitter">Twitter</li>
+                </a>
+            </ul>
+
+            <div class="newsletter-container">
+                <h4 class="newsletter-title">Subscribe</h4>
+                <!-- <p class="newsletter-text"></p> -->
+                <form class="newsletter-form" action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('https://feedburner.google.com/fb/a/mailverify?uri=MorningDev', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+
+                    <p class="newsletter-text">Get new posts to your inbox</p>
+
+                    <input type="hidden" value="MorningDev" name="uri" />
+
+                    <input type="hidden" name="loc" value="en_US" />
+                    
+                    <input class="newsletter-email" type="text" name="email" placeholder="name@example.com" />
+
+                    <input class="newsletter-submit" type="submit" value="Subscribe" />
+
+                </form>
+            </div>
+
+            <div class="footer-item copyright">
+                &copy; <time datetime="2018-03-24 19:20:17 +0100">2018</time>
+                <span class="copyright-name">Davide Iaiunese</span>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>

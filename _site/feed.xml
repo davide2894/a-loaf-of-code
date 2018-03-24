@@ -1,4 +1,84 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-03-17T07:59:57+01:00</updated><id>http://localhost:4000/</id><title type="html">Morning Dev</title><subtitle>chronicles of my coding journey</subtitle><author><name>Davide Iaiunese</name><email>davide.iaiunese@gmail.com</email></author><entry><title type="html">How to add a newsletter to a Jekyll blog</title><link href="http://localhost:4000/2018-03-17/how-to-add-a-newsletter-to-a-Jekyll-blog" rel="alternate" type="text/html" title="How to add a newsletter to a Jekyll blog" /><published>2018-03-17T00:00:00+01:00</published><updated>2018-03-17T00:00:00+01:00</updated><id>http://localhost:4000/2018-03-17/how-to-add-a-newsletter-to-a-Jekyll-blog</id><content type="html" xml:base="http://localhost:4000/2018-03-17/how-to-add-a-newsletter-to-a-Jekyll-blog">&lt;p&gt;&lt;img src=&quot;/assets/posts/newsletter/hero2.webp&quot; alt=&quot;Hero picture&quot; /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-03-24T19:20:17+01:00</updated><id>http://localhost:4000/</id><title type="html">Morning Dev</title><subtitle>chronicles of my coding journey</subtitle><author><name>Davide Iaiunese</name><email>davide.iaiunese@gmail.com</email></author><entry><title type="html">How to install Trello on Ubuntu</title><link href="http://localhost:4000/2018-03-24/trello-on-ubuntu" rel="alternate" type="text/html" title="How to install Trello on Ubuntu" /><published>2018-03-24T00:00:00+01:00</published><updated>2018-03-24T00:00:00+01:00</updated><id>http://localhost:4000/2018-03-24/trello-on-ubuntu</id><content type="html" xml:base="http://localhost:4000/2018-03-24/trello-on-ubuntu">&lt;p&gt;Hello guys! How are you?&lt;/p&gt;
+
+&lt;p&gt;Today I want to talk about Trello.&lt;/p&gt;
+
+&lt;p&gt;Trello is an app - available for mobile and desktop - that helps you organize your tasks on boards, each one containing tasks  - called cards - divided as you think best suits you.&lt;/p&gt;
+
+&lt;p&gt;As an example, here is what this is how I organized Trello for the blog:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/posts/trello/trello-for-the-blog.png&quot; alt=&quot;a view of my trello app&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Personally, since I have switched to it I can say fare and square that my daily workflow improved more than I could hope.&lt;/p&gt;
+
+&lt;p&gt;I admit I was skeptic at first, but the thing is that there is so much excitement about it that an old-style, pen-and-paper person like me couldn’t do anything but trying it myself. The ideal was to install it on desktop and take advantage of the screen offered by an average-size laptop screen - 15.6 inches.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/posts/trello/hype-train.jpg&quot; alt=&quot;hype train&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Boy I was going so fast on the hype train that I hit a wall as soon as I switched the engines on: Trello &lt;strong&gt;doesn’t&lt;/strong&gt; offer support for Linux which means no desktop app for Ubuntu users as well.&lt;/p&gt;
+
+&lt;p&gt;Ouch.&lt;/p&gt;
+
+&lt;p&gt;End of the ride? No way! I rolled up my sleeves and searched on it. It wasn’t so long before I found that an awesome person, &lt;strong&gt;Daniel Chatfield&lt;/strong&gt; - please check &lt;a href=&quot;https://github.com/danielchatfield&quot;&gt;his GitHub profile&lt;/a&gt; - did something about this.&lt;/p&gt;
+
+&lt;p&gt;He created an unofficial desktop app for Linux, which means &lt;strong&gt;it works on Ubuntu&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;The source code is stored on GitHub &lt;a href=&quot;https://github.com/danielchatfield/trello-desktop&quot;&gt;here&lt;/a&gt; along with a guide.&lt;/p&gt;
+
+&lt;p&gt;I had a bit of trouble installing it so I thought to share a guide including all the steps I went through to use Trello successfully.&lt;/p&gt;
+
+&lt;p&gt;There’s no risk for your computer by using this app, it’s well-supported by the community and it’s warming to see active contributions to it.&lt;/p&gt;
+
+&lt;h2 id=&quot;step-1&quot;&gt;Step 1&lt;/h2&gt;
+&lt;p&gt;First of all you need to download the client by choosing the first &lt;code class=&quot;highlighter-rouge&quot;&gt;zip&lt;/code&gt; file - for Ubuntu - in &lt;a href=&quot;https://github.com/danielchatfield/trello-desktop/releases/tag/v0.1.9&quot;&gt;this page&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/posts/trello/zip.png&quot; alt=&quot;zip screenshot&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;step-2&quot;&gt;Step 2&lt;/h2&gt;
+&lt;p&gt;Unzip the folder in a directory of your choice&lt;/p&gt;
+
+&lt;h2 id=&quot;step-3&quot;&gt;Step 3&lt;/h2&gt;
+&lt;p&gt;Create a shortcut for the client by doing the following:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;on command line, type: &lt;code class=&quot;highlighter-rouge&quot;&gt;cd .local/share/&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;open the “applications” folder on your file manager with this command: &lt;code class=&quot;highlighter-rouge&quot;&gt;nautilus applications&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;create a new file and name it &lt;code class=&quot;highlighter-rouge&quot;&gt;trello.desktop&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;inside this new file, copy the following:
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; [Desktop Entry]
+ Name=Trello
+ Exec=/full/path/to/folder/Trello
+ Terminal=false
+ Type=Application
+ Icon=/full/path/to/folder/Trello/resources/app/static/Icon.png
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;step-4&quot;&gt;Step 4&lt;/h2&gt;
+&lt;p&gt;Run the client by doing the following:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;navigate to the location where you unzipped the client&lt;/li&gt;
+  &lt;li&gt;open the folder&lt;/li&gt;
+  &lt;li&gt;from here, you should see the file to run it, it should be similar to this 
+  &lt;img src=&quot;/assets/posts/trello/dt-sc.png&quot; alt=&quot;desktop shortcupt&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;step-5&quot;&gt;Step 5&lt;/h2&gt;
+&lt;p&gt;When it’s open, &lt;strong&gt;lock the client to the task bar named Launcher&lt;/strong&gt; by doing the following:
+     * with the mouse hover on Trello client’s icon
+     * right click on it
+     * click on “Lock to Launcher”&lt;/p&gt;
+
+&lt;h2 id=&quot;step-6&quot;&gt;Step 6&lt;/h2&gt;
+&lt;p&gt;Use Trello!&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;That’s it! Enjoy your newly added, awesome tool to organize your work, projects, everything you need to do to achieve your goals!&lt;/p&gt;
+
+&lt;p&gt;Thank you for reading this article.&lt;/p&gt;
+
+&lt;p&gt;If you have questions or want to say hi, reach out here or on &lt;a href=&quot;https://twitter.com/davideiaiunese&quot;&gt;Twitter&lt;/a&gt;.&lt;/p&gt;</content><author><name>Davide</name></author><summary type="html">Hello guys! How are you?</summary></entry><entry><title type="html">How to add a newsletter to a Jekyll blog</title><link href="http://localhost:4000/2018-03-17/newsletter-on-Jekyll-blog" rel="alternate" type="text/html" title="How to add a newsletter to a Jekyll blog" /><published>2018-03-17T00:00:00+01:00</published><updated>2018-03-17T00:00:00+01:00</updated><id>http://localhost:4000/2018-03-17/newsletter-on-Jekyll-blog</id><content type="html" xml:base="http://localhost:4000/2018-03-17/newsletter-on-Jekyll-blog">&lt;p&gt;&lt;img src=&quot;/assets/posts/newsletter/hero2.webp&quot; alt=&quot;Hero picture&quot; /&gt;
 &lt;em&gt;Photo by Mathyas Kurmann on Unsplash&lt;/em&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;the-problem-why-a-newsletter&quot;&gt;The problem: why a newsletter&lt;/h2&gt;

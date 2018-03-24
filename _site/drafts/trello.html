@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- RSS Feed -->
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Morning Dev" />
+  <title>
+    
+      How to install Trello on Ubuntu &middot; Morning Dev
+    
+  </title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bree+Serif">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/favicon/favlogo.ico">
+</head>
+
+
+<body>
+    <div class="page-wrapper">
+        <nav class="nav">
+            <div class="nav-container">
+                <a href="/">
+                <img class="logo" src="/assets/logo.svg" alt="blog logo">
+            </a>
+                <ul>
+                    <li class="list-item-about"><a class="about-link" href="/about">About</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <main>
+            <div class="post">
+  <div class="post-info">
+    
+  </div>
+  
+  <h1 class="post-title">How to install Trello on Ubuntu</h1>
+  
+  <div class="post-line"></div>
+
+  <p>Hello guys! How are you?</p>
+
+<p>Today I want to talk about Trello.</p>
+
+<p>Trello is an app - available for mobile and desktop - that helps you organize your tasks on boards, each one containing tasks  - called cards - divided as you think best suits you.</p>
+
+<p>As an example, here is what this is how I organized Trello for the blog:</p>
+
+<p><img src="/assets/posts/trello/trello-for-my-blog.png" alt="a view of my trello app" /></p>
+
+<p>Personally, since I have switched to it I can say fare and square that my daily workflow improved more than I could hope.</p>
+
+<p>I admit I was skeptic at first, but the thing is that there is so much excitement about it that an old-style, pen-and-paper person like me couldn’t do anything but trying it myself. The ideal was to install it on desktop and take advantage of the screen offered by an average-size laptop screen - 15.6 inches.</p>
+
+<p><img src="/assets/posts/trello/hype-train.png" alt="hype train" /></p>
+
+<p>Boy I was going so fast on the hype train that I hit a wall as soon as I switched the engines on: Trello <strong>doesn’t</strong> offer support for Linux which means no desktop app for Ubuntu users as well.</p>
+
+<p>Ouch.</p>
+
+<p>End of the ride? No way! I rolled up my sleeves and searchead on it. It wasn’t so long before I found that an awesome person, <strong>Daniel Chatfield</strong> - please check <a href="https://github.com/danielchatfield">his GitHub profile</a> - did something about this.</p>
+
+<p>He created an unofficial desktop app for Linux, which means <strong>it works on Ubuntu</strong>.</p>
+
+<p>The source code is stored on GitHub <a href="https://github.com/danielchatfield/trello-desktop">here</a> along with a guide.</p>
+
+<p>I had a bit of trouble installing it so I thought to share a guide including all the steps I went through to use Trello successfully.</p>
+
+<p>There’s no risk for your computer by using this app, it’s well supported by the community and it’s warming to see active contributions to it.</p>
+
+<h2 id="step-1">Step 1</h2>
+<p>First of all you need to download the client by choosing the first <code class="highlighter-rouge">zip</code> file - for Ubuntu - in <a href="https://github.com/danielchatfield/trello-desktop/releases/tag/v0.1.9">this page</a></p>
+
+<p><img src="/assets/posts/trello/zip.png" alt="zip screenshot" /></p>
+
+<h2 id="step-2">Step 2</h2>
+<p>Unzip the folder in a directory of your choice</p>
+
+<h2 id="step-3">Step 3</h2>
+<p>Create a shortcut for the client by doing the following:</p>
+
+<ul>
+  <li>
+    <p>on command line, type 
+<code class="highlighter-rouge">cd .local/share/</code></p>
+  </li>
+  <li>
+    <p>open the “applications” folder on your file manager with the command 
+<code class="highlighter-rouge">nautilus applications</code></p>
+  </li>
+  <li>
+    <p>create a new file and name it <code class="highlighter-rouge">trello.desktop</code></p>
+  </li>
+  <li>
+    <p>inside this new file, copy the following:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> [Desktop Entry]
+ Name=Trello
+ Exec=/full/path/to/folder/Trello
+ Terminal=false
+ Type=Application
+ Icon=/full/path/to/folder/Trello/resources/app/static/Icon.png
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="step-4">Step 4</h2>
+<p>Run the client by doing the following:</p>
+<ul>
+  <li>navigate to the location where you unzipped the client</li>
+  <li>open the folder</li>
+  <li>from here, you should see the file to run it, it should be similar to this 
+  <img src="/assets/posts/trello/dt-sc.png" alt="desktop shortcupt" /></li>
+</ul>
+
+<h2 id="step-5">Step 5</h2>
+<p>When it’s open, <strong>lock the client to the task bar named Launcher</strong> by doing the following:
+     * with the mouse hover on Trello client’s icon
+     * right click on it
+     * click on “Lock to Launcher”</p>
+
+<h2 id="step-6">Step 6</h2>
+<p>Use Trello!</p>
+
+<hr />
+
+<p>That’s it! Enjoy your newly added, awesome tool to organize your work, projects, everything you need to do to achieve your goals!</p>
+
+<p>Thank you for reading this article.</p>
+
+<p>If you have questions or want to say hi, reach out here or on <a href="https://twitter.com/davideiaiunese">Twitter</a>.</p>
+
+  
+  
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://loafcode.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+</div>
+
+<div class="pagination">
+  
+  
+
+  <a href="#" class="top">Top</a>
+</div>
+
+        </main>
+
+        <footer>
+            <ul class="footer-list">
+                <a href="https://github.com/davide2894" target="_blank">
+                    <li class="footer-item github">Github</li>
+                </a>
+                <a href="https://www.linkedin.com/in/davideiaiunese/" target="_blank">
+                    <li class="footer-item linkedin">Linkedin</li>
+                </a>
+                <a href="mailto:davide.iaiunese@gmail.com" target="_blank">
+                    <li class="footer-item email">Email</li>
+                </a>
+                <a href="https://twitter.com/davideiaiunese" target="_blank">
+                    <li class="footer-item twitter">Twitter</li>
+                </a>
+            </ul>
+
+            <div class="newsletter-container">
+                <h4 class="newsletter-title">Subscribe</h4>
+                <!-- <p class="newsletter-text"></p> -->
+                <form class="newsletter-form" action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('https://feedburner.google.com/fb/a/mailverify?uri=MorningDev', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+
+                    <p class="newsletter-text">Get new posts to your inbox</p>
+
+                    <input type="hidden" value="MorningDev" name="uri" />
+
+                    <input type="hidden" name="loc" value="en_US" />
+                    
+                    <input class="newsletter-email" type="text" name="email" placeholder="name@example.com" />
+
+                    <input class="newsletter-submit" type="submit" value="Subscribe" />
+
+                </form>
+            </div>
+
+            <div class="footer-item copyright">
+                &copy; <time datetime="2018-03-24 19:20:17 +0100">2018</time>
+                <span class="copyright-name">Davide Iaiunese</span>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
