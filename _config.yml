@@ -1,4 +1,4 @@
-# Site settings
+    # Site settings
 title:          Morning Dev
 description:    "chronicles of my coding journey"
 baseurl:        "" # does not include hostname
