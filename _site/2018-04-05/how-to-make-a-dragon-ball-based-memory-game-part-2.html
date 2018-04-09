@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- RSS Feed -->
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Morning Dev" />
+  <title>
+    
+      How to make a Dragon Ball memory game - PART 2 &middot; Morning Dev
+    
+  </title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bree+Serif">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/favicon/favlogo.ico">
+</head>
+
+
+<body>
+    <div class="page-wrapper">
+        <nav class="nav">
+            <div class="nav-container">
+                <a href="/">
+                <img class="logo" src="/assets/logo.svg" alt="blog logo">
+            </a>
+                <ul>
+                    <li class="list-item-about"><a class="about-link" href="/about">About</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <main>
+            <div class="post">
+  <div class="post-info">
+    
+      <br>
+      <span>&nbsp;</span><time datetime="2018-04-05 00:00:00 +0200">April 05, 2018</time>
+    
+  </div>
+  
+  <h1 class="post-title">How to make a Dragon Ball memory game - PART 2</h1>
+  
+  <div class="post-line"></div>
+
+  <p>Hi guys. This is the second part of this series. <a href="link to article on codeburst.io">Here you can read part 1</a></p>
+
+<h2 id="recap">Recap</h2>
+<p>During the first part, we started to build the HTML structure of the game page. We began with the header, continued with the score panel and finished with one card built, focusing on the flip logic - made with a combination of JavaScript and CSS.</p>
+
+<p>Here’s the CodePen from last time</p>
+
+<p data-height="265" data-theme-id="dark" data-slug-hash="XExvbb" data-default-tab="html,result" data-user="davide2894" data-embed-version="2" data-pen-title="Memory Game - p1" data-preview="true" class="codepen">See the Pen <a href="https://codepen.io/davide2894/pen/XExvbb/">Memory Game - p1</a> by Davide (<a href="https://codepen.io/davide2894">@davide2894</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<p>Let’s take it from her  e.</p>
+
+<hr />
+
+<p>So we have one working card. We need 16, let’s make 15 copies.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"cards"</span> <span class="na">id=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"flip-container card"</span> <span class="na">ontouchstart=</span><span class="s">"handleTouch(card)"</span> <span class="na">id=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"flipper"</span><span class="nt">&gt;</span>
+        
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card__front"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"span--hide "</span><span class="nt">&gt;</span>1<span class="nt">&lt;/span&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+            
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card__back"</span>
+            <span class="err">&lt;/</span><span class="na">div</span><span class="nt">&gt;</span>
+            
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"flip-container card"</span> <span class="na">ontouchstart=</span><span class="s">"handleTouch(card)"</span> <span class="na">id=</span><span class="s">"2"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"flipper"</span><span class="nt">&gt;</span>
+        
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card__front"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"span--hide "</span><span class="nt">&gt;</span>1<span class="nt">&lt;/span&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+            
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card__back"</span>
+            <span class="err">&lt;/</span><span class="na">div</span><span class="nt">&gt;</span>
+            
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span> 
+    
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"flip-container card"</span> <span class="na">ontouchstart=</span><span class="s">"handleTouch(card)"</span> <span class="na">id=</span><span class="s">"3"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"flipper"</span><span class="nt">&gt;</span>
+        
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card__front"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"span--hide "</span><span class="nt">&gt;</span>2<span class="nt">&lt;/span&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+            
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card__back"</span>
+            <span class="err">&lt;/</span><span class="na">div</span><span class="nt">&gt;</span>
+            
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"flip-container card"</span> <span class="na">ontouchstart=</span><span class="s">"handleTouch(card)"</span> <span class="na">id=</span><span class="s">"4"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"flipper"</span><span class="nt">&gt;</span>
+        
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card__front"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"span--hide "</span><span class="nt">&gt;</span>2<span class="nt">&lt;/span&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+            
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card__back"</span>
+            <span class="err">&lt;/</span><span class="na">div</span><span class="nt">&gt;</span>
+            
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+        
+
+<span class="nt">&lt;/section&gt;</span>
+</code></pre></div></div>
+
+<p>And so on, until you have a total of 16 cards.</p>
+
+<p>Pay attention here: every single card has a unique id number. We can recognize the 8 pairs because they are numbered from 1 to 8: you can see these numbers on both sides of the card. <em>So 16 <code class="highlighter-rouge">id</code>s and 8 numbered pairs</em>.</p>
+
+<p>The numbered pairs have a <code class="highlighter-rouge">span--hide</code> class. These will come in handy when we will be testing the game features, or whenever you want to add a feature of your own to to this game. Look at the styling. Because you can hide and show them as you like so you can control.</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/*
+.span--hide {
+    display: none;
+}*/</span>
+</code></pre></div></div>
+
+<p>For now let’s keep it commented: we’ll need it later.</p>
+
+<p>This is good, but cards are way too big now to be displayed nicely.</p>
+
+<p>// TODO: add memory-2 folder and put screenshot 0 there.
+<img src="/assets/posts/memory-2/0.webp" alt="cards too big" /></p>
+
+<p>Let’s address them one at a time. First the cards’ dimension.</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.flip-container</span><span class="o">,</span>
+<span class="nc">.card__front</span><span class="o">,</span>
+<span class="nc">.card__back</span> <span class="p">{</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">6.5em</span><span class="p">;</span>
+    <span class="nl">height</span><span class="p">:</span> <span class="m">6.5em</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+
+  
+  
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://loafcode.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+</div>
+
+<div class="pagination">
+  
+  
+    <a href="/2018-04-04/how-to-make-a-dragon-ball-based-memory-game-part-1" class="right arrow">&#8594;</a>
+  
+
+  <a href="#" class="top">Top</a>
+</div>
+
+        </main>
+
+        <footer>
+            <ul class="footer-list">
+                <a href="https://github.com/davide2894" target="_blank">
+                    <li class="footer-item github">Github</li>
+                </a>
+                <a href="https://www.linkedin.com/in/davideiaiunese/" target="_blank">
+                    <li class="footer-item linkedin">Linkedin</li>
+                </a>
+                <a href="mailto:davide.iaiunese@gmail.com" target="_blank">
+                    <li class="footer-item email">Email</li>
+                </a>
+                <a href="https://twitter.com/davideiaiunese" target="_blank">
+                    <li class="footer-item twitter">Twitter</li>
+                </a>
+            </ul>
+
+            <div class="newsletter-container">
+                <h4 class="newsletter-title">Subscribe</h4>
+                <!-- <p class="newsletter-text"></p> -->
+                <form class="newsletter-form" action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('https://feedburner.google.com/fb/a/mailverify?uri=MorningDev', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+
+                    <p class="newsletter-text">Get new posts to your inbox</p>
+
+                    <input type="hidden" value="MorningDev" name="uri" />
+
+                    <input type="hidden" name="loc" value="en_US" />
+                    
+                    <input class="newsletter-email" type="text" name="email" placeholder="name@example.com" />
+
+                    <input class="newsletter-submit" type="submit" value="Subscribe" />
+
+                </form>
+            </div>
+
+            <div class="footer-item copyright">
+                &copy; <time datetime="2018-04-09 19:16:07 +0200">2018</time>
+                <span class="copyright-name">Davide Iaiunese</span>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>

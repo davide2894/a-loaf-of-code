@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- RSS Feed -->
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Morning Dev" />
+  <title>
+    
+      How to make a Dragon Ball memory game - PART 1 &middot; Morning Dev
+    
+  </title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bree+Serif">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/favicon/favlogo.ico">
+</head>
+
+
+<body>
+    <div class="page-wrapper">
+        <nav class="nav">
+            <div class="nav-container">
+                <a href="/">
+                <img class="logo" src="/assets/logo.svg" alt="blog logo">
+            </a>
+                <ul>
+                    <li class="list-item-about"><a class="about-link" href="/about">About</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <main>
+            <div class="post">
+  <div class="post-info">
+    
+      <br>
+      <span>&nbsp;</span><time datetime="2018-04-04 00:00:00 +0200">April 04, 2018</time>
+    
+  </div>
+  
+  <h1 class="post-title">How to make a Dragon Ball memory game - PART 1</h1>
+  
+  <div class="post-line"></div>
+
+  <p><img src="/assets/posts/memory/mockup.webp" alt="game mockup" /></p>
+
+<p>As some of you already know, I’m enrolled in the <a href="https://medium.com/@davideiaiunese/google-developer-scholarship-a-great-opportunity-to-become-a-developer-cd2598017c06">Google Developer Scholarship</a>.</p>
+
+<p>There are several projects involved in this program, one of which - to be precise: the third - is today’s article protagonist.</p>
+
+<p>Said project is a memory game. Most know what it is, but since I encountered - to my surprise - some who didn’t I’m going to explain it here.</p>
+
+<p>In simple words, <a href="https://en.wikipedia.org/wiki/Concentration_(game)">Memory</a> (also known as Concentration) is a card game whose goal is to sharpen your mind. You have a deck of paired cards. At the beginning of the game all of them are laid face down. At each turn the player can flip two cards:</p>
+<ul>
+  <li>if those two cards match: hooray, A pair less to go</li>
+  <li>if not: he or she should flip the cards back</li>
+</ul>
+
+<p>The game goes on until the player eventually matches all the cards on the table.</p>
+
+<p>I find interesting the idea to build this game, because the main focus here is JavaScript. To be precise: Vanilla JavaScript. So no library (looking at you jQuery), no framework (too many out there to look at one in particular) involved. It’s indeed a good opportunity to hone your skill at this incredible language without taking shortcuts.</p>
+
+<p>Last thing to add before starting things up is to mention the theme we are going to base this game on. I mean, it’s a huge (HUGE) part.</p>
+
+<p>The theme is…drumroll…<strong>Dragon Ball</strong>.</p>
+
+<p>If you don’t know, <a href="https://en.wikipedia.org/wiki/Concentration_(game)">Dragon Ball Super</a>, the new series of this franchise, <a href="comicbook.com/anime/2018/01/20/why-is-dragon-ball-super-ending/">ended in March</a>. As a life-time fan, I couldn’t help but make this game a tribute to the entire franchise.</p>
+
+<p><a href="https://en.wikipedia.org/wiki/Akira_Toriyama">Akira-sama</a>, 
+<a href="https://en.wikipedia.org/wiki/Vegeta">Vegeta-sama</a>, 
+<a href="https://en.wikipedia.org/wiki/Son_Goku">Son-kun</a>, 
+this is for you.</p>
+
+<p>Without further ado, let’s start cranking things up!</p>
+
+<hr />
+
+<p>I laid down a step-by-step path to build this.</p>
+
+<p>To start off, the three major phase covering this project are the following:</p>
+<ul>
+  <li>build the HTML structure</li>
+  <li>figure out and build the game logic</li>
+  <li>style the game</li>
+</ul>
+
+<hr />
+
+<p>First of all I’m going to create a <code class="highlighter-rouge">div</code> to wrap the page content we are going to build.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"wrapper"</span><span class="nt">&gt;</span>
+    <span class="c">&lt;!-- page content --&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>If we think about the game page, we can target two main areas it should be composed of:</p>
+<ol>
+  <li><code class="highlighter-rouge">header</code>, containing the title</li>
+  <li><code class="highlighter-rouge">main</code>, containing:
+    <ul>
+      <li>score panel</li>
+      <li>grid of cards</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="header">Header</h2>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">"header"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"header__title header__title--memory"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"header__title--mem"</span><span class="nt">&gt;</span>Mem<span class="nt">&lt;/span&gt;&lt;span</span> <span class="na">class=</span><span class="s">"header__title--o"</span><span class="nt">&gt;</span>o<span class="nt">&lt;/span&gt;&lt;span</span> <span class="na">class=</span><span class="s">"header__title--ry"</span><span class="nt">&gt;</span>ry<span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"header__title header__title--game"</span><span class="nt">&gt;</span>Game<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;/header&gt;</span>
+</code></pre></div></div>
+<p>You can notice I separated some letters in the title, this is connected to the CSS we’re going to add. In short, we’re going to replicate Dragon Ball’s logo style, but more on that later.</p>
+
+<p>Let’s start the main div. Inside which we’ll put score panel and the grid of cards.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;main&gt;</span>
+    
+<span class="nt">&lt;/main&gt;</span>
+</code></pre></div></div>
+
+<h2 id="score-panel">Score Panel</h2>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"bar"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"bar__score"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"bar__span"</span><span class="nt">&gt;</span>Moves:<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"bar__n"</span> <span class="na">id=</span><span class="s">"move-counter"</span><span class="nt">&gt;</span>0<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"bar__stars"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-star"</span> <span class="na">id=</span><span class="s">"star-1"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;/i&gt;</span>
+            <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-star"</span> <span class="na">id=</span><span class="s">"star-2"</span><span class="nt">&gt;&lt;/i&gt;</span>
+            <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-star"</span> <span class="na">id=</span><span class="s">"star-3"</span><span class="nt">&gt;&lt;/i&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"bar__time"</span> <span class="na">id=</span><span class="s">"displayed-time"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;time&gt;</span>
+            00:00:00
+       <span class="nt">&lt;/time&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fas fa-redo-alt fa-2x bar__restart"</span> <span class="na">id=</span><span class="s">"restart"</span><span class="nt">&gt;&lt;/i&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</code></pre></div></div>
+
+<p>We lay down the game logic’s fundamentals here. We set a move counter whose text is “0”, that will be updated later on with JavaScript.</p>
+
+<p>Something similar is done for the time.</p>
+
+<p>As for the stars, we borrow font-awesome to place three star icons that will be shown or hidden, depending on the move count.</p>
+
+<p>Lastly, we put a restart icon that will be active on click later on.</p>
+
+<h2 id="add-a-single-card-html-css-and-javascript">Add a single card: HTML, CSS and JavaScript</h2>
+<p>This is a tricky one. The rest of our code will base on this, so let’s try to make it right.</p>
+
+<p>I based the card’s code on <a href="https://davidwalsh.name/css-flip">David Walsh’s article on this topic</a> - with added personal tweaks. This is the most useful source I found on the subject. Many thanks to him.</p>
+
+<p>That said, I’m going to apply a different approach to it. Instead of triggering the flip animation on hover, I’m going to do it with JavaScript.</p>
+
+<p>This means I’ll cover the differences I implemented here, you can always check the full code at the end of this post.</p>
+
+<p>So let’s start form the basic HTML code. We add a <code class="highlighter-rouge">.card</code> class to it. The <code class="highlighter-rouge">id="1"</code> to recognize it later on among the other cards</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"flip-container card"</span> <span class="na">ontouchstart=</span><span class="s">"flipCard(card)"</span> <span class="na">id=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"flipper"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card__front"</span><span class="nt">&gt;</span>
+      1
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card__back"</span><span class="nt">&gt;</span>
+      1
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>Now comes JavaScript. Let’s see it, then I’ll explain it.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">card</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'1'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">isFlipped</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+
+
+<span class="nx">card</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"click"</span><span class="p">);</span>
+  <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">isFlipped</span><span class="p">){</span>
+    <span class="nx">flipCard</span><span class="p">(</span><span class="nx">card</span><span class="p">);</span>
+    <span class="nx">isFlipped</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">isFlipped</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">flipCardBack</span><span class="p">(</span><span class="nx">card</span><span class="p">);</span>
+    <span class="nx">isFlipped</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+
+<span class="kd">function</span> <span class="nx">flipCard</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">element</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'hover'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">flipCardBack</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">element</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s1">'hover'</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This is what I do:</p>
+<ul>
+  <li>select the card from the DOM</li>
+  <li>declare a variable to check whether the card is flipped or not: its initial value is true</li>
+  <li>add an event listener for clicks on the card. For each click:
+    <ul>
+      <li>if isFlipped is false -&gt; flip the card</li>
+      <li>otherwise -&gt; flip it back</li>
+    </ul>
+  </li>
+</ul>
+
+<p>The flipping part is done by adding or removing the <code class="highlighter-rouge">.hover</code> <strong>class</strong>.</p>
+
+<p>Take a look at its content:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nt">transform</span><span class="o">:</span> <span class="nt">rotateY</span><span class="o">(</span><span class="nt">180deg</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>We can’t get mistaken here, <code class="highlighter-rouge">.hover</code> class is exactly what we need in order to do the job.</p>
+
+<p>Here’s the CodePen containing the full code of what we have accomplished until now.</p>
+
+<p data-height="265" data-theme-id="dark" data-slug-hash="XExvbb" data-default-tab="html,result" data-user="davide2894" data-embed-version="2" data-pen-title="Memory Game - p1" data-preview="true" class="codepen">See the Pen <a href="https://codepen.io/davide2894/pen/XExvbb/">Memory Game - p1</a> by Davide (<a href="https://codepen.io/davide2894">@davide2894</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<hr />
+
+<p>This is it for time being! It’s the first part of this tutorial. I know it’s going to be a lengthy one so I’m pretty sure I hope I did a favor to you.</p>
+
+<p>Thank you for reading this post, from the bottom of my heart. You can’t even imagine how this makes me happy.</p>
+
+<p>Please, if you have questions or want to say hi, reach out here or on <a href="https://twitter.com/davideiaiunese">Twitter</a>.</p>
+
+<p>If you find this walkthrough useful, please subscribe to my blog. You will be up to date to every new post I write. I won’t waste your time.</p>
+
+<hr />
+
+<p>This post was originally published on [Codeburst.io]</p>
+
+  
+  
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://loafcode.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+</div>
+
+<div class="pagination">
+  
+    <a href="/2018-04-05/how-to-make-a-dragon-ball-based-memory-game-part-2" class="left arrow">&#8592;</a>
+  
+  
+    <a href="/2018-03-31/make-a-magic-the-gathering-card-in-css-walkthrough" class="right arrow">&#8594;</a>
+  
+
+  <a href="#" class="top">Top</a>
+</div>
+
+        </main>
+
+        <footer>
+            <ul class="footer-list">
+                <a href="https://github.com/davide2894" target="_blank">
+                    <li class="footer-item github">Github</li>
+                </a>
+                <a href="https://www.linkedin.com/in/davideiaiunese/" target="_blank">
+                    <li class="footer-item linkedin">Linkedin</li>
+                </a>
+                <a href="mailto:davide.iaiunese@gmail.com" target="_blank">
+                    <li class="footer-item email">Email</li>
+                </a>
+                <a href="https://twitter.com/davideiaiunese" target="_blank">
+                    <li class="footer-item twitter">Twitter</li>
+                </a>
+            </ul>
+
+            <div class="newsletter-container">
+                <h4 class="newsletter-title">Subscribe</h4>
+                <!-- <p class="newsletter-text"></p> -->
+                <form class="newsletter-form" action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('https://feedburner.google.com/fb/a/mailverify?uri=MorningDev', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+
+                    <p class="newsletter-text">Get new posts to your inbox</p>
+
+                    <input type="hidden" value="MorningDev" name="uri" />
+
+                    <input type="hidden" name="loc" value="en_US" />
+                    
+                    <input class="newsletter-email" type="text" name="email" placeholder="name@example.com" />
+
+                    <input class="newsletter-submit" type="submit" value="Subscribe" />
+
+                </form>
+            </div>
+
+            <div class="footer-item copyright">
+                &copy; <time datetime="2018-04-09 19:16:07 +0200">2018</time>
+                <span class="copyright-name">Davide Iaiunese</span>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
