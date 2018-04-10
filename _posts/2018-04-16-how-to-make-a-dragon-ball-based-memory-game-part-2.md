@@ -97,11 +97,11 @@ For now let's keep it commented: we'll need it later.
 
 This is good, but cards are way too big now to be displayed nicely.
 
-// TODO: add memory-2 folder and put screenshot 0 there.
-![cards too big]({{"assets/posts/memory-2/0.webp" | relative_url}})
+![cards too big]({{"assets/posts/memory-2/0.png" | relative_url}})
 
+Let's address them one at a time. 
 
-Let's address them one at a time. First the cards' dimension.
+First the cards' dimension.
 
 ```css
 .flip-container,
@@ -111,8 +111,152 @@ Let's address them one at a time. First the cards' dimension.
     height: 6.5em;
 }
 ```
+![card si]({{"assets/posts/memory-2/1.png" | relative_url}})
 
+Second, the way they are displayed. As you can see, at the moment the cards are displayed vertically. We can fix this by addressing the cards' container
 
+```
+.cards {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin-top: 2em;
+    width: 100%;
+}
+```
+With `display: flex` and `flex-wrap: wrap` we make sure the cards respond to changes affecting the screen width. In other words, we make sure they are responsive. Besides, we give some breathing space between the score panel and the cards grid.
 
+![cards grid]({{"assets/posts/memory-2/2.png" | relative_url}})
 
+## Reset
+I want to take a second and add a reset. 
+
+A **reset** is a CSS technique that allows us to nullify browsers differences in redendering a page. In fact, Each browser has a different default style. This means, for example, that an header, say `<h1> My Title <h1>` will have different `font-size` and `font-weight` in different browsers. 
+
+Reset waterproofs our code from these differences. 
+
+If we use it, then we can make sure our style will be the same on all browsers.
+
+Quite helpful indeed.
+
+And even easy to implement. 
+
+There's an online tool for this: the [Meyerweb reset](https://meyerweb.com/eric/tools/css/reset/). Check the link provide and paste that code at the beginning of your CSS. If you are too lazy for even that, here it is:
+
+```css
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+```
+
+Let's check how our game page looks like.
+
+![cards grid]({{"assets/posts/memory-2/3.png" | relative_url}})
+
+## Make all cards flippable
+We began with one card that could be flipped on click, then we make a grid of 16 cards. It's time to make them all flippable.
+
+Replace the code written during last part - covering only card - with the following:
+
+```javascript
+const container = document.getElementById('container');
+var cards = container.getElementsByClassName('card'),
+    isFlipped = false,
+    clickCount = '';
+
+for(let card of cards){
+  card.addEventListener('click', function(){
+    clickCount++;
+    if(clickCount === 1){
+          flipCard(card);   
+    } else if(clickCount === 2){
+      flipCardBack(card);
+      clickCount = 0;
+    }
+  })
+}
+``` 
+
+First we grab the cards container by declaring `const container` and selecting tìhe `div`s `id`.
+
+Then, with `var cards` we grab all the cards by selecting and getting all the elements with class `card`.
+
+Third, we declare a variable that keeps track of how many clicks we performed on a card.
+
+At this point, we loop through the cards. On each card, we place an event listener: 
+* if we click once, the card is flipped
+* if we click twice, we can safely assume that the card was flipped, hence we invoke the `flipCardBack()` function and pass the current card as argument. 
+
+Now, we need to adjust the `handleTouch()` function in order to make sure mobile users can flip all the cards as well.
+
+```JavaScript
+function handleTouch(card) {
+
+  touchCount++;
+  
+  if (touchCount === 1) {
+    flipCard(card);
+  } else if (touchCount === 2){
+    flipCardBack(card);
+    touchCount = 0;
+  }
+
+}
+```
+
+Compared to the old version:
+* we replaced the `else` statement with an `if else` one, and put as condition `touchCount === 2`
+* when `touchCount === 2` card gets flipped back and `touchCount' is reset to 0
+
+TODO: start game logic      
 
