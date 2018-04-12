@@ -195,7 +195,7 @@ q:before, q:after {
 }
 table {
 	border-collapse: collapse;
-	border-spacing: 0;
+	   border-spacing: 0;
 }
 ```
 
@@ -212,16 +212,15 @@ Replace the code written during last part - covering only card - with the follow
 const container = document.getElementById('container');
 var cards = container.getElementsByClassName('card'),
     isFlipped = false,
-    clickCount = '';
 
 for(let card of cards){
   card.addEventListener('click', function(){
-    clickCount++;
-    if(clickCount === 1){
-          flipCard(card);   
-    } else if(clickCount === 2){
+    if(!isFlipped){
+          flipCard(card);
+          isFlipped = true;
+    } else if(isFlipped){
       flipCardBack(card);
-      clickCount = 0;
+          isFlipped = false;
     }
   })
 }
@@ -231,32 +230,103 @@ First we grab the cards container by declaring `const container` and selecting t
 
 Then, with `var cards` we grab all the cards by selecting and getting all the elements with class `card`.
 
-Third, we declare a variable that keeps track of how many clicks we performed on a card.
-
 At this point, we loop through the cards. On each card, we place an event listener: 
-* if we click once, the card is flipped
-* if we click twice, we can safely assume that the card was flipped, hence we invoke the `flipCardBack()` function and pass the current card as argument. 
+* if isFlipped value is equal to false, flip the card and set `isFlipped = true`
+* if isFlipped value is equal to true, it means `flipCard(card)` was invoked. Hence, we can safely assume the  card was flipped -  the visual feedback tells us the truth anyway - invoke`flipCardBack()`, and set the card to its initial position.
 
 Now, we need to adjust the `handleTouch()` function in order to make sure mobile users can flip all the cards as well.
 
-```JavaScript
+```javascript
 function handleTouch(card) {
-
-  touchCount++;
-  
-  if (touchCount === 1) {
+  if (!isFlipped) {
     flipCard(card);
-  } else if (touchCount === 2){
+    isFlipped = true;
+  } else if (isFlipped){
     flipCardBack(card);
-    touchCount = 0;
+    isFlipped = false;
   }
-
 }
 ```
 
 Compared to the old version:
 * we replaced the `else` statement with an `if else` one, and put as condition `touchCount === 2`
-* when `touchCount === 2` card gets flipped back and `touchCount' is reset to 0
+* when `touchCount === 2` card gets flipped back and `touchCount` is set back to 0
 
-TODO: start game logic      
+TODO: 
+- shuffle
+- restart button + fn
+
+## Shuffle card
+Cards are not cards if you can't shuffle them. In the real game, cards are shuffled everytime we start a new game. This ensures it is challenging everytime we play it - and that no one is cheating.
+
+Just a few moments ago we selected all the cards and stored them in a variable.
+
+```javascript
+var cards = container.getElementsByClassName('card');
+```
+To implement shuffling, we need these cards in an array. `var cards` is not an array at the moment. Instead, it is a **[NodeList](https://developer.mozilla.org/en-US/docs/Web/API/NodeList)**, a collection of `DOM elements`. This means we need to convert this NodeList to an array. We can do it with a function.
+
+```javascript
+function nodeListToArray(nodeList) {
+    let arr = [];
+
+    for (let card of cards) {
+        arr.push(card);
+    }
+    return arr.slice();
+}
+```
+
+Here's what it does:
+1. it takes a NodeList as an argument
+2. it creates a local, empty array, named `arr`
+3. it populates it with each card element
+4. it uses the `slice()` method on `arr` to create a copy of it and returns it. 
+
+When we call `nodeListToArray(nodeList)` we are now sure we will get an array back.
+
+We are now ready to handle the shuffling. But how can we do it? 
+
+//TODO: 
+    - explain shuffle fn
+    - explain shuffleCards fn
+    - create shuffling gif and insert it
+
+```javascript
+function shuffleArray(array) {
+    for (let i = 0, n = array.length - 1; i < n; i++) {
+        let random = Math.floor(Math.random() * (n + 1));
+
+        let tmp = array[i];
+
+        array[i] = array[random];
+
+        array[random] = tmp;
+    }
+
+    return array;
+}
+```
+
+
+// 6. implement shuffle feature
+function shuffleCards() {
+    // convert Node list to array
+    let arrayOfCards = nodeListToArray(cards);
+
+    // remove cards from dom
+    arrayOfCards.forEach(function (card) {
+        container.removeChild(card);
+    })
+
+    // shuffle them
+    shuffleArray(arrayOfCards);
+
+    // put them back in the dom
+    arrayOfCards.forEach(function (card) {
+        container.appendChild(card);
+    })
+}
+
+
 
