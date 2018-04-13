@@ -264,7 +264,7 @@ Just a few moments ago we selected all the cards and stored them in a variable.
 ```javascript
 var cards = container.getElementsByClassName('card');
 ```
-To implement shuffling, we need these cards in an array. `var cards` is not an array at the moment. Instead, it is a **[NodeList](https://developer.mozilla.org/en-US/docs/Web/API/NodeList)**, a collection of `DOM elements`. This means we need to convert this NodeList to an array. We can do it with a function.
+To implement shuffling, we need these cards in an array. `var cards` is not an array at the moment. Instead, it is a **[NodeList](https://developer.mozilla.org/en-US/docs/Web/API/NodeList)**, a collection of `DOM elements`. This means we need to **convert this NodeList to an array**. We can do it with a function.
 
 ```javascript
 function nodeListToArray(nodeList) {
@@ -292,6 +292,7 @@ We are now ready to handle the shuffling. But how can we do it?
     - explain shuffleCards fn
     - create shuffling gif and insert it
 
+Let's create the **shuffle function**
 ```javascript
 function shuffleArray(array) {
     for (let i = 0, n = array.length - 1; i < n; i++) {
@@ -307,9 +308,24 @@ function shuffleArray(array) {
     return array;
 }
 ```
+Here's what it does:
+- it takes the converted array of cards as an argument
+- it iterates through the cards
+- for each card:
+    * it calculates a random number ranging through the array's indexes
+    * creates a `tmp` variable and points it to the ard at the current index
+    * takes the card at the current index and points it a **random** position in the array **(given by the `random` variable)**
+    * takes the element at said random position and points it to `tmp`
 
+By this way, at each iteration two cards swap their position, one of which is selected randomly. This ensure the reality of the shuffle.
+    
+To recap, there's a function convert the `cards` `NodeList` to an actual array. There's also a function that shuffles this array of cards. Last thing to do is to handle the elements position change in the DOM. Well, to be precise, their position change in the `cards` div.
 
-// 6. implement shuffle feature
+So how do we go to actually change cards position in the DOM?
+
+Here's how: once we convert `cards` from `NodeList` to array, we can actually remove each card element contained in the array from its DOM position. In other words, we remove each div with class `card` from the parent container div. ***Then*** the actual shuffling takes place. ***Finally***, we append cards to the container div in their new poisitions.
+
+```javascript
 function shuffleCards() {
     // convert Node list to array
     let arrayOfCards = nodeListToArray(cards);
@@ -327,6 +343,27 @@ function shuffleCards() {
         container.appendChild(card);
     })
 }
+```
 
+Here's a little demonstration.
+
+![shuffle-gif]({{"assets/posts/memory-2/shuffleCards().gif" | relative_url}})
+
+## End of part 2
+
+This is it for the time being!
+
+Here's the CodePen
+
+<p data-height="265" data-theme-id="dark" data-slug-hash="xWmBNo" data-default-tab="html,result" data-user="davide2894" data-embed-version="2" data-pen-title="Memory Game - p2" class="codepen">See the Pen <a href="https://codepen.io/davide2894/pen/xWmBNo/">Memory Game - p2</a> by Davide (<a href="https://codepen.io/davide2894">@davide2894</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+*** 
+
+Thank you for reading this post, from the bottom of my heart. You can't even imagine how this makes me happy.
+
+Please, if you have questions or want to say hi, reach out here or on [Twitter](https://twitter.com/davideiaiunese).
+
+If you find this useful, please subscribe to my blog. You will be up to date to every new post I write. I won't waste your time. 
 
 
