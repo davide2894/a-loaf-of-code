@@ -103,7 +103,7 @@ For now, let's keep it commented: we'll need it later.
 ## Dimension fix
 At their actual state, cards are way too big. Another problem is *how* we are displaying them.
 
-![cards too big]({{"assets/posts/memory-p2/0.png" | relative_url}})
+![cards too big]({{"assets/posts/memory-p2/0.webp" | relative_url}})
 
 Let's address one thing at a time.
 
@@ -117,7 +117,7 @@ First, the dimension.
     height: 6.5em;
 }
 ```
-![card ]({{"assets/posts/memory-p2/1.png" | relative_url}})
+![card ]({{"assets/posts/memory-p2/1.webp" | relative_url}})
 
 Second, the way they are displayed. As you can see, now they are organized vertically. We can fix this by addressing the cards' container
 
@@ -137,7 +137,7 @@ Second, the way they are displayed. As you can see, now they are organized verti
 ```
 With `display: flex` and `flex-wrap: wrap` we make sure the cards respond to changes affecting the screen width. In other words, we make sure they are responsive. Besides, we give some breathing space between the score panel and the cards grid.
 
-![cards grid]({{"assets/posts/memory-p2/2.png" | relative_url}})
+![cards grid]({{"assets/posts/memory-p2/2.webp" | relative_url}})
 
 ## Reset
 I want to take a second and add a reset. 
@@ -207,7 +207,7 @@ table {
 
 Now let's check how our game page looks like.
 
-![cards grid]({{"assets/posts/memory-p2/3.png" | relative_url}})
+![cards grid]({{"assets/posts/memory-p2/3.webp" | relative_url}})
 
 ## Make all cards flippable
 We began with one flipping card.
@@ -377,4 +377,4 @@ Please, if you have questions or want to say hi, reach out here or on [Twitter](
 
 If you find this useful, please subscribe to my blog. You will be up to date to every new post I write. I won't waste your time. 
 
-
+*This post was originally published on [Codeburst.io](https://codeburst.io/how-to-make-a-dragon-ball-memory-game-part-2-5659ff2ee0b9)*

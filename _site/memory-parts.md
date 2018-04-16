@@ -10,11 +10,11 @@ call to action
 **HTML**
 
 **JS**: 
-1. add flip animaton for one card
-2. add rest of cards (total of 16, first one included)
-3. modify js to flip selected card when clicked: use es6 newly added for...of loop to do so;
-4. use css Grid to display cards as a 4x4 grid (first raw use of Grid)
-5. add card shuffling on page load
+v1. add flip animaton for one card
+v2. add rest of cards (total of 16, first one included)
+v3. modify js to flip selected card when clicked: use es6 newly added for...of loop to do so;
+v4. use css Grid to display cards as a 4x4 grid (first raw use of Grid)
+v5. add card shuffling on page load
 6. add move counter
 7. add stars feature. It's dependent on move counter's value
 8. add timer

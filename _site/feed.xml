@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-04-14T18:49:00+02:00</updated><id>http://localhost:4000/</id><title type="html">Morning Dev</title><subtitle>chronicles of my coding journey</subtitle><author><name>Davide Iaiunese</name><email>davide.iaiunese@gmail.com</email></author><entry><title type="html">How to make a Dragon Ball memory game - PART 2</title><link href="http://localhost:4000/2018-04-14/how-to-make-a-dragon-ball-based-memory-game-part-2" rel="alternate" type="text/html" title="How to make a Dragon Ball memory game - PART 2" /><published>2018-04-14T00:00:00+02:00</published><updated>2018-04-14T00:00:00+02:00</updated><id>http://localhost:4000/2018-04-14/how-to-make-a-dragon-ball-based-memory-game-part-2</id><content type="html" xml:base="http://localhost:4000/2018-04-14/how-to-make-a-dragon-ball-based-memory-game-part-2">&lt;p&gt;&lt;img src=&quot;/assets/posts/memory/mockup.webp&quot; alt=&quot;game mockup&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-04-16T18:06:02+02:00</updated><id>http://localhost:4000/</id><title type="html">Morning Dev</title><subtitle>chronicles of my coding journey</subtitle><author><name>Davide Iaiunese</name><email>davide.iaiunese@gmail.com</email></author><entry><title type="html">How to make a Dragon Ball memory game - PART 2</title><link href="http://localhost:4000/2018-04-16/how-to-make-a-dragon-ball-based-memory-game-part-2" rel="alternate" type="text/html" title="How to make a Dragon Ball memory game - PART 2" /><published>2018-04-16T00:00:00+02:00</published><updated>2018-04-16T00:00:00+02:00</updated><id>http://localhost:4000/2018-04-16/how-to-make-a-dragon-ball-based-memory-game-part-2</id><content type="html" xml:base="http://localhost:4000/2018-04-16/how-to-make-a-dragon-ball-based-memory-game-part-2">&lt;p&gt;&lt;img src=&quot;/assets/posts/memory/mockup.webp&quot; alt=&quot;game mockup&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Hi guys. This is the second part of this series. &lt;a href=&quot;https://codeburst.io/how-to-make-a-dragon-ball-memory-game-part-1-91f40ba268dd&quot;&gt;Here you can read part 1&lt;/a&gt;&lt;/p&gt;
 
@@ -93,7 +93,7 @@
 &lt;h2 id=&quot;dimension-fix&quot;&gt;Dimension fix&lt;/h2&gt;
 &lt;p&gt;At their actual state, cards are way too big. Another problem is &lt;em&gt;how&lt;/em&gt; we are displaying them.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/posts/memory-p2/0.png&quot; alt=&quot;cards too big&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/posts/memory-p2/0.webp&quot; alt=&quot;cards too big&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Let’s address one thing at a time.&lt;/p&gt;
 
@@ -106,7 +106,7 @@
     &lt;span class=&quot;nl&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6.5em&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/posts/memory-p2/1.png&quot; alt=&quot;card &quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/posts/memory-p2/1.webp&quot; alt=&quot;card &quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Second, the way they are displayed. As you can see, now they are organized vertically. We can fix this by addressing the cards’ container&lt;/p&gt;
 
@@ -125,7 +125,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;With &lt;code class=&quot;highlighter-rouge&quot;&gt;display: flex&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;flex-wrap: wrap&lt;/code&gt; we make sure the cards respond to changes affecting the screen width. In other words, we make sure they are responsive. Besides, we give some breathing space between the score panel and the cards grid.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/posts/memory-p2/2.png&quot; alt=&quot;cards grid&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/posts/memory-p2/2.webp&quot; alt=&quot;cards grid&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;reset&quot;&gt;Reset&lt;/h2&gt;
 &lt;p&gt;I want to take a second and add a reset.&lt;/p&gt;
@@ -194,7 +194,7 @@
 
 &lt;p&gt;Now let’s check how our game page looks like.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/posts/memory-p2/3.png&quot; alt=&quot;cards grid&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/posts/memory-p2/3.webp&quot; alt=&quot;cards grid&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;make-all-cards-flippable&quot;&gt;Make all cards flippable&lt;/h2&gt;
 &lt;p&gt;We began with one flipping card.&lt;/p&gt;
@@ -367,7 +367,9 @@
 
 &lt;p&gt;Please, if you have questions or want to say hi, reach out here or on &lt;a href=&quot;https://twitter.com/davideiaiunese&quot;&gt;Twitter&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;If you find this useful, please subscribe to my blog. You will be up to date to every new post I write. I won’t waste your time.&lt;/p&gt;</content><author><name>Davide Iaiunese</name><email>davide.iaiunese@gmail.com</email></author><summary type="html"></summary></entry><entry><title type="html">How to make a Dragon Ball memory game - PART 1</title><link href="http://localhost:4000/2018-04-09/how-to-make-a-dragon-ball-based-memory-game-part-1" rel="alternate" type="text/html" title="How to make a Dragon Ball memory game - PART 1" /><published>2018-04-09T00:00:00+02:00</published><updated>2018-04-09T00:00:00+02:00</updated><id>http://localhost:4000/2018-04-09/how-to-make-a-dragon-ball-based-memory-game-part-1</id><content type="html" xml:base="http://localhost:4000/2018-04-09/how-to-make-a-dragon-ball-based-memory-game-part-1">&lt;p&gt;&lt;img src=&quot;/assets/posts/memory/mockup.webp&quot; alt=&quot;game mockup&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;If you find this useful, please subscribe to my blog. You will be up to date to every new post I write. I won’t waste your time.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;This post was originally published on &lt;a href=&quot;https://codeburst.io/how-to-make-a-dragon-ball-memory-game-part-2-5659ff2ee0b9&quot;&gt;Codeburst.io&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Davide Iaiunese</name><email>davide.iaiunese@gmail.com</email></author><summary type="html"></summary></entry><entry><title type="html">How to make a Dragon Ball memory game - PART 1</title><link href="http://localhost:4000/2018-04-09/how-to-make-a-dragon-ball-based-memory-game-part-1" rel="alternate" type="text/html" title="How to make a Dragon Ball memory game - PART 1" /><published>2018-04-09T00:00:00+02:00</published><updated>2018-04-09T00:00:00+02:00</updated><id>http://localhost:4000/2018-04-09/how-to-make-a-dragon-ball-based-memory-game-part-1</id><content type="html" xml:base="http://localhost:4000/2018-04-09/how-to-make-a-dragon-ball-based-memory-game-part-1">&lt;p&gt;&lt;img src=&quot;/assets/posts/memory/mockup.webp&quot; alt=&quot;game mockup&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;As some of you already know, I’m enrolled in the &lt;a href=&quot;https://medium.com/@davideiaiunese/google-developer-scholarship-a-great-opportunity-to-become-a-developer-cd2598017c06&quot;&gt;Google Developer Scholarship&lt;/a&gt;.&lt;/p&gt;
 
