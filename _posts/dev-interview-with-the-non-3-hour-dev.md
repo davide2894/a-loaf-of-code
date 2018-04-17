@@ -18,8 +18,9 @@ q:
 * what do you suggest to a foreigner who wants a dev job in Tokyo?
 * do you have a morning routine?
 * what does your typical day look like?
-* process you go through to dev an app
 * how can you monetize
+* what learning schedule would you advise to a wanna-be dev?
+v process you go through to dev an app
 
 ***
 
@@ -66,3 +67,22 @@ I learned a lot from the first app about how I can design and develop apps and h
 ///
 
 Q: 6 months, I'm impressed. Usually, does it take so long to release an app?. And back then, were you already implementing the 3-hour-of-coding principle?  
+
+A: I try to release a first minimal version as fast as I can since you never know if people will like it or not till you release it on the AppStore.
+Especially, you cannot tell if people pay for your app until you release it.
+
+So, I usually try to release a new app within 3-6 months after I started developing it from scratch.
+After I release the first version, if I see people pay for the app, I will start polishing it based on user feedback.
+It will take more time to upgrade after releasing it anyway if I keep updating it.
+
+
+>>were you already implementing the 3-hour-of-coding principle?  
+I worked hard at the first 2 or 3 years, around 6-8 hours programming every day for a full year, 
+and I burned out after that.
+
+Especially I had sore eyes every time back then, and I decided to make a 3-hour working principle later.
+
+
+Q: sore eyes are a problem that affected me as well. I had to take some measures to fix that problem, like installing Redlight on Ubuntu, setting dark themes for everything, exercising and so on. 
+
+So this was what made you transition to a 3-hour coding day. Was it a direct transition or it was a gradual change?
