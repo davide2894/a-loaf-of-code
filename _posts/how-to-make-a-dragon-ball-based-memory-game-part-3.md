@@ -12,7 +12,7 @@ comments: true
 Main: 
 v separate header from panel and hide shuffle btn.
 v insert starts with font-awesome
-* grab el from DOM
+v grab el from DOM
 * create trackScore fn
 * insert trackScore() when we flip card
 
@@ -106,10 +106,68 @@ Ready too see some stars?
 
 ![score panel prettified]({{"assets/posts/memory-p3/2.png" | relative_url}})
 
-We can now get back to JavaScript. Here's the idea: we can manage the score logic with just one function. In fact, this function should do the following:
-* increment moves number each time the player flips a card
-* reducing the stars shown when the moves number surpasses a certain limit. The logic is: the more moves it takes you to win the game, the less stars I will give you
+We can now get back to JavaScript, and work out how to track score.
 
-But first, let's grab these elements from the DOM.  
 
+## trackScore() - the logic    
+
+Here's the idea: we can manage the score logic with just one function. In fact, this one should do what follows:
+1. increment moves number each time the player flips a card
+2. reduce the stars shown when the moves number surpasses a certain limit. The logic is: the more moves it takes you to win the game, the less stars I will give you
+
+Before that, we need to grab the stars from the DOM, so that we can manipulate the number to show. 
+
+How we can do that? Simple: `font-awesome` offers many versions of the same icon. In this case, we're interested in two in particular:
+
+`fa-star` ***TOADD: screenshot from font-awesome website ![black star icon]({{"assets/posts/memory-p3/fa-star.png" | relative_url}})
+
+and 
+
+`fa-star-o` ***TOADD: screenshot from font-awesome website ![empty star icon]({{"assets/posts/memory-p3fa-star-o.png" | relative_url}})
+
+
+The game starts off with 3 stars, all filled in black. In other words, they have class `fa-star`. When we want to communicate the user that he lost a star, we can make this very star empty. In other words we replace class `fa-star` with class `fa-star-o`. This will change the icon displayed send the feedback to the player.
+
+And we need only two select only two stars. 
+
+Why? Because based on the player's performace, the more moves he makes, the less stars we'll assign. The game starts with 3 stars - the max we can give - and decrease them if needed.
+
+I dediced to use these checkpoints:
+* 3 stars from the very start up to to 10 moves
+* 2 stars between 11 and 15 moves
+* 1 stars from 16 moves on
+
+## trackScore() - the code
+
+[explain codes]
+
+Enough! Let's translate that logic into code! 
+
+from the DOM.  
+
+```javascript
+const moveCounter = document.getElementById('move-counter');
+const star2 = document.getElementById('star-2');
+const star3 = document.getElementById('star-3');
+```
+
+```javascript
+function trackScore() {
+    let moveCount = parseInt(moveCounter.textContent);
+    moveCount++;
+    moveCounter.textContent = moveCount.toString();
+
+    if (moveCount > 10 && moveCount <= 15) {
+        star3.classList.replace('fa-star', 'fa-star-o');
+        //star3.style.cssText = "color: #fff";
+        starNumber = 2;
+
+    } else if (moveCount > 15) {
+        star2.classList.replace('fa-star', 'fa-star-o');
+        starNumber = 1;
+    } else {
+        starNumber = 3;
+    }
+}
+```
 

@@ -19,7 +19,9 @@ q:
 * do you have a morning routine?
 * what does your typical day look like?
 * how can you monetize
-* what learning schedule would you advise to a wanna-be dev?
+* what learning schedule would you advise to a wanna-be dev? 
+* how's your current routine compared to the time when you were developing 6hrs a day?
+* How do people react when you tell them about your 3-hour work day?
 v process you go through to dev an app
 
 ***
@@ -86,3 +88,14 @@ Especially I had sore eyes every time back then, and I decided to make a 3-hour 
 Q: sore eyes are a problem that affected me as well. I had to take some measures to fix that problem, like installing Redlight on Ubuntu, setting dark themes for everything, exercising and so on. 
 
 So this was what made you transition to a 3-hour coding day. Was it a direct transition or it was a gradual change?
+
+A: I started working up to 6 hours per day at first, but I felt I still have some time when I am not focusing enough while working for 6 hours.
+I mean, if I have enough time for work, I tend to do something not important during my work time like searching for something or checking SNS.
+
+After trying 6 hours rule per day for about 6 months, I decided to try 3 hours a day rule.
+I found I really think about what I need to do and I shouldn't do with this rule more than before, and 
+I keep doing this since then.
+
+***
+
+Q: What's your daily routine?
