@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- RSS Feed -->
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Morning Dev" />
+  <title>
+    
+      How to make a Dragon Ball memory game - PART 3 &middot; Morning Dev
+    
+  </title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bree+Serif">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/favicon/favlogo.ico">
+</head>
+
+
+<body>
+    <div class="page-wrapper">
+        <nav class="nav">
+            <div class="nav-container">
+                <a href="/">
+                <img class="logo" src="/assets/logo.svg" alt="blog logo">
+            </a>
+                <ul>
+                    <li class="list-item-about"><a class="about-link" href="/about">About</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <main>
+            <div class="post">
+  <div class="post-info">
+    
+      <br>
+      <span>&nbsp;</span><time datetime="2018-04-20 00:00:00 +0200">April 20, 2018</time>
+    
+  </div>
+  
+  <h1 class="post-title">How to make a Dragon Ball memory game - PART 3</h1>
+  
+  <div class="post-line"></div>
+
+  <p><img src="/assets/posts/memory/mockup.webp" alt="game mockup" /></p>
+
+<p>This article is the third part of the Dragon Ball-based, memory game walkthrough series.</p>
+
+<p>If you haven’t already, read <a href="https://codeburst.io/how-to-make-a-dragon-ball-memory-game-part-1-91f40ba268dd">PART 1</a> and <a href="https://codeburst.io/how-to-make-a-dragon-ball-memory-game-part-2-5659ff2ee0b9">PART 2</a>.</p>
+
+<h2 id="recap">Recap</h2>
+<p>Two weeks ago, right at the beginning of this project, we started by laying down the game HTML structure, a raw one to be honest. Then we started building the main attraction of this game: cards. Well, we started with just one and made it flippable with JavaScript.</p>
+
+<p>Last week, in <a href="https://codeburst.io/how-to-make-a-dragon-ball-memory-game-part-2-5659ff2ee0b9">PART 2</a>, we took the first card and made 15 copies out of it. As a result, we noticed how horrible and gigantic those cards looked.</p>
+
+<p>So we made the smaller, added some Flexbox and made it all look prettier.</p>
+
+<p>Lastly, we channeled our attention to build a function that would shuffle the card. It’s working and we tested it.</p>
+
+<p><img src="/assets/posts/memory-p2/shuffleCards().gif" alt="shuffle-gif" /></p>
+
+<p>That said, we can move with this new, exciting third part! :D</p>
+
+<hr />
+
+<h2 id="shake-up">Shake up</h2>
+<p>Having worked pretty much only on cards, let’s shake things up a bit and focus on the score panel this time.</p>
+
+<p><img src="/assets/posts/memory-p3/0.png" alt="score panel" /></p>
+
+<p>Looks pretty confusing, huh? Better make distinctions in this area. Things are getting mixed up.</p>
+
+<p>How about this?</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.header</span> <span class="p">{</span>
+  <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="m">3em</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.bar</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+  <span class="nl">justify-content</span><span class="p">:</span> <span class="n">space-around</span><span class="p">;</span>
+  <span class="nl">margin-top</span><span class="p">:</span> <span class="m">3em</span><span class="p">;</span>
+  <span class="nl">align-items</span><span class="p">:</span> <span class="nb">baseline</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">button</span> <span class="p">{</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="m">1em</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">button</span><span class="nd">:hover</span> <span class="p">{</span>
+  <span class="nl">cursor</span><span class="p">:</span> <span class="nb">pointer</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>First we center the header and incraese its <code class="highlighter-rouge">font-size</code>.</p>
+
+<p>Then, <code class="highlighter-rouge">flexbox</code> comes to save the day: we use it to display the <code class="highlighter-rouge">.bar</code> horizontally, we space items evenly and align them on the same axis.</p>
+
+<p>Oh, the button becomes smaller.</p>
+
+<p><img src="/assets/posts/memory-p3/1.png" alt="score panel prettified" /></p>
+
+<h2 id="the-stars">The stars!</h2>
+
+<p>For pete’s sake, how could I forget to add the stars in there?! It’s like essential to communicate with the player, you kno!</p>
+
+<p><img src="/assets/posts/memory-p3/facepalm-peter.jpg" alt="facepalm-peter" /></p>
+
+<p>Let’s fix this quicly before someone finds it out (psst, please don’t tell this to the other two people reading).</p>
+
+<p>The simplest way to add stars is by adding icons. Hey font-awesome! Lend me some please!</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"bar__stars"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-star"</span> <span class="na">id=</span><span class="s">"star-1"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/i&gt;</span>
+    <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-star"</span> <span class="na">id=</span><span class="s">"star-2"</span><span class="nt">&gt;&lt;/i&gt;</span>
+    <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-star"</span> <span class="na">id=</span><span class="s">"star-3"</span><span class="nt">&gt;&lt;/i&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>If you’re coding along wit me, I assume you’re using CodePen. In this case, go to Settings-&gt; ‘Stuff for &lt;head&gt;’ and copy-paste <code class="highlighter-rouge">font-awesome</code>’s CDN:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"https://use.fontawesome.com/releases/v5.0.10/css/all.css"</span> <span class="na">integrity=</span><span class="s">"sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;</span>
+
+</code></pre></div></div>
+
+<p>In case you’re using your own text editor, just paste the above in <code class="highlighter-rouge">&lt;head&gt;</code>.</p>
+
+<p>Ready too see some stars? (I know, terrible)</p>
+
+<p><img src="/assets/posts/memory-p3/2.png" alt="score panel prettified" /></p>
+
+<p>We can now get back to JavaScript, and work out how to track score.</p>
+
+<h2 id="trackscore---the-logic">trackScore() - the logic</h2>
+
+<p>Here’s the idea: we can manage the score logic with just one function. In fact, this one should do what follows:</p>
+<ol>
+  <li>increment moves number each time the player flips a card</li>
+  <li>reduce the stars shown when the moves number surpasses a certain limit. The more moves it takes you to win the game, the less stars I will give you</li>
+</ol>
+
+<p>Before that, we need to grab the star elements from the DOM, so that we can manipulate how many to show.</p>
+
+<p>Or to be more precise, how many he has.</p>
+
+<p>Font-awesome offers many versions of the same icon. In particular, two catch our interest.</p>
+
+<p><code class="highlighter-rouge">fa-star</code> <img src="/assets/posts/memory-p3/fa-star.png" alt="black star icon" /></p>
+
+<p>and</p>
+
+<p><code class="highlighter-rouge">fa-star-o</code> <img src="/assets/posts/memory-p3/fa-star-o.png" alt="empty star icon" /></p>
+
+<p>The game starts off with 3 stars, all filled in black. In other words, they have class <code class="highlighter-rouge">fa-star</code>. When we want to communicate the user that he lost one, we can make it empty. In other words, we replace class <code class="highlighter-rouge">fa-star</code> with class <code class="highlighter-rouge">fa-star-o</code>. This will change the icon displayed giving the user the player a visual feedback.</p>
+
+<p>To accomplish this we need to select only two stars.</p>
+
+<p>Why? Because based on the player’s performace, the more moves he makes the less stars we’ll give to him.</p>
+
+<p>As said before, the game starts with 3 stars - the max we can give - and decrease them when necessary.</p>
+
+<p>I dediced to use these checkpoints:</p>
+<ul>
+  <li>3 stars from the very start up to to 10 moves</li>
+  <li>2 stars between 11 and 15 moves</li>
+  <li>1 stars from 16 moves on</li>
+</ul>
+
+<h2 id="trackscore---the-code">trackScore() - the code</h2>
+
+<p>Enough! Time translate logic into code.</p>
+
+<p>Let’s grab the elements we need from the DOM</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">moveCounter</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'move-counter'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">star2</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'star-2'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">star3</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'star-3'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>The first element we grab is <code class="highlighter-rouge">moveCounter</code>, that is: the <code class="highlighter-rouge">&lt;span&gt;</code> element containing the 0 you see at the top. To be more specific, here’s it</p>
+
+<p><code class="highlighter-rouge">&lt;span class="bar__n" id="move-counter"&gt;0&lt;/span&gt;</code></p>
+
+<p>The 0 matters close to nothing for us, in a moment we’ll see why.</p>
+
+<p>We proceed to grab the second and third star, that is: the one in the middle and the one on the far right of the three.</p>
+
+<p>Now we can build the function we most care of.</p>
+
+<p>So hey! Monkeys in the back! Raise the curtains. Unveil the <code class="highlighter-rouge">trackScore()</code> function for the gentlmen reading here.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">trackScore</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">moveCount</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">moveCounter</span><span class="p">.</span><span class="nx">textContent</span><span class="p">);</span>
+    <span class="nx">moveCount</span><span class="o">++</span><span class="p">;</span>
+    <span class="nx">moveCounter</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="nx">moveCount</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">moveCount</span> <span class="o">&gt;</span> <span class="mi">10</span> <span class="o">&amp;&amp;</span> <span class="nx">moveCount</span> <span class="o">&lt;=</span> <span class="mi">15</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">star3</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">'fa-star'</span><span class="p">,</span> <span class="s1">'fa-star-o'</span><span class="p">);</span>
+        <span class="nx">starNumber</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">moveCount</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">star2</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">'fa-star'</span><span class="p">,</span> <span class="s1">'fa-star-o'</span><span class="p">);</span>
+        <span class="nx">starNumber</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">starNumber</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Here it comes the code explanation.</p>
+
+<p>Remember: this is a function that we will call each time the player flips a card.</p>
+
+<p>So at the very beginning it declares a variable: <code class="highlighter-rouge">moveCount</code>. This variable takes the element stored in <code class="highlighter-rouge">moveCounter</code>. Then it extracts its value by using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent"><code class="highlighter-rouge">textContent</code></a> property.</p>
+
+<p>At the time of extraction this value is just a string.</p>
+
+<p>It’s bad for us.</p>
+
+<p>This is why you see the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt">parseInt()</a>: it converts the current <code class="highlighter-rouge">moveCount</code>’s value from string to integer. <em>Then</em> it increments it by 1. <em>Then</em> it converts it again to string and place the updated value to the appropriate element.</p>
+
+<p>Once it finishes to handle move counting, the function proceeds to manage the stars.</p>
+
+<p>Because we want to communicate to the player a star loss, when that happens we must send a visual feedback.</p>
+
+<p>Here’s where the star class replacing happens:</p>
+<ul>
+  <li>if <code class="highlighter-rouge">moveCount</code> is between 10 and 15, we make the third star - the one on the right - empty. Remember, we just replace Font-awesome’s own <code class="highlighter-rouge">fa-star</code> class (the black star) with its <code class="highlighter-rouge">fa-star-o</code> class (the empty star). Also, we track the number of stars showed (2) by setting <code class="highlighter-rouge">starNumber = 2</code>.</li>
+  <li>if <code class="highlighter-rouge">moveCount</code> is greater than 15, we do the same on the second star - the one in the middle - but set <code class="highlighter-rouge">starNumber</code> to 1.</li>
+  <li>if neither of the above two cases happen, it means we still have 3 stars.</li>
+</ul>
+
+<h2 id="trackscore---integration">trackScore() - integration</h2>
+<p>What’s a function’s worth if we don’t actually use in our program? You guessed it: nothing.</p>
+
+<p>So let’s put <code class="highlighter-rouge">trackScore()</code> in the right place: in the <code class="highlighter-rouge">for..of</code> loop. Specifically, when we flip a card.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">card</span> <span class="k">of</span> <span class="nx">cards</span><span class="p">){</span>
+  <span class="nx">card</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">isFlipped</span><span class="p">){</span>
+      
+          <span class="nx">flipCard</span><span class="p">(</span><span class="nx">card</span><span class="p">);</span>
+          <span class="nx">isFlipped</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+          
+          <span class="nx">trackScore</span><span class="p">();</span>
+      
+      
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">isFlipped</span><span class="p">){</span>
+          <span class="nx">flipCardBack</span><span class="p">(</span><span class="nx">card</span><span class="p">);</span>
+          <span class="nx">isFlipped</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">})</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>Here’s a demonstration</p>
+
+<p><img src="/assets/posts/memory-p3/star-feature.gif" alt="star-feature gif" /></p>
+
+<hr />
+
+<p>This is it for today guys! Thank you for reading!</p>
+
+<p>You can find the full code below</p>
+
+<p>https://codepen.io/davide2894/pen/ZozxNz?editors=1011</p>
+
+<p data-height="265" data-theme-id="dark" data-slug-hash="ZozxNz" data-default-tab="html,result" data-user="davide2894" data-embed-version="2" data-pen-title="Memory Game - p3" class="codepen">See the Pen <a href="https://codepen.io/davide2894/pen/ZozxNz/">Memory Game - p3</a> by Davide (<a href="https://codepen.io/davide2894">@davide2894</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+
+  
+  
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://loafcode.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+</div>
+
+<div class="pagination">
+  
+  
+    <a href="/2018-04-16/how-to-make-a-dragon-ball-based-memory-game-part-2" class="right arrow">&#8594;</a>
+  
+
+  <a href="#" class="top">Top</a>
+</div>
+
+        </main>
+
+        <footer>
+            <ul class="footer-list">
+                <a href="https://github.com/davide2894" target="_blank">
+                    <li class="footer-item github">Github</li>
+                </a>
+                <a href="https://www.linkedin.com/in/davideiaiunese/" target="_blank">
+                    <li class="footer-item linkedin">Linkedin</li>
+                </a>
+                <a href="mailto:davide.iaiunese@gmail.com" target="_blank">
+                    <li class="footer-item email">Email</li>
+                </a>
+                <a href="https://twitter.com/davideiaiunese" target="_blank">
+                    <li class="footer-item twitter">Twitter</li>
+                </a>
+            </ul>
+
+            <div class="newsletter-container">
+                <h4 class="newsletter-title">Subscribe</h4>
+                <!-- <p class="newsletter-text"></p> -->
+                <form class="newsletter-form" action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('https://feedburner.google.com/fb/a/mailverify?uri=MorningDev', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+
+                    <p class="newsletter-text">Get new posts to your inbox</p>
+
+                    <input type="hidden" value="MorningDev" name="uri" />
+
+                    <input type="hidden" name="loc" value="en_US" />
+                    
+                    <input class="newsletter-email" type="text" name="email" placeholder="name@example.com" />
+
+                    <input class="newsletter-submit" type="submit" value="Subscribe" />
+
+                </form>
+            </div>
+
+            <div class="footer-item copyright">
+                &copy; <time datetime="2018-04-20 19:22:08 +0200">2018</time>
+                <span class="copyright-name">Davide Iaiunese</span>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>

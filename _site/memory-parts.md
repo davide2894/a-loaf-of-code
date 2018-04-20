@@ -44,7 +44,7 @@ v5. add card shuffling on page load
 9. do desktop version 
 10. add favicon
 
-
+    
 
 
 ## Reflections

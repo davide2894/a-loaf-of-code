@@ -12,6 +12,7 @@ comments: true
 [q/a]
 
 q: 
+* do you have any previous programming experience?
 * what's your lifestyle in tokyo?
 * how's living in Tokyo?
 * are apps your only source of income?
@@ -99,3 +100,13 @@ I keep doing this since then.
 ***
 
 Q: What's your daily routine?
+A: Usually, I start doing my work for 3 hours straight after I wake up since I have the most energy at the time.
+I do everything related to my work including programming, support, marketing stuff and so on for that time, and I will do the rest next day.
+
+After I finished my working time, I start doing anything related to my life like doing chores, and other things.
+
+I keep following this routine on holidays too, but sometimes I cannot work at all when I want to do something else with someone, I am traveling or sick. 
+
+***
+
+Q: Damn, that sounds too good Non! Are you really more productive with only 3 hours of daily work? If so, can you give us an example, please?

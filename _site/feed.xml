@@ -1,4 +1,230 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-04-16T18:06:02+02:00</updated><id>http://localhost:4000/</id><title type="html">Morning Dev</title><subtitle>chronicles of my coding journey</subtitle><author><name>Davide Iaiunese</name><email>davide.iaiunese@gmail.com</email></author><entry><title type="html">How to make a Dragon Ball memory game - PART 2</title><link href="http://localhost:4000/2018-04-16/how-to-make-a-dragon-ball-based-memory-game-part-2" rel="alternate" type="text/html" title="How to make a Dragon Ball memory game - PART 2" /><published>2018-04-16T00:00:00+02:00</published><updated>2018-04-16T00:00:00+02:00</updated><id>http://localhost:4000/2018-04-16/how-to-make-a-dragon-ball-based-memory-game-part-2</id><content type="html" xml:base="http://localhost:4000/2018-04-16/how-to-make-a-dragon-ball-based-memory-game-part-2">&lt;p&gt;&lt;img src=&quot;/assets/posts/memory/mockup.webp&quot; alt=&quot;game mockup&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-04-20T19:22:08+02:00</updated><id>http://localhost:4000/</id><title type="html">Morning Dev</title><subtitle>chronicles of my coding journey</subtitle><author><name>Davide Iaiunese</name><email>davide.iaiunese@gmail.com</email></author><entry><title type="html">How to make a Dragon Ball memory game - PART 3</title><link href="http://localhost:4000/2018-04-20/how-to-make-a-dragon-ball-based-memory-game-part-3" rel="alternate" type="text/html" title="How to make a Dragon Ball memory game - PART 3" /><published>2018-04-20T00:00:00+02:00</published><updated>2018-04-20T00:00:00+02:00</updated><id>http://localhost:4000/2018-04-20/how-to-make-a-dragon-ball-based-memory-game-part-3</id><content type="html" xml:base="http://localhost:4000/2018-04-20/how-to-make-a-dragon-ball-based-memory-game-part-3">&lt;p&gt;&lt;img src=&quot;/assets/posts/memory/mockup.webp&quot; alt=&quot;game mockup&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This article is the third part of the Dragon Ball-based, memory game walkthrough series.&lt;/p&gt;
+
+&lt;p&gt;If you haven’t already, read &lt;a href=&quot;https://codeburst.io/how-to-make-a-dragon-ball-memory-game-part-1-91f40ba268dd&quot;&gt;PART 1&lt;/a&gt; and &lt;a href=&quot;https://codeburst.io/how-to-make-a-dragon-ball-memory-game-part-2-5659ff2ee0b9&quot;&gt;PART 2&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;recap&quot;&gt;Recap&lt;/h2&gt;
+&lt;p&gt;Two weeks ago, right at the beginning of this project, we started by laying down the game HTML structure, a raw one to be honest. Then we started building the main attraction of this game: cards. Well, we started with just one and made it flippable with JavaScript.&lt;/p&gt;
+
+&lt;p&gt;Last week, in &lt;a href=&quot;https://codeburst.io/how-to-make-a-dragon-ball-memory-game-part-2-5659ff2ee0b9&quot;&gt;PART 2&lt;/a&gt;, we took the first card and made 15 copies out of it. As a result, we noticed how horrible and gigantic those cards looked.&lt;/p&gt;
+
+&lt;p&gt;So we made the smaller, added some Flexbox and made it all look prettier.&lt;/p&gt;
+
+&lt;p&gt;Lastly, we channeled our attention to build a function that would shuffle the card. It’s working and we tested it.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/posts/memory-p2/shuffleCards().gif&quot; alt=&quot;shuffle-gif&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;That said, we can move with this new, exciting third part! :D&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;shake-up&quot;&gt;Shake up&lt;/h2&gt;
+&lt;p&gt;Having worked pretty much only on cards, let’s shake things up a bit and focus on the score panel this time.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/posts/memory-p3/0.png&quot; alt=&quot;score panel&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Looks pretty confusing, huh? Better make distinctions in this area. Things are getting mixed up.&lt;/p&gt;
+
+&lt;p&gt;How about this?&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.header&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;text-align&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;center&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3em&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nc&quot;&gt;.bar&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;justify-content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;space-around&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;margin-top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3em&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;align-items&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;baseline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1em&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;button&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:hover&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;cursor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;pointer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;First we center the header and incraese its &lt;code class=&quot;highlighter-rouge&quot;&gt;font-size&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Then, &lt;code class=&quot;highlighter-rouge&quot;&gt;flexbox&lt;/code&gt; comes to save the day: we use it to display the &lt;code class=&quot;highlighter-rouge&quot;&gt;.bar&lt;/code&gt; horizontally, we space items evenly and align them on the same axis.&lt;/p&gt;
+
+&lt;p&gt;Oh, the button becomes smaller.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/posts/memory-p3/1.png&quot; alt=&quot;score panel prettified&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;the-stars&quot;&gt;The stars!&lt;/h2&gt;
+
+&lt;p&gt;For pete’s sake, how could I forget to add the stars in there?! It’s like essential to communicate with the player, you kno!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/posts/memory-p3/facepalm-peter.jpg&quot; alt=&quot;facepalm-peter&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Let’s fix this quicly before someone finds it out (psst, please don’t tell this to the other two people reading).&lt;/p&gt;
+
+&lt;p&gt;The simplest way to add stars is by adding icons. Hey font-awesome! Lend me some please!&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;bar__stars&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;i&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fa fa-star&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;star-1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/i&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;i&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fa fa-star&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;star-2&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/i&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;i&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fa fa-star&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;star-3&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/i&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If you’re coding along wit me, I assume you’re using CodePen. In this case, go to Settings-&amp;gt; ‘Stuff for &amp;lt;head&amp;gt;’ and copy-paste &lt;code class=&quot;highlighter-rouge&quot;&gt;font-awesome&lt;/code&gt;’s CDN:&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://use.fontawesome.com/releases/v5.0.10/css/all.css&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;integrity=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;crossorigin=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;anonymous&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In case you’re using your own text editor, just paste the above in &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;head&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Ready too see some stars? (I know, terrible)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/posts/memory-p3/2.png&quot; alt=&quot;score panel prettified&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We can now get back to JavaScript, and work out how to track score.&lt;/p&gt;
+
+&lt;h2 id=&quot;trackscore---the-logic&quot;&gt;trackScore() - the logic&lt;/h2&gt;
+
+&lt;p&gt;Here’s the idea: we can manage the score logic with just one function. In fact, this one should do what follows:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;increment moves number each time the player flips a card&lt;/li&gt;
+  &lt;li&gt;reduce the stars shown when the moves number surpasses a certain limit. The more moves it takes you to win the game, the less stars I will give you&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Before that, we need to grab the star elements from the DOM, so that we can manipulate how many to show.&lt;/p&gt;
+
+&lt;p&gt;Or to be more precise, how many he has.&lt;/p&gt;
+
+&lt;p&gt;Font-awesome offers many versions of the same icon. In particular, two catch our interest.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;fa-star&lt;/code&gt; &lt;img src=&quot;/assets/posts/memory-p3/fa-star.png&quot; alt=&quot;black star icon&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;and&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;fa-star-o&lt;/code&gt; &lt;img src=&quot;/assets/posts/memory-p3/fa-star-o.png&quot; alt=&quot;empty star icon&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The game starts off with 3 stars, all filled in black. In other words, they have class &lt;code class=&quot;highlighter-rouge&quot;&gt;fa-star&lt;/code&gt;. When we want to communicate the user that he lost one, we can make it empty. In other words, we replace class &lt;code class=&quot;highlighter-rouge&quot;&gt;fa-star&lt;/code&gt; with class &lt;code class=&quot;highlighter-rouge&quot;&gt;fa-star-o&lt;/code&gt;. This will change the icon displayed giving the user the player a visual feedback.&lt;/p&gt;
+
+&lt;p&gt;To accomplish this we need to select only two stars.&lt;/p&gt;
+
+&lt;p&gt;Why? Because based on the player’s performace, the more moves he makes the less stars we’ll give to him.&lt;/p&gt;
+
+&lt;p&gt;As said before, the game starts with 3 stars - the max we can give - and decrease them when necessary.&lt;/p&gt;
+
+&lt;p&gt;I dediced to use these checkpoints:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;3 stars from the very start up to to 10 moves&lt;/li&gt;
+  &lt;li&gt;2 stars between 11 and 15 moves&lt;/li&gt;
+  &lt;li&gt;1 stars from 16 moves on&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;trackscore---the-code&quot;&gt;trackScore() - the code&lt;/h2&gt;
+
+&lt;p&gt;Enough! Time translate logic into code.&lt;/p&gt;
+
+&lt;p&gt;Let’s grab the elements we need from the DOM&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;moveCounter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'move-counter'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;star2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'star-2'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;star3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'star-3'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The first element we grab is &lt;code class=&quot;highlighter-rouge&quot;&gt;moveCounter&lt;/code&gt;, that is: the &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;span&amp;gt;&lt;/code&gt; element containing the 0 you see at the top. To be more specific, here’s it&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;span class=&quot;bar__n&quot; id=&quot;move-counter&quot;&amp;gt;0&amp;lt;/span&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The 0 matters close to nothing for us, in a moment we’ll see why.&lt;/p&gt;
+
+&lt;p&gt;We proceed to grab the second and third star, that is: the one in the middle and the one on the far right of the three.&lt;/p&gt;
+
+&lt;p&gt;Now we can build the function we most care of.&lt;/p&gt;
+
+&lt;p&gt;So hey! Monkeys in the back! Raise the curtains. Unveil the &lt;code class=&quot;highlighter-rouge&quot;&gt;trackScore()&lt;/code&gt; function for the gentlmen reading here.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;trackScore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;moveCount&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;parseInt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;moveCounter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;textContent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;moveCount&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;moveCounter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;textContent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;moveCount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;moveCount&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;moveCount&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;star3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;classList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'fa-star'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'fa-star-o'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;starNumber&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;moveCount&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;star2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;classList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'fa-star'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'fa-star-o'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;starNumber&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;starNumber&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Here it comes the code explanation.&lt;/p&gt;
+
+&lt;p&gt;Remember: this is a function that we will call each time the player flips a card.&lt;/p&gt;
+
+&lt;p&gt;So at the very beginning it declares a variable: &lt;code class=&quot;highlighter-rouge&quot;&gt;moveCount&lt;/code&gt;. This variable takes the element stored in &lt;code class=&quot;highlighter-rouge&quot;&gt;moveCounter&lt;/code&gt;. Then it extracts its value by using the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;textContent&lt;/code&gt;&lt;/a&gt; property.&lt;/p&gt;
+
+&lt;p&gt;At the time of extraction this value is just a string.&lt;/p&gt;
+
+&lt;p&gt;It’s bad for us.&lt;/p&gt;
+
+&lt;p&gt;This is why you see the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt&quot;&gt;parseInt()&lt;/a&gt;: it converts the current &lt;code class=&quot;highlighter-rouge&quot;&gt;moveCount&lt;/code&gt;’s value from string to integer. &lt;em&gt;Then&lt;/em&gt; it increments it by 1. &lt;em&gt;Then&lt;/em&gt; it converts it again to string and place the updated value to the appropriate element.&lt;/p&gt;
+
+&lt;p&gt;Once it finishes to handle move counting, the function proceeds to manage the stars.&lt;/p&gt;
+
+&lt;p&gt;Because we want to communicate to the player a star loss, when that happens we must send a visual feedback.&lt;/p&gt;
+
+&lt;p&gt;Here’s where the star class replacing happens:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;if &lt;code class=&quot;highlighter-rouge&quot;&gt;moveCount&lt;/code&gt; is between 10 and 15, we make the third star - the one on the right - empty. Remember, we just replace Font-awesome’s own &lt;code class=&quot;highlighter-rouge&quot;&gt;fa-star&lt;/code&gt; class (the black star) with its &lt;code class=&quot;highlighter-rouge&quot;&gt;fa-star-o&lt;/code&gt; class (the empty star). Also, we track the number of stars showed (2) by setting &lt;code class=&quot;highlighter-rouge&quot;&gt;starNumber = 2&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;if &lt;code class=&quot;highlighter-rouge&quot;&gt;moveCount&lt;/code&gt; is greater than 15, we do the same on the second star - the one in the middle - but set &lt;code class=&quot;highlighter-rouge&quot;&gt;starNumber&lt;/code&gt; to 1.&lt;/li&gt;
+  &lt;li&gt;if neither of the above two cases happen, it means we still have 3 stars.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;trackscore---integration&quot;&gt;trackScore() - integration&lt;/h2&gt;
+&lt;p&gt;What’s a function’s worth if we don’t actually use in our program? You guessed it: nothing.&lt;/p&gt;
+
+&lt;p&gt;So let’s put &lt;code class=&quot;highlighter-rouge&quot;&gt;trackScore()&lt;/code&gt; in the right place: in the &lt;code class=&quot;highlighter-rouge&quot;&gt;for..of&lt;/code&gt; loop. Specifically, when we flip a card.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;card&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cards&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;card&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'click'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;isFlipped&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+      
+          &lt;span class=&quot;nx&quot;&gt;flipCard&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;card&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+          &lt;span class=&quot;nx&quot;&gt;isFlipped&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+          
+          &lt;span class=&quot;nx&quot;&gt;trackScore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+      
+      
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;isFlipped&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+          &lt;span class=&quot;nx&quot;&gt;flipCardBack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;card&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+          &lt;span class=&quot;nx&quot;&gt;isFlipped&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Here’s a demonstration&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/posts/memory-p3/star-feature.gif&quot; alt=&quot;star-feature gif&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;This is it for today guys! Thank you for reading!&lt;/p&gt;
+
+&lt;p&gt;You can find the full code below&lt;/p&gt;
+
+&lt;p&gt;https://codepen.io/davide2894/pen/ZozxNz?editors=1011&lt;/p&gt;
+
+&lt;p data-height=&quot;265&quot; data-theme-id=&quot;dark&quot; data-slug-hash=&quot;ZozxNz&quot; data-default-tab=&quot;html,result&quot; data-user=&quot;davide2894&quot; data-embed-version=&quot;2&quot; data-pen-title=&quot;Memory Game - p3&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;https://codepen.io/davide2894/pen/ZozxNz/&quot;&gt;Memory Game - p3&lt;/a&gt; by Davide (&lt;a href=&quot;https://codepen.io/davide2894&quot;&gt;@davide2894&lt;/a&gt;) on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;https://static.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;</content><author><name>Davide Iaiunese</name><email>davide.iaiunese@gmail.com</email></author><summary type="html"></summary></entry><entry><title type="html">How to make a Dragon Ball memory game - PART 2</title><link href="http://localhost:4000/2018-04-16/how-to-make-a-dragon-ball-based-memory-game-part-2" rel="alternate" type="text/html" title="How to make a Dragon Ball memory game - PART 2" /><published>2018-04-16T00:00:00+02:00</published><updated>2018-04-16T00:00:00+02:00</updated><id>http://localhost:4000/2018-04-16/how-to-make-a-dragon-ball-based-memory-game-part-2</id><content type="html" xml:base="http://localhost:4000/2018-04-16/how-to-make-a-dragon-ball-based-memory-game-part-2">&lt;p&gt;&lt;img src=&quot;/assets/posts/memory/mockup.webp&quot; alt=&quot;game mockup&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Hi guys. This is the second part of this series. &lt;a href=&quot;https://codeburst.io/how-to-make-a-dragon-ball-memory-game-part-1-91f40ba268dd&quot;&gt;Here you can read part 1&lt;/a&gt;&lt;/p&gt;
 
