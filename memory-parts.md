@@ -15,8 +15,8 @@ v2. add rest of cards (total of 16, first one included)
 v3. modify js to flip selected card when clicked: use es6 newly added for...of loop to do so;
 v4. use css Grid to display cards as a 4x4 grid (first raw use of Grid)
 v5. add card shuffling on page load
-6. add move counter
-7. add stars feature. It's dependent on move counter's value
+v6. add move counter
+v7. add stars feature. It's dependent on move counter's value
 8. add timer
 9. add restart button
 10. add single match logic (this one can be long). Take it from kioku repo because it's the most updated.
@@ -45,8 +45,6 @@ v5. add card shuffling on page load
 10. add favicon
 
     
-
-
 ## Reflections
 Now, although it sounds like a simple game, after finishing this project I realized how much it helped me practice and improve logical thinking, time management, design skills and - more importantly - I realized that you can boost your learning quality by a lot if you enjoy what you do. 
 

@@ -56,7 +56,7 @@ button:hover {
 }
 ```
 
-First we center the header and incraese its `font-size`. 
+First we center the header and increase its `font-size`. 
 
 Then, `flexbox` comes to save the day: we use it to display the `.bar` horizontally, we space items evenly and align them on the same axis. 
 
@@ -72,7 +72,7 @@ For pete's sake, how could I forget to add the stars in there?! It's like essent
 ![facepalm-peter]({{"assets/posts/memory-p3/facepalm-peter.jpg" | relative_url}})
 
 
-Let's fix this quicly before someone finds it out (psst, please don't tell this to the other two people reading).
+Let's fix this quickly before someone finds it out (psst, please don't tell this to the other two people reading).
 
 The simplest way to add stars is by adding icons. Hey font-awesome! Lend me some please!
 
@@ -94,7 +94,7 @@ If you're coding along wit me, I assume you're using CodePen. In this case, go t
 
 In case you're using your own text editor, just paste the above in `<head>`.
 
-Ready too see some stars? (I know, terrible)
+Ready to see some stars? (I know, terrible)
 
 ![score panel prettified]({{"assets/posts/memory-p3/2.png" | relative_url}})
 
@@ -105,7 +105,7 @@ We can now get back to JavaScript, and work out how to track score.
 
 Here's the idea: we can manage the score logic with just one function. In fact, this one should do what follows:
 1. increment moves number each time the player flips a card
-2. reduce the stars shown when the moves number surpasses a certain limit. The more moves it takes you to win the game, the less stars I will give you
+2. reduce the stars shown when the moves number surpasses a certain limit. The more moves it takes you to win the game, the fewer stars I will give you
 
 Before that, we need to grab the star elements from the DOM, so that we can manipulate how many to show.
 
@@ -123,11 +123,11 @@ The game starts off with 3 stars, all filled in black. In other words, they have
 
 To accomplish this we need to select only two stars.
 
-Why? Because based on the player's performace, the more moves he makes the less stars we'll give to him. 
+Why? Because based on the player's performance, the more moves he makes the fewer stars we'll give to him. 
 
 As said before, the game starts with 3 stars - the max we can give - and decrease them when necessary.
 
-I dediced to use these checkpoints:
+I decided to use these checkpoints:
 * 3 stars from the very start up to to 10 moves
 * 2 stars between 11 and 15 moves
 * 1 stars from 16 moves on
@@ -154,7 +154,7 @@ We proceed to grab the second and third star, that is: the one in the middle and
 
 Now we can build the function we most care of. 
 
-So hey! Monkeys in the back! Raise the curtains. Unveil the `trackScore()` function for the gentlmen reading here.
+So hey! Monkeys in the back! Raise the curtains. Unveil the `trackScore()` function for the gentlemen reading here.
 
 ```javascript
 function trackScore() {
@@ -187,7 +187,7 @@ It's bad for us.
 
 This is why you see the [parseInt()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt): it converts the current `moveCount`'s value from string to integer. *Then* it increments it by 1. *Then* it converts it again to string and place the updated value to the appropriate element.
 
-Once it finishes to handle move counting, the function proceeds to manage the stars.
+Once it finishes handling move counting, the function proceeds to manage the stars.
 
 Because we want to communicate to the player a star loss, when that happens we must send a visual feedback. 
 
@@ -221,21 +221,18 @@ for(let card of cards){
 
 ```
 
-Here's a demonstration
+Here's a demonstration and the CodePen.
 
 ![star-feature gif]({{"assets/posts/memory-p3/star-feature.gif" | relative_url}})
 
-***
-
-This is it for today guys! Thank you for reading!
-
-You can find the full code below
-
-https://codepen.io/davide2894/pen/ZozxNz?editors=1011
 
 <p data-height="265" data-theme-id="dark" data-slug-hash="ZozxNz" data-default-tab="html,result" data-user="davide2894" data-embed-version="2" data-pen-title="Memory Game - p3" class="codepen">See the Pen <a href="https://codepen.io/davide2894/pen/ZozxNz/">Memory Game - p3</a> by Davide (<a href="https://codepen.io/davide2894">@davide2894</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
+***
 
+Aaaand that's it for today guys! You can find the full code below.
+
+If you find this walkthrough useful, please subscribe to my [blog](http://morningdev.com). You will be up to date to every new post I write. I won't waste your time. 
 
  

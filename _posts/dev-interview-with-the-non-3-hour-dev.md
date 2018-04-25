@@ -110,3 +110,43 @@ I keep following this routine on holidays too, but sometimes I cannot work at al
 ***
 
 Q: Damn, that sounds too good Non! Are you really more productive with only 3 hours of daily work? If so, can you give us an example, please?
+
+A: If I don't have a lot of time for work, I really think about what I don't need to do more than anything, 
+since your time is limited and you really think about what I really need to do compared to other things.
+Also, you can always realize that you cannot do everything, that boosts your productivity always.
+
+Having said that, if you work on startup or something, I believe you need to work for many hours every day,
+so it depends on how you want to work, and I don't think this method works for everybody.
+
+For me, I wanted to have some routine which I can keep doing for the rest of my life without burning out and 
+I ended up having this routine for my small business.
+
+***
+
+Q: 
+>Also, you can always realize that you cannot do everything, that boosts your productivity always.
+
+What do you mean when you say this, applied to web dev?
+
+A: Yes, it applies to everything, when you have a small amount of time, you should focus on something important to you and
+ditch other things.
+
+***
+
+Q: How do people react when you tell them about your 3-hour work day? I'm curious about this, especially if you consider the Japanese job culture (long working hours).
+
+A: Hmm, I am not sure, I'm self-employed so it is a different work style, and I don't talk so much about my working routine until people ask me about the details anyway.
+
+***
+
+Q: Oh I see. Aren't they surprised, even a bit?
+Anyway, how's the web dev job market in Japan?
+
+A: Sorry, I am not sure about that, my friends know my work style already so I don't remember.
+
+I don't know about web dev so much about Japan, but if you are a programmer, you can find jobs easily nowadays, especially in Tokyo.
+
+***
+
+Q: Don't worry. What about foreign programmers who want to come working in Japan, say in Tokyo? What are the requirements?
+Is Japanese a must-have for this kind of profession? I mean, programming languages use English all over the world. 
