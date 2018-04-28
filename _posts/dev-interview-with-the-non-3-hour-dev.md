@@ -22,7 +22,7 @@ q:
 * how can you monetize
 * what learning schedule would you advise to a wanna-be dev? 
 * how's your current routine compared to the time when you were developing 6hrs a day?
-* How do people react when you tell them about your 3-hour work day?
+v How do people react when you tell them about your 3-hour work day?
 v process you go through to dev an app
 
 ***
@@ -150,3 +150,11 @@ I don't know about web dev so much about Japan, but if you are a programmer, you
 
 Q: Don't worry. What about foreign programmers who want to come working in Japan, say in Tokyo? What are the requirements?
 Is Japanese a must-have for this kind of profession? I mean, programming languages use English all over the world. 
+
+A: Sorry, I don't know about that things so much, but I know several programmers who don't speak Japanese but works in Tokyo.
+
+***
+
+Q: That's just amazing, even only the fact that indeed is possible! :) 
+
+New question: what learning schedule would you advise to a wanna-be dev? 

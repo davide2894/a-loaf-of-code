@@ -231,8 +231,8 @@ Here's a demonstration and the CodePen.
 
 ***
 
-Aaaand that's it for today guys! You can find the full code below.
+Aaaand that's it for today guys!
 
-If you find this walkthrough useful, please subscribe to my [blog](http://morningdev.com). You will be up to date to every new post I write. I won't waste your time. 
+If you find this walkthrough useful, subscribe to my [blog](http://morningdev.com). You will be up to date to every new post I write. I won't waste your time. 
 
  
