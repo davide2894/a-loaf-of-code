@@ -5,6 +5,8 @@ authosr: "Davide"
 comments: true
 ---
 
+![game mockup]({{"assets/posts/memory/mockup.webp" | relative_url}})
+
 Welcome to the 4th part of this (surprisingly long) walktrhough series! Here we are trying to build a memory game based on Dragon Ball. 
 
 In [PART 1](https://codeburst.io/how-to-make-a-dragon-ball-memory-game-part-1-91f40ba268dd) we handled the logic behind one card.
@@ -244,8 +246,6 @@ To recap:
 `// user clicks -> clickCount++ -> if clickCount === 1: game started -> call `startGame()` -> watchTime()`
 
 Here's the CodePen:
-
-https://codepen.io/davide2894/pen/NMxjBo?editors=1010
 
 <p data-height="265" data-theme-id="dark" data-slug-hash="NMxjBo" data-default-tab="html,result" data-user="davide2894" data-embed-version="2" data-pen-title="Memory Game - p4" class="codepen">See the Pen <a href="https://codepen.io/davide2894/pen/NMxjBo/">Memory Game - p4</a> by Davide (<a href="https://codepen.io/davide2894">@davide2894</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>

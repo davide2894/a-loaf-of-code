@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- RSS Feed -->
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Morning Dev" />
+  <title>
+    
+      How to make a Dragon Ball memory game - PART 4 &middot; Morning Dev
+    
+  </title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bree+Serif">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/favicon/favlogo.ico">
+</head>
+
+
+<body>
+    <div class="page-wrapper">
+        <nav class="nav">
+            <div class="nav-container">
+                <a href="/">
+                <img class="logo" src="/assets/logo.svg" alt="blog logo">
+            </a>
+                <ul>
+                    <li class="list-item-about"><a class="about-link" href="/about">About</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <main>
+            <div class="post">
+  <div class="post-info">
+    
+      <br>
+      <span>&nbsp;</span><time datetime="2018-04-30 00:00:00 +0200">April 30, 2018</time>
+    
+  </div>
+  
+  <h1 class="post-title">How to make a Dragon Ball memory game - PART 4</h1>
+  
+  <div class="post-line"></div>
+
+  <p><img src="/assets/posts/memory/mockup.webp" alt="game mockup" /></p>
+
+<p>Welcome to the 4th part of this (surprisingly long) walktrhough series! Here we are trying to build a memory game based on Dragon Ball.</p>
+
+<p>In <a href="https://codeburst.io/how-to-make-a-dragon-ball-memory-game-part-1-91f40ba268dd">PART 1</a> we handled the logic behind one card.</p>
+
+<p>In <a href="https://codeburst.io/how-to-make-a-dragon-ball-memory-game-part-2-5659ff2ee0b9">PART 2</a> we focused on building the entire grid of cards.</p>
+
+<p>Last week, in <a href="">PART 3</a>, we shook things up. Cards apart, we added two new features:</p>
+<ol>
+  <li>moves counter</li>
+  <li>star displayer</li>
+</ol>
+
+<p><strong>Today our main goal is one: to add a timer.</strong></p>
+
+<h2 id="what-we-have">What we have</h2>
+<p>This is how I though it out.</p>
+
+<p>There is a need to <strong>display</strong> the time passed <strong>since the start of the game</strong>.</p>
+
+<p>This tells us <em>two things</em>.</p>
+
+<p><strong>One: we need to decide when the game starts</strong>. At page load, all cards are covered. Because of that, even if the player wanted to buy time, he can’t. So to consider the game to start at this moment is not a good idea. In fact, it’s fair to say that <em>the game starts only when the player flips the first card</em>.</p>
+
+<p><strong>Two: we must display the passing time in some way</strong>*. Inside our HTML code we have the following:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"bar__time"</span> <span class="na">id=</span><span class="s">"displayed-time"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;time&gt;</span>
+		00:00:00
+   <span class="nt">&lt;/time&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>This is part of the score panel. It’s where we track the time. It’s where we will display it.</p>
+
+<p>Take a look at it. Right now, time is a pure, static text. A placeholder. The only thing the above code does is to display this text: “00:00:00”. That’s it.</p>
+
+<p>We need to take that and make it dynamic.</p>
+
+<h2 id="logic">Logic</h2>
+<p>To make things more simple, easier to understand (read: to make my life easier) I decided to split time functionality in three parts. This means: <strong>three functions</strong>.</p>
+
+<p><strong>A function to add one second</strong> to the current time and display it the correct way. Just this. No more.</p>
+
+<p><strong>A second function that watches time</strong>. This is possible by calling the previous function at regular intervals. What interval? You guessed it - every second.</p>
+
+<p><strong>A third function that triggers the above two when the game starts</strong>. And when does that happen? I said it before: when the player flips a card.</p>
+
+<p>This is the logic we’re going to base the code on. So here we go.</p>
+
+<h2 id="grab-some-elements">Grab some elements</h2>
+<p>Let’s start to code by taking a good look at the DOM, grabbing the elements we need today, and declaring the variables we’re going to use.</p>
+
+<p>Let’s start by selecting the div that contains the time string</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">displayedTime</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'displayed-time'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Then, we declare a variable for each time units:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">seconds</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+	<span class="nx">minutes</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+	<span class="nx">hours</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Two trackers, one for clicks and one for touches. We’re going to use these two later on:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">clickCount</span> <span class="o">=</span> <span class="s1">'0'</span><span class="p">,</span>
+    <span class="nx">touchCount</span> <span class="o">=</span> <span class="s1">'0'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>A variable to store the function to watch time.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">timer</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>And to finish, a boolean to check whether the game started or not. For now, we leave it as false.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">gameStarted</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="add-time">Add Time</h2>
+<p>With the variables handled, we can start building our three functions. To start, it’s important to make one that:</p>
+<ul>
+  <li>adds 1 second</li>
+  <li>update the time displayed</li>
+</ul>
+
+<p>Let’s dig into that.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">addOneSecond</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">seconds</span><span class="o">++</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">seconds</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">seconds</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="nx">minutes</span><span class="o">++</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">minutes</span> <span class="o">&gt;</span> <span class="mi">60</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">minutes</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+			<span class="nx">hours</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// handle displyed time format</span>
+    <span class="c1">// timer.textContent = hours + ":" + minutes + ":" + seconds;</span>
+    <span class="nx">displayedTime</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span>
+        <span class="p">(</span><span class="nx">hours</span> <span class="p">?</span> <span class="p">(</span><span class="nx">hours</span> <span class="o">&gt;</span> <span class="mi">9</span> <span class="p">?</span> <span class="nx">hours</span> <span class="p">:</span> <span class="nx">hours</span> <span class="o">+</span> <span class="s2">"0"</span><span class="p">)</span> <span class="p">:</span> <span class="s2">"00"</span><span class="p">)</span> <span class="o">+</span>
+        <span class="s2">":"</span> <span class="o">+</span>
+        <span class="p">(</span><span class="nx">minutes</span> <span class="p">?</span> <span class="p">(</span><span class="nx">minutes</span> <span class="o">&gt;</span> <span class="mi">59</span> <span class="p">?</span> <span class="nx">minutes</span> <span class="p">:</span> <span class="s2">"0"</span> <span class="o">+</span> <span class="nx">minutes</span><span class="p">)</span> <span class="p">:</span> <span class="s2">"00"</span><span class="p">)</span> <span class="o">+</span>
+        <span class="s2">":"</span> <span class="o">+</span>
+        <span class="p">(</span><span class="nx">seconds</span> <span class="p">?</span> <span class="p">(</span><span class="nx">seconds</span> <span class="o">&gt;</span> <span class="mi">9</span> <span class="p">?</span> <span class="nx">seconds</span> <span class="p">:</span> <span class="s2">"0"</span> <span class="o">+</span> <span class="nx">seconds</span><span class="p">)</span> <span class="p">:</span> <span class="s2">"00"</span><span class="p">);</span>
+
+    <span class="c1">// repeat   </span>
+    <span class="nx">watchTime</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Ok. Ok. Slow down. Baby-steps.</p>
+
+<p>What can we notice: the function does something with a variable, there are two conditionals and one function call. Let’s look at them, one by one.</p>
+
+<p><strong>It increments <code class="highlighter-rouge">var seconds</code> by 1</strong>.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">seconds</span><span class="o">++</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><strong>The first conditional</strong></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nx">seconds</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">seconds</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="nx">minutes</span><span class="o">++</span><span class="p">;</span>
+	<span class="k">if</span> <span class="p">(</span><span class="nx">minutes</span> <span class="o">&gt;</span> <span class="mi">60</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">minutes</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+		<span class="nx">hours</span><span class="o">++</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>It goes like this:</p>
+
+<p>If the amount of seconds is greater than or equal to 60, it means we have a minute. So set <code class="highlighter-rouge">seconds = 0</code> and increment <code class="highlighter-rouge">minutes</code> by one. When you do this, check the amount of minutes: if <code class="highlighter-rouge">minutes</code> is greater than 60, reset <code class="highlighter-rouge">seconds = 0</code> and increment <code class="highlighter-rouge">hours</code> by one.</p>
+
+<p><strong>The second conditional</strong></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// handle displyed time format</span>
+<span class="c1">// timer.textContent = hours + ":" + minutes + ":" + seconds;</span>
+<span class="nx">displayedTime</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span>
+	<span class="p">(</span><span class="nx">hours</span> <span class="p">?</span> <span class="p">(</span><span class="nx">hours</span> <span class="o">&gt;</span> <span class="mi">9</span> <span class="p">?</span> <span class="nx">hours</span> <span class="p">:</span> <span class="nx">hours</span> <span class="o">+</span> <span class="s2">"0"</span><span class="p">)</span> <span class="p">:</span> <span class="s2">"00"</span><span class="p">)</span> <span class="o">+</span>
+	<span class="s2">":"</span> <span class="o">+</span>
+	<span class="p">(</span><span class="nx">minutes</span> <span class="p">?</span> <span class="p">(</span><span class="nx">minutes</span> <span class="o">&gt;</span> <span class="mi">59</span> <span class="p">?</span> <span class="nx">minutes</span> <span class="p">:</span> <span class="s2">"0"</span> <span class="o">+</span> <span class="nx">minutes</span><span class="p">)</span> <span class="p">:</span> <span class="s2">"00"</span><span class="p">)</span> <span class="o">+</span>
+	<span class="s2">":"</span> <span class="o">+</span>
+	<span class="p">(</span><span class="nx">seconds</span> <span class="p">?</span> <span class="p">(</span><span class="nx">seconds</span> <span class="o">&gt;</span> <span class="mi">9</span> <span class="p">?</span> <span class="nx">seconds</span> <span class="p">:</span> <span class="s2">"0"</span> <span class="o">+</span> <span class="nx">seconds</span><span class="p">)</span> <span class="p">:</span> <span class="s2">"00"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Basically, time is displayed in a <code class="highlighter-rouge">hours : minutes : seconds</code> format. We use <code class="highlighter-rouge">displayedTime</code> here - remember: it’s where the time element is stored - to display the output of this conditional. But how does it work? Well, to start off it handles one unit at a time.</p>
+
+<p>As for the hours:
+	* if <code class="highlighter-rouge">hours</code> has a value, it checks whether it’s greater than 9. If that’s the case, it displays that value followed by a “0” text string. 
+	* if the variable lacks a value it shows “00”</p>
+
+<p>As for the minutes and seconds, it works in a similar way. The only difference is that for the former we check whether it has a value greater than 59, while for the latter we check whether it has a value of 9.</p>
+
+<p><strong>A call</strong> to <code class="highlighter-rouge">watchTime()</code>.</p>
+
+<h2 id="watch-time">Watch Time</h2>
+<p>We have a function that adds a second and updates the time string in the DOM.</p>
+
+<p>But it does only that.</p>
+
+<p>This time string must be updated on a regular interval to make sense. And this interval should reflect how we keep track of time in the real world. In other words, we need a function that <em>adds 1 second every second</em>.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">watchTime</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">timer</span> <span class="o">=</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">addOneSecond</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The above does just that. It calls <code class="highlighter-rouge">addOneSecond()</code> each second. Pretty simple. Also, here’s how we use <code class="highlighter-rouge">timer</code>: to store the timeout invoking <code class="highlighter-rouge">watchTime()</code>.</p>
+
+<h2 id="start-the-game">Start the game</h2>
+<p>Now that we can track time, the last function to add is one that actually handles how the game starts.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">startGame</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">gameStarted</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="nx">watchTime</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>It does two things:</p>
+<ol>
+  <li>it sets <code class="highlighter-rouge">gameStarted = true</code> and</li>
+  <li>calls <code class="highlighter-rouge">watchTime</code>, which in turn will call <code class="highlighter-rouge">addOneSecond()</code> each second, ensuring a correct track of time.</li>
+</ol>
+
+<h2 id="integrate">Integrate</h2>
+<p>Now that we have the materials, we can have our time running. How? We integrate the above code in the main actor of this program: the cards loop.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Updated card loop</span>
+<span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">card</span> <span class="k">of</span> <span class="nx">cards</span><span class="p">){</span>
+  <span class="nx">card</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">isFlipped</span><span class="p">){</span>
+
+      <span class="nx">flipCard</span><span class="p">(</span><span class="nx">card</span><span class="p">);</span>
+      <span class="nx">isFlipped</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+      <span class="nx">clickCount</span><span class="o">++</span><span class="p">;</span>
+
+      <span class="nx">trackScore</span><span class="p">();</span>
+
+      <span class="k">if</span><span class="p">(</span><span class="nx">clickCount</span> <span class="o">===</span> <span class="mi">1</span><span class="p">){</span>
+        <span class="nx">startGame</span><span class="p">();</span>
+
+      <span class="p">}</span>
+
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">isFlipped</span><span class="p">){</span>
+
+      <span class="nx">flipCardBack</span><span class="p">(</span><span class="nx">card</span><span class="p">);</span>
+      <span class="nx">isFlipped</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+
+    <span class="p">}</span>   
+
+  <span class="p">})</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><em>What changed?</em></p>
+
+<p>Look closely.</p>
+
+<p>When the user clicks a card and flips it, we increment <code class="highlighter-rouge">clickCount</code> by 1 and track movements. We also check how many clicks we have: if it’s just one, it means it’s the first of the game, which means the game started. If that’s true, we call <code class="highlighter-rouge">startGame()</code>, which in turn will <code class="highlighter-rouge">watchTime()</code>.</p>
+
+<p>To recap:</p>
+
+<p><code class="highlighter-rouge">// user clicks -&gt; clickCount++ -&gt; if clickCount === 1: game started -&gt; call </code>startGame()<code class="highlighter-rouge"> -&gt; watchTime()</code></p>
+
+<p>Here’s the CodePen:</p>
+
+<p data-height="265" data-theme-id="dark" data-slug-hash="NMxjBo" data-default-tab="html,result" data-user="davide2894" data-embed-version="2" data-pen-title="Memory Game - p4" class="codepen">See the Pen <a href="https://codepen.io/davide2894/pen/NMxjBo/">Memory Game - p4</a> by Davide (<a href="https://codepen.io/davide2894">@davide2894</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<hr />
+
+<p>Aaaand that’s it for today guys!</p>
+
+<p>If you find this walkthrough useful, subscribe to my <a href="http://morningdev.com">blog</a>. You will be up to date to every new post I write. I won’t waste your time.</p>
+
+
+  
+  
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://loafcode.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+</div>
+
+<div class="pagination">
+  
+  
+    <a href="/2018-04-23/how-to-make-a-dragon-ball-based-memory-game-part-3" class="right arrow">&#8594;</a>
+  
+
+  <a href="#" class="top">Top</a>
+</div>
+
+        </main>
+
+        <footer>
+            <ul class="footer-list">
+                <a href="https://github.com/davide2894" target="_blank">
+                    <li class="footer-item github">Github</li>
+                </a>
+                <a href="https://www.linkedin.com/in/davideiaiunese/" target="_blank">
+                    <li class="footer-item linkedin">Linkedin</li>
+                </a>
+                <a href="mailto:davide.iaiunese@gmail.com" target="_blank">
+                    <li class="footer-item email">Email</li>
+                </a>
+                <a href="https://twitter.com/davideiaiunese" target="_blank">
+                    <li class="footer-item twitter">Twitter</li>
+                </a>
+            </ul>
+
+            <div class="newsletter-container">
+                <h4 class="newsletter-title">Subscribe</h4>
+                <!-- <p class="newsletter-text"></p> -->
+                <form class="newsletter-form" action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('https://feedburner.google.com/fb/a/mailverify?uri=MorningDev', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+
+                    <p class="newsletter-text">Get new posts to your inbox</p>
+
+                    <input type="hidden" value="MorningDev" name="uri" />
+
+                    <input type="hidden" name="loc" value="en_US" />
+                    
+                    <input class="newsletter-email" type="text" name="email" placeholder="name@example.com" />
+
+                    <input class="newsletter-submit" type="submit" value="Subscribe" />
+
+                </form>
+            </div>
+
+            <div class="footer-item copyright">
+                &copy; <time datetime="2018-04-30 18:56:26 +0200">2018</time>
+                <span class="copyright-name">Davide Iaiunese</span>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>

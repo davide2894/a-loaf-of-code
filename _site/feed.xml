@@ -1,4 +1,246 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-04-20T19:22:08+02:00</updated><id>http://localhost:4000/</id><title type="html">Morning Dev</title><subtitle>chronicles of my coding journey</subtitle><author><name>Davide Iaiunese</name><email>davide.iaiunese@gmail.com</email></author><entry><title type="html">How to make a Dragon Ball memory game - PART 3</title><link href="http://localhost:4000/2018-04-20/how-to-make-a-dragon-ball-based-memory-game-part-3" rel="alternate" type="text/html" title="How to make a Dragon Ball memory game - PART 3" /><published>2018-04-20T00:00:00+02:00</published><updated>2018-04-20T00:00:00+02:00</updated><id>http://localhost:4000/2018-04-20/how-to-make-a-dragon-ball-based-memory-game-part-3</id><content type="html" xml:base="http://localhost:4000/2018-04-20/how-to-make-a-dragon-ball-based-memory-game-part-3">&lt;p&gt;&lt;img src=&quot;/assets/posts/memory/mockup.webp&quot; alt=&quot;game mockup&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-04-30T18:56:26+02:00</updated><id>http://localhost:4000/</id><title type="html">Morning Dev</title><subtitle>chronicles of my coding journey</subtitle><author><name>Davide Iaiunese</name><email>davide.iaiunese@gmail.com</email></author><entry><title type="html">How to make a Dragon Ball memory game - PART 4</title><link href="http://localhost:4000/2018-04-30/how-to-make-a-dragon-ball-based-memory-game-part-4" rel="alternate" type="text/html" title="How to make a Dragon Ball memory game - PART 4" /><published>2018-04-30T00:00:00+02:00</published><updated>2018-04-30T00:00:00+02:00</updated><id>http://localhost:4000/2018-04-30/how-to-make-a-dragon-ball-based-memory-game-part-4</id><content type="html" xml:base="http://localhost:4000/2018-04-30/how-to-make-a-dragon-ball-based-memory-game-part-4">&lt;p&gt;&lt;img src=&quot;/assets/posts/memory/mockup.webp&quot; alt=&quot;game mockup&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Welcome to the 4th part of this (surprisingly long) walktrhough series! Here we are trying to build a memory game based on Dragon Ball.&lt;/p&gt;
+
+&lt;p&gt;In &lt;a href=&quot;https://codeburst.io/how-to-make-a-dragon-ball-memory-game-part-1-91f40ba268dd&quot;&gt;PART 1&lt;/a&gt; we handled the logic behind one card.&lt;/p&gt;
+
+&lt;p&gt;In &lt;a href=&quot;https://codeburst.io/how-to-make-a-dragon-ball-memory-game-part-2-5659ff2ee0b9&quot;&gt;PART 2&lt;/a&gt; we focused on building the entire grid of cards.&lt;/p&gt;
+
+&lt;p&gt;Last week, in &lt;a href=&quot;&quot;&gt;PART 3&lt;/a&gt;, we shook things up. Cards apart, we added two new features:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;moves counter&lt;/li&gt;
+  &lt;li&gt;star displayer&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Today our main goal is one: to add a timer.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;what-we-have&quot;&gt;What we have&lt;/h2&gt;
+&lt;p&gt;This is how I though it out.&lt;/p&gt;
+
+&lt;p&gt;There is a need to &lt;strong&gt;display&lt;/strong&gt; the time passed &lt;strong&gt;since the start of the game&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;This tells us &lt;em&gt;two things&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;One: we need to decide when the game starts&lt;/strong&gt;. At page load, all cards are covered. Because of that, even if the player wanted to buy time, he can’t. So to consider the game to start at this moment is not a good idea. In fact, it’s fair to say that &lt;em&gt;the game starts only when the player flips the first card&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Two: we must display the passing time in some way&lt;/strong&gt;*. Inside our HTML code we have the following:&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;bar__time&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;displayed-time&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;time&amp;gt;&lt;/span&gt;
+		00:00:00
+   &lt;span class=&quot;nt&quot;&gt;&amp;lt;/time&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This is part of the score panel. It’s where we track the time. It’s where we will display it.&lt;/p&gt;
+
+&lt;p&gt;Take a look at it. Right now, time is a pure, static text. A placeholder. The only thing the above code does is to display this text: “00:00:00”. That’s it.&lt;/p&gt;
+
+&lt;p&gt;We need to take that and make it dynamic.&lt;/p&gt;
+
+&lt;h2 id=&quot;logic&quot;&gt;Logic&lt;/h2&gt;
+&lt;p&gt;To make things more simple, easier to understand (read: to make my life easier) I decided to split time functionality in three parts. This means: &lt;strong&gt;three functions&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A function to add one second&lt;/strong&gt; to the current time and display it the correct way. Just this. No more.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A second function that watches time&lt;/strong&gt;. This is possible by calling the previous function at regular intervals. What interval? You guessed it - every second.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A third function that triggers the above two when the game starts&lt;/strong&gt;. And when does that happen? I said it before: when the player flips a card.&lt;/p&gt;
+
+&lt;p&gt;This is the logic we’re going to base the code on. So here we go.&lt;/p&gt;
+
+&lt;h2 id=&quot;grab-some-elements&quot;&gt;Grab some elements&lt;/h2&gt;
+&lt;p&gt;Let’s start to code by taking a good look at the DOM, grabbing the elements we need today, and declaring the variables we’re going to use.&lt;/p&gt;
+
+&lt;p&gt;Let’s start by selecting the div that contains the time string&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;displayedTime&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'displayed-time'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then, we declare a variable for each time units:&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;seconds&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;nx&quot;&gt;minutes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;nx&quot;&gt;hours&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Two trackers, one for clicks and one for touches. We’re going to use these two later on:&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;clickCount&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'0'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;touchCount&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'0'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;A variable to store the function to watch time.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;timer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And to finish, a boolean to check whether the game started or not. For now, we leave it as false.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;gameStarted&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;add-time&quot;&gt;Add Time&lt;/h2&gt;
+&lt;p&gt;With the variables handled, we can start building our three functions. To start, it’s important to make one that:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;adds 1 second&lt;/li&gt;
+  &lt;li&gt;update the time displayed&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Let’s dig into that.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;addOneSecond&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;seconds&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;seconds&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;60&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;seconds&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;minutes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;minutes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;60&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;minutes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;hours&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// handle displyed time format&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// timer.textContent = hours + &quot;:&quot; + minutes + &quot;:&quot; + seconds;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;displayedTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;textContent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hours&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hours&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;hours&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;hours&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;00&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
+        &lt;span class=&quot;s2&quot;&gt;&quot;:&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;minutes&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;minutes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;59&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;minutes&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;0&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;minutes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;00&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
+        &lt;span class=&quot;s2&quot;&gt;&quot;:&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;seconds&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;seconds&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;seconds&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;0&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;seconds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;00&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// repeat   &lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;watchTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Ok. Ok. Slow down. Baby-steps.&lt;/p&gt;
+
+&lt;p&gt;What can we notice: the function does something with a variable, there are two conditionals and one function call. Let’s look at them, one by one.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;It increments &lt;code class=&quot;highlighter-rouge&quot;&gt;var seconds&lt;/code&gt; by 1&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;seconds&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;The first conditional&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;seconds&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;60&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nx&quot;&gt;seconds&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nx&quot;&gt;minutes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;minutes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;60&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;nx&quot;&gt;minutes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;nx&quot;&gt;hours&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;It goes like this:&lt;/p&gt;
+
+&lt;p&gt;If the amount of seconds is greater than or equal to 60, it means we have a minute. So set &lt;code class=&quot;highlighter-rouge&quot;&gt;seconds = 0&lt;/code&gt; and increment &lt;code class=&quot;highlighter-rouge&quot;&gt;minutes&lt;/code&gt; by one. When you do this, check the amount of minutes: if &lt;code class=&quot;highlighter-rouge&quot;&gt;minutes&lt;/code&gt; is greater than 60, reset &lt;code class=&quot;highlighter-rouge&quot;&gt;seconds = 0&lt;/code&gt; and increment &lt;code class=&quot;highlighter-rouge&quot;&gt;hours&lt;/code&gt; by one.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The second conditional&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// handle displyed time format&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// timer.textContent = hours + &quot;:&quot; + minutes + &quot;:&quot; + seconds;&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;displayedTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;textContent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hours&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hours&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;hours&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;hours&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;00&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
+	&lt;span class=&quot;s2&quot;&gt;&quot;:&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;minutes&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;minutes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;59&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;minutes&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;0&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;minutes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;00&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
+	&lt;span class=&quot;s2&quot;&gt;&quot;:&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;seconds&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;seconds&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;seconds&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;0&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;seconds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;00&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Basically, time is displayed in a &lt;code class=&quot;highlighter-rouge&quot;&gt;hours : minutes : seconds&lt;/code&gt; format. We use &lt;code class=&quot;highlighter-rouge&quot;&gt;displayedTime&lt;/code&gt; here - remember: it’s where the time element is stored - to display the output of this conditional. But how does it work? Well, to start off it handles one unit at a time.&lt;/p&gt;
+
+&lt;p&gt;As for the hours:
+	* if &lt;code class=&quot;highlighter-rouge&quot;&gt;hours&lt;/code&gt; has a value, it checks whether it’s greater than 9. If that’s the case, it displays that value followed by a “0” text string. 
+	* if the variable lacks a value it shows “00”&lt;/p&gt;
+
+&lt;p&gt;As for the minutes and seconds, it works in a similar way. The only difference is that for the former we check whether it has a value greater than 59, while for the latter we check whether it has a value of 9.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A call&lt;/strong&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;watchTime()&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;watch-time&quot;&gt;Watch Time&lt;/h2&gt;
+&lt;p&gt;We have a function that adds a second and updates the time string in the DOM.&lt;/p&gt;
+
+&lt;p&gt;But it does only that.&lt;/p&gt;
+
+&lt;p&gt;This time string must be updated on a regular interval to make sense. And this interval should reflect how we keep track of time in the real world. In other words, we need a function that &lt;em&gt;adds 1 second every second&lt;/em&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;watchTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;timer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addOneSecond&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The above does just that. It calls &lt;code class=&quot;highlighter-rouge&quot;&gt;addOneSecond()&lt;/code&gt; each second. Pretty simple. Also, here’s how we use &lt;code class=&quot;highlighter-rouge&quot;&gt;timer&lt;/code&gt;: to store the timeout invoking &lt;code class=&quot;highlighter-rouge&quot;&gt;watchTime()&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;start-the-game&quot;&gt;Start the game&lt;/h2&gt;
+&lt;p&gt;Now that we can track time, the last function to add is one that actually handles how the game starts.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;startGame&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;gameStarted&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;watchTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;It does two things:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;it sets &lt;code class=&quot;highlighter-rouge&quot;&gt;gameStarted = true&lt;/code&gt; and&lt;/li&gt;
+  &lt;li&gt;calls &lt;code class=&quot;highlighter-rouge&quot;&gt;watchTime&lt;/code&gt;, which in turn will call &lt;code class=&quot;highlighter-rouge&quot;&gt;addOneSecond()&lt;/code&gt; each second, ensuring a correct track of time.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;integrate&quot;&gt;Integrate&lt;/h2&gt;
+&lt;p&gt;Now that we have the materials, we can have our time running. How? We integrate the above code in the main actor of this program: the cards loop.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// Updated card loop&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;card&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cards&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;card&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'click'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;isFlipped&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+
+      &lt;span class=&quot;nx&quot;&gt;flipCard&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;card&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;isFlipped&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+      &lt;span class=&quot;nx&quot;&gt;clickCount&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+      &lt;span class=&quot;nx&quot;&gt;trackScore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;clickCount&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;startGame&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;isFlipped&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+
+      &lt;span class=&quot;nx&quot;&gt;flipCardBack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;card&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;isFlipped&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;   
+
+  &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;What changed?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Look closely.&lt;/p&gt;
+
+&lt;p&gt;When the user clicks a card and flips it, we increment &lt;code class=&quot;highlighter-rouge&quot;&gt;clickCount&lt;/code&gt; by 1 and track movements. We also check how many clicks we have: if it’s just one, it means it’s the first of the game, which means the game started. If that’s true, we call &lt;code class=&quot;highlighter-rouge&quot;&gt;startGame()&lt;/code&gt;, which in turn will &lt;code class=&quot;highlighter-rouge&quot;&gt;watchTime()&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;To recap:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;// user clicks -&amp;gt; clickCount++ -&amp;gt; if clickCount === 1: game started -&amp;gt; call &lt;/code&gt;startGame()&lt;code class=&quot;highlighter-rouge&quot;&gt; -&amp;gt; watchTime()&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Here’s the CodePen:&lt;/p&gt;
+
+&lt;p data-height=&quot;265&quot; data-theme-id=&quot;dark&quot; data-slug-hash=&quot;NMxjBo&quot; data-default-tab=&quot;html,result&quot; data-user=&quot;davide2894&quot; data-embed-version=&quot;2&quot; data-pen-title=&quot;Memory Game - p4&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;https://codepen.io/davide2894/pen/NMxjBo/&quot;&gt;Memory Game - p4&lt;/a&gt; by Davide (&lt;a href=&quot;https://codepen.io/davide2894&quot;&gt;@davide2894&lt;/a&gt;) on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;https://static.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Aaaand that’s it for today guys!&lt;/p&gt;
+
+&lt;p&gt;If you find this walkthrough useful, subscribe to my &lt;a href=&quot;http://morningdev.com&quot;&gt;blog&lt;/a&gt;. You will be up to date to every new post I write. I won’t waste your time.&lt;/p&gt;</content><author><name>Davide Iaiunese</name><email>davide.iaiunese@gmail.com</email></author><summary type="html"></summary></entry><entry><title type="html">How to make a Dragon Ball memory game - PART 3</title><link href="http://localhost:4000/2018-04-23/how-to-make-a-dragon-ball-based-memory-game-part-3" rel="alternate" type="text/html" title="How to make a Dragon Ball memory game - PART 3" /><published>2018-04-23T00:00:00+02:00</published><updated>2018-04-23T00:00:00+02:00</updated><id>http://localhost:4000/2018-04-23/how-to-make-a-dragon-ball-based-memory-game-part-3</id><content type="html" xml:base="http://localhost:4000/2018-04-23/how-to-make-a-dragon-ball-based-memory-game-part-3">&lt;p&gt;&lt;img src=&quot;/assets/posts/memory/mockup.webp&quot; alt=&quot;game mockup&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;This article is the third part of the Dragon Ball-based, memory game walkthrough series.&lt;/p&gt;
 
@@ -48,7 +290,7 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;First we center the header and incraese its &lt;code class=&quot;highlighter-rouge&quot;&gt;font-size&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;First we center the header and increase its &lt;code class=&quot;highlighter-rouge&quot;&gt;font-size&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;Then, &lt;code class=&quot;highlighter-rouge&quot;&gt;flexbox&lt;/code&gt; comes to save the day: we use it to display the &lt;code class=&quot;highlighter-rouge&quot;&gt;.bar&lt;/code&gt; horizontally, we space items evenly and align them on the same axis.&lt;/p&gt;
 
@@ -62,7 +304,7 @@
 
 &lt;p&gt;&lt;img src=&quot;/assets/posts/memory-p3/facepalm-peter.jpg&quot; alt=&quot;facepalm-peter&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Let’s fix this quicly before someone finds it out (psst, please don’t tell this to the other two people reading).&lt;/p&gt;
+&lt;p&gt;Let’s fix this quickly before someone finds it out (psst, please don’t tell this to the other two people reading).&lt;/p&gt;
 
 &lt;p&gt;The simplest way to add stars is by adding icons. Hey font-awesome! Lend me some please!&lt;/p&gt;
 
@@ -82,7 +324,7 @@
 
 &lt;p&gt;In case you’re using your own text editor, just paste the above in &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;head&amp;gt;&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;Ready too see some stars? (I know, terrible)&lt;/p&gt;
+&lt;p&gt;Ready to see some stars? (I know, terrible)&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/posts/memory-p3/2.png&quot; alt=&quot;score panel prettified&quot; /&gt;&lt;/p&gt;
 
@@ -93,7 +335,7 @@
 &lt;p&gt;Here’s the idea: we can manage the score logic with just one function. In fact, this one should do what follows:&lt;/p&gt;
 &lt;ol&gt;
   &lt;li&gt;increment moves number each time the player flips a card&lt;/li&gt;
-  &lt;li&gt;reduce the stars shown when the moves number surpasses a certain limit. The more moves it takes you to win the game, the less stars I will give you&lt;/li&gt;
+  &lt;li&gt;reduce the stars shown when the moves number surpasses a certain limit. The more moves it takes you to win the game, the fewer stars I will give you&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;Before that, we need to grab the star elements from the DOM, so that we can manipulate how many to show.&lt;/p&gt;
@@ -112,11 +354,11 @@
 
 &lt;p&gt;To accomplish this we need to select only two stars.&lt;/p&gt;
 
-&lt;p&gt;Why? Because based on the player’s performace, the more moves he makes the less stars we’ll give to him.&lt;/p&gt;
+&lt;p&gt;Why? Because based on the player’s performance, the more moves he makes the fewer stars we’ll give to him.&lt;/p&gt;
 
 &lt;p&gt;As said before, the game starts with 3 stars - the max we can give - and decrease them when necessary.&lt;/p&gt;
 
-&lt;p&gt;I dediced to use these checkpoints:&lt;/p&gt;
+&lt;p&gt;I decided to use these checkpoints:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;3 stars from the very start up to to 10 moves&lt;/li&gt;
   &lt;li&gt;2 stars between 11 and 15 moves&lt;/li&gt;
@@ -144,7 +386,7 @@
 
 &lt;p&gt;Now we can build the function we most care of.&lt;/p&gt;
 
-&lt;p&gt;So hey! Monkeys in the back! Raise the curtains. Unveil the &lt;code class=&quot;highlighter-rouge&quot;&gt;trackScore()&lt;/code&gt; function for the gentlmen reading here.&lt;/p&gt;
+&lt;p&gt;So hey! Monkeys in the back! Raise the curtains. Unveil the &lt;code class=&quot;highlighter-rouge&quot;&gt;trackScore()&lt;/code&gt; function for the gentlemen reading here.&lt;/p&gt;
 
 &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;trackScore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;moveCount&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;parseInt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;moveCounter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;textContent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
@@ -176,7 +418,7 @@
 
 &lt;p&gt;This is why you see the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt&quot;&gt;parseInt()&lt;/a&gt;: it converts the current &lt;code class=&quot;highlighter-rouge&quot;&gt;moveCount&lt;/code&gt;’s value from string to integer. &lt;em&gt;Then&lt;/em&gt; it increments it by 1. &lt;em&gt;Then&lt;/em&gt; it converts it again to string and place the updated value to the appropriate element.&lt;/p&gt;
 
-&lt;p&gt;Once it finishes to handle move counting, the function proceeds to manage the stars.&lt;/p&gt;
+&lt;p&gt;Once it finishes handling move counting, the function proceeds to manage the stars.&lt;/p&gt;
 
 &lt;p&gt;Because we want to communicate to the player a star loss, when that happens we must send a visual feedback.&lt;/p&gt;
 
@@ -211,20 +453,18 @@
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Here’s a demonstration&lt;/p&gt;
+&lt;p&gt;Here’s a demonstration and the CodePen.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/posts/memory-p3/star-feature.gif&quot; alt=&quot;star-feature gif&quot; /&gt;&lt;/p&gt;
 
+&lt;p data-height=&quot;265&quot; data-theme-id=&quot;dark&quot; data-slug-hash=&quot;ZozxNz&quot; data-default-tab=&quot;html,result&quot; data-user=&quot;davide2894&quot; data-embed-version=&quot;2&quot; data-pen-title=&quot;Memory Game - p3&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;https://codepen.io/davide2894/pen/ZozxNz/&quot;&gt;Memory Game - p3&lt;/a&gt; by Davide (&lt;a href=&quot;https://codepen.io/davide2894&quot;&gt;@davide2894&lt;/a&gt;) on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;https://static.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
 &lt;hr /&gt;
 
-&lt;p&gt;This is it for today guys! Thank you for reading!&lt;/p&gt;
+&lt;p&gt;Aaaand that’s it for today guys!&lt;/p&gt;
 
-&lt;p&gt;You can find the full code below&lt;/p&gt;
-
-&lt;p&gt;https://codepen.io/davide2894/pen/ZozxNz?editors=1011&lt;/p&gt;
-
-&lt;p data-height=&quot;265&quot; data-theme-id=&quot;dark&quot; data-slug-hash=&quot;ZozxNz&quot; data-default-tab=&quot;html,result&quot; data-user=&quot;davide2894&quot; data-embed-version=&quot;2&quot; data-pen-title=&quot;Memory Game - p3&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;https://codepen.io/davide2894/pen/ZozxNz/&quot;&gt;Memory Game - p3&lt;/a&gt; by Davide (&lt;a href=&quot;https://codepen.io/davide2894&quot;&gt;@davide2894&lt;/a&gt;) on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
-&lt;script async=&quot;&quot; src=&quot;https://static.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;</content><author><name>Davide Iaiunese</name><email>davide.iaiunese@gmail.com</email></author><summary type="html"></summary></entry><entry><title type="html">How to make a Dragon Ball memory game - PART 2</title><link href="http://localhost:4000/2018-04-16/how-to-make-a-dragon-ball-based-memory-game-part-2" rel="alternate" type="text/html" title="How to make a Dragon Ball memory game - PART 2" /><published>2018-04-16T00:00:00+02:00</published><updated>2018-04-16T00:00:00+02:00</updated><id>http://localhost:4000/2018-04-16/how-to-make-a-dragon-ball-based-memory-game-part-2</id><content type="html" xml:base="http://localhost:4000/2018-04-16/how-to-make-a-dragon-ball-based-memory-game-part-2">&lt;p&gt;&lt;img src=&quot;/assets/posts/memory/mockup.webp&quot; alt=&quot;game mockup&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;If you find this walkthrough useful, subscribe to my &lt;a href=&quot;http://morningdev.com&quot;&gt;blog&lt;/a&gt;. You will be up to date to every new post I write. I won’t waste your time.&lt;/p&gt;</content><author><name>Davide Iaiunese</name><email>davide.iaiunese@gmail.com</email></author><summary type="html"></summary></entry><entry><title type="html">How to make a Dragon Ball memory game - PART 2</title><link href="http://localhost:4000/2018-04-16/how-to-make-a-dragon-ball-based-memory-game-part-2" rel="alternate" type="text/html" title="How to make a Dragon Ball memory game - PART 2" /><published>2018-04-16T00:00:00+02:00</published><updated>2018-04-16T00:00:00+02:00</updated><id>http://localhost:4000/2018-04-16/how-to-make-a-dragon-ball-based-memory-game-part-2</id><content type="html" xml:base="http://localhost:4000/2018-04-16/how-to-make-a-dragon-ball-based-memory-game-part-2">&lt;p&gt;&lt;img src=&quot;/assets/posts/memory/mockup.webp&quot; alt=&quot;game mockup&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Hi guys. This is the second part of this series. &lt;a href=&quot;https://codeburst.io/how-to-make-a-dragon-ball-memory-game-part-1-91f40ba268dd&quot;&gt;Here you can read part 1&lt;/a&gt;&lt;/p&gt;
 
