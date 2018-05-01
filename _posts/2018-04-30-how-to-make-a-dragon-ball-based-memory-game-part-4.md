@@ -256,5 +256,7 @@ Aaaand that's it for today guys!
 
 If you find this walkthrough useful, subscribe to my [blog](http://morningdev.com). You will be up to date to every new post I write. I won't waste your time. 
 
+*Originally published on [Codeburst.io](https://codeburst.io/how-to-make-a-dragon-ball-memory-game-part-4-5ce313de6f43)
+
 
 
