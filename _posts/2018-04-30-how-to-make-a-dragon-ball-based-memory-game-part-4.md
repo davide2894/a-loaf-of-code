@@ -13,7 +13,7 @@ In [PART 1](https://codeburst.io/how-to-make-a-dragon-ball-memory-game-part-1-91
 
 In [PART 2](https://codeburst.io/how-to-make-a-dragon-ball-memory-game-part-2-5659ff2ee0b9) we focused on building the entire grid of cards.
 
-Last week, in [PART 3](), we shook things up. Cards apart, we added two new features:
+Last week, in [PART 3](https://codeburst.io/how-to-make-a-dragon-ball-memory-game-part-3-cbdb28e2b069), we shook things up. Cards apart, we added two new features:
 1. moves counter
 2. star displayer
 
