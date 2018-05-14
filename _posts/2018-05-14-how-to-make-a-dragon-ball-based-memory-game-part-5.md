@@ -136,8 +136,6 @@ See it in action.
 ![restart icon]({{"assets/posts/memory-p5/restart.gif" | relative_url}})
 ***
 
-[for blog-->https://codepen.io/davide2894/pen/OZmZPm?editors=1010
-]
 <p data-height="265" data-theme-id="dark" data-slug-hash="OZmZPm" data-default-tab="html,result" data-user="davide2894" data-embed-version="2" data-pen-title="Memory Game - p5" class="codepen">See the Pen <a href="https://codepen.io/davide2894/pen/OZmZPm/">Memory Game - p5</a> by Davide (<a href="https://codepen.io/davide2894">@davide2894</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
