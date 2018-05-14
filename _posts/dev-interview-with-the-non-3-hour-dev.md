@@ -11,14 +11,14 @@ comments: true
 
 [q/a]
 
-q: 
+q:
 * do you have any previous programming experience?
-* what's your lifestyle in tokyo?
-* how's living in Tokyo?
+v what's your lifestyle in tokyo?
+v how's living in Tokyo?
 * are apps your only source of income?
-* what do you suggest to a foreigner who wants a dev job in Tokyo?
-* do you have a morning routine?
-* what does your typical day look like?
+v what do you suggest to a foreigner who wants a dev job in Tokyo?
+v do you have a morning routine?
+v what does your typical day look like?
 * how can you monetize
 * what learning schedule would you advise to a wanna-be dev? 
 * how's your current routine compared to the time when you were developing 6hrs a day?
@@ -158,3 +158,35 @@ A: Sorry, I don't know about that things so much, but I know several programmers
 Q: That's just amazing, even only the fact that indeed is possible! :) 
 
 New question: what learning schedule would you advise to a wanna-be dev? 
+
+A: >>That's just amazing, even only the fact that indeed is possible! :) 
+
+Yes, especially if you are a programmer, that is not an unusual thing
+
+
+>>New question: what learning schedule would you advise to an aspiring dev? 
+
+For me, keep working for a little time every day worked, but it might not work for others,
+my only advice is that you just try a little first step if you are interested in something.
+You can learn a lot from just doing a little thing when you do something new, and 
+it's ok even if you can't keep doing that after that anyway.
+
+***
+
+Q: I can see you have a pretty strong philosophy about coding. Do you have life a philosophy as well? If so, tell me about it please
+
+A: I am deeply influenced by books of Taleb like Blackswan, Antifragile, and so on, 
+also how you live by Haruki Murakami's essay.
+
+Especially, you try to find a way to survive first instead of trying to find a way to success.
+
+*** 
+
+Q: "you try to find a way to survive first instead of trying to find a way to success." 
+Interesting perspective. Thank you for mentioning those books :) 
+
+How's living in Tokyo and what's your lifestyle?
+
+A: I like Tokyo since the foods and restaurants are not expensive compared to other developed countries,
+also, it is safe and clean.  This is my expression after I traveled other developed and developing countries.
+I like walking around in Tokyo since you can enjoy seeing a lot of places.
