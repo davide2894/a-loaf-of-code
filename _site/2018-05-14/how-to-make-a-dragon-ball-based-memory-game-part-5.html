@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- RSS Feed -->
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Morning Dev" />
+  <title>
+    
+      How to make a Dragon Ball memory game - PART 5 &middot; Morning Dev
+    
+  </title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bree+Serif">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/favicon/favlogo.ico">
+</head>
+
+
+<body>
+    <div class="page-wrapper">
+        <nav class="nav">
+            <div class="nav-container">
+                <a href="/">
+                <img class="logo" src="/assets/logo.svg" alt="blog logo">
+            </a>
+                <ul>
+                    <li class="list-item-about"><a class="about-link" href="/about">About</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <main>
+            <div class="post">
+  <div class="post-info">
+    
+      <br>
+      <span>&nbsp;</span><time datetime="2018-05-14 00:00:00 +0200">May 14, 2018</time>
+    
+  </div>
+  
+  <h1 class="post-title">How to make a Dragon Ball memory game - PART 5</h1>
+  
+  <div class="post-line"></div>
+
+  <p>Hey guys! How are you? I hope everything is ok because we’re about to dig into a brand new post of this series.</p>
+
+<p>It’s been already a month since I started it! I appreciate someone is still reading this far :D</p>
+
+<p>But enough with the sugar.</p>
+
+<h2 id="quick-recap">Quick recap</h2>
+
+<p>In <a href="https://codeburst.io/how-to-make-a-dragon-ball-memory-game-part-1-91f40ba268dd">PART 1</a> we handled the logic behind one card.</p>
+
+<p>In <a href="https://codeburst.io/how-to-make-a-dragon-ball-memory-game-part-2-5659ff2ee0b9">PART 2</a> we focused on building the entire grid of cards.</p>
+
+<p>In <a href="https://codeburst.io/how-to-make-a-dragon-ball-memory-game-part-3-cbdb28e2b069">PART 3</a> we added two new features: moves counter and a star displayer</p>
+
+<p>In <a href="https://codeburst.io/how-to-make-a-dragon-ball-memory-game-part-4-cbdb28e2b069">PART 4</a> we implemented a timer</p>
+
+<p>Today we are implementing a restart button.</p>
+
+<h2 id="the-logic-behind">The logic behind</h2>
+<p>The idea is to make a button that reloads the page when the user clicks on it. It’s the easiest way because we’re talking about a browser game. <strong>Browsers don’t save state</strong>. When a page refreshes, the browser rebuilds the website from 0. Hence, all the progress made until the moment we hit refresh is lost.</p>
+
+<p>There’s an exception to this though, and is provided by<code class="highlighter-rouge">localStorage</code>. This object allows the user to save data locally, but more on that another time.</p>
+
+<p>So, as of now, when we refresh the page, the game returns to its default state.</p>
+
+<p>And that’s exactly what we want.</p>
+
+<p>As the button goes, we’re going to actually use a restart icon. Precisely: Font Awesome’s own <code class="highlighter-rouge">fa-redo-alt</code> icon.</p>
+
+<p>Page refresh is triggered by clicks on the restart icon, so we’ll need an event listener too.</p>
+
+<p>To sum it up, these are our <strong>ingredients</strong>:</p>
+<ul>
+  <li>an icon to represent restart</li>
+  <li>an event listener on said icon that, on click, triggers the restart</li>
+  <li>a function that handles page refresh</li>
+</ul>
+
+<h2 id="restart-the-code">Restart: the code</h2>
+
+<p>We already loaded Font Awesome via CDN previously, in <a href="https://codeburst.io/how-to-make-a-dragon-ball-memory-game-part-3-cbdb28e2b069">PART 3</a>, so we don’t have to do it again.</p>
+
+<p>We need to pick the icon and wrap it in a <code class="highlighter-rouge">button</code> HTML element. I picked Font Awesome’s <code class="highlighter-rouge">fa-redo-alt</code>.</p>
+
+<p><img src="/assets/posts/memory-p5/fa-redo-alt.png" alt="restart icon" /></p>
+
+<p>Create HTML code for the icon.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"bar__restart hoverable"</span> <span class="na">id=</span><span class="s">"restart"</span> <span class="nt">&gt;</span>
+	<span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fas fa-redo-alt fa-2x"</span><span class="nt">&gt;&lt;/i&gt;</span>
+<span class="nt">&lt;/button&gt;</span>
+</code></pre></div></div>
+
+<p>Insert it into <code class="highlighter-rouge">index.html</code>, in the <code class="highlighter-rouge">section</code> with class <code class="highlighter-rouge">bar</code>. In other words: in the game panel :)</p>
+
+<p>You can see it at the second line from the bottom.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"bar"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"bar__score"</span><span class="nt">&gt;</span>
+	  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"bar__span"</span><span class="nt">&gt;</span>Moves:<span class="nt">&lt;/span&gt;</span>
+	  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"bar__n"</span> <span class="na">id=</span><span class="s">"move-counter"</span><span class="nt">&gt;</span>0<span class="nt">&lt;/span&gt;</span>
+	  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"bar__stars"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-star"</span> <span class="na">id=</span><span class="s">"star-1"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;/i&gt;</span>
+		<span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-star"</span> <span class="na">id=</span><span class="s">"star-2"</span><span class="nt">&gt;&lt;/i&gt;</span>
+		<span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-star"</span> <span class="na">id=</span><span class="s">"star-3"</span><span class="nt">&gt;&lt;/i&gt;</span>
+	  <span class="nt">&lt;/div&gt;</span>
+	<span class="nt">&lt;/div&gt;</span>
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"bar__time"</span> <span class="na">id=</span><span class="s">"displayed-time"</span><span class="nt">&gt;</span>
+	  <span class="nt">&lt;time&gt;</span>
+		00:00:00
+	  <span class="nt">&lt;/time&gt;</span>
+	<span class="nt">&lt;/div&gt;</span>
+
+	<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"bar__restart hoverable"</span> <span class="na">id=</span><span class="s">"restart"</span> <span class="nt">&gt;</span>
+		<span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fas fa-redo-alt fa-2x"</span><span class="nt">&gt;&lt;/i&gt;</span>
+	<span class="nt">&lt;/button&gt;</span>
+	
+	<span class="nt">&lt;button</span> <span class="na">onclick=</span><span class="s">"shuffleCards()"</span><span class="nt">&gt;</span>Shuffle<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</code></pre></div></div>
+
+<p>But as of now it’s pretty ugly</p>
+
+<p><img src="/assets/posts/memory-p5/restart-unstyled.png" alt="restart icon" /></p>
+
+<p>Let’s get rid of the default background and add <code class="highlighter-rouge">cursor: pointer</code> when we hover with the mouse. This way we’ll see the icon with a transparent background. It will have a cleaner look.</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.bar__restart</span> <span class="p">{</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.hoverable</span> <span class="p">{</span>
+	<span class="nl">cursor</span><span class="p">:</span> <span class="nb">pointer</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>I chose to use a <code class="highlighter-rouge">.hoverable</code> class to style hover because we are going to use this again, and I wanted to follow the <strong>DRY</strong> principle: <strong>don’t repeat yourself</strong>.</p>
+
+<p><img src="/assets/posts/memory-p5/restart-styled.png" alt="restart icon" /></p>
+
+<p>And select it from the DOM with JavaScript</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">restartBtn</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'restart'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>At this point is quite straight because we need just a function that refreshes the page. We can use the ‘window’ object. To be precise, we’ll use ‘window.location.reload(false)’. This will refresh the page by using the browser’s cache, so reloading will be faster.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// reload page using browser cache</span>
+<span class="kd">function</span> <span class="nx">restart</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">reload</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The last thing to do is to add an event handler for clicks. Each time there is one on the button, <code class="highlighter-rouge">restart()</code> is triggered, so the page refreshes. We can add <code class="highlighter-rouge">onclick='Restart()'</code> to our <code class="highlighter-rouge">&lt;button&gt;</code></p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"bar__restart hoverable"</span> <span class="na">id=</span><span class="s">"restart"</span> <span class="na">onclick=</span><span class="s">'Restart()'</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fas fa-redo-alt fa-2x"</span><span class="nt">&gt;&lt;/i&gt;</span>
+	<span class="nt">&lt;/button&gt;</span>
+</code></pre></div></div>
+
+<p>See it in action.</p>
+
+<p><img src="/assets/posts/memory-p5/restart.gif" alt="restart icon" />
+***</p>
+
+<p data-height="265" data-theme-id="dark" data-slug-hash="OZmZPm" data-default-tab="html,result" data-user="davide2894" data-embed-version="2" data-pen-title="Memory Game - p5" class="codepen">See the Pen <a href="https://codepen.io/davide2894/pen/OZmZPm/">Memory Game - p5</a> by Davide (<a href="https://codepen.io/davide2894">@davide2894</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<hr />
+
+<p>Aaaand that’s it for today guys! Thank you for reading this post, from the bottom of my heart!
+If you find this useful, <a href="http://morningdev.com">subscribe to my blog</a>. You will be up to date to every new post I write. I won’t waste your time.</p>
+
+  
+  
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://loafcode.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+</div>
+
+<div class="pagination">
+  
+    <a href="/2018-07-08/dev-interview-with-the-non-3-hour-dev" class="left arrow">&#8592;</a>
+  
+  
+    <a href="/2018-04-30/how-to-make-a-dragon-ball-based-memory-game-part-4" class="right arrow">&#8594;</a>
+  
+
+  <a href="#" class="top">Top</a>
+</div>
+
+        </main>
+
+        <footer>
+            <ul class="footer-list">
+                <a href="https://github.com/davide2894" target="_blank">
+                    <li class="footer-item github">Github</li>
+                </a>
+                <a href="https://www.linkedin.com/in/davideiaiunese/" target="_blank">
+                    <li class="footer-item linkedin">Linkedin</li>
+                </a>
+                <a href="mailto:davide.iaiunese@gmail.com" target="_blank">
+                    <li class="footer-item email">Email</li>
+                </a>
+                <a href="https://twitter.com/davideiaiunese" target="_blank">
+                    <li class="footer-item twitter">Twitter</li>
+                </a>
+            </ul>
+
+            <div class="newsletter-container">
+                <h4 class="newsletter-title">Subscribe</h4>
+                <!-- <p class="newsletter-text"></p> -->
+                <form class="newsletter-form" action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('https://feedburner.google.com/fb/a/mailverify?uri=MorningDev', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+
+                    <p class="newsletter-text">Get new posts to your inbox</p>
+
+                    <input type="hidden" value="MorningDev" name="uri" />
+
+                    <input type="hidden" name="loc" value="en_US" />
+                    
+                    <input class="newsletter-email" type="text" name="email" placeholder="name@example.com" />
+
+                    <input class="newsletter-submit" type="submit" value="Subscribe" />
+
+                </form>
+            </div>
+
+            <div class="footer-item copyright">
+                &copy; <time datetime="2018-07-10 00:41:44 +0200">2018</time>
+                <span class="copyright-name">Davide Iaiunese</span>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,4 +1,324 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-04-30T18:56:26+02:00</updated><id>http://localhost:4000/</id><title type="html">Morning Dev</title><subtitle>chronicles of my coding journey</subtitle><author><name>Davide Iaiunese</name><email>davide.iaiunese@gmail.com</email></author><entry><title type="html">How to make a Dragon Ball memory game - PART 4</title><link href="http://localhost:4000/2018-04-30/how-to-make-a-dragon-ball-based-memory-game-part-4" rel="alternate" type="text/html" title="How to make a Dragon Ball memory game - PART 4" /><published>2018-04-30T00:00:00+02:00</published><updated>2018-04-30T00:00:00+02:00</updated><id>http://localhost:4000/2018-04-30/how-to-make-a-dragon-ball-based-memory-game-part-4</id><content type="html" xml:base="http://localhost:4000/2018-04-30/how-to-make-a-dragon-ball-based-memory-game-part-4">&lt;p&gt;&lt;img src=&quot;/assets/posts/memory/mockup.webp&quot; alt=&quot;game mockup&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-07-10T00:41:44+02:00</updated><id>http://localhost:4000/</id><title type="html">Morning Dev</title><subtitle>chronicles of my coding journey</subtitle><author><name>Davide Iaiunese</name><email>davide.iaiunese@gmail.com</email></author><entry><title type="html">Dev interview with Non: the 3 hour dev</title><link href="http://localhost:4000/2018-07-08/dev-interview-with-the-non-3-hour-dev" rel="alternate" type="text/html" title="Dev interview with Non: the 3 hour dev" /><published>2018-07-08T00:00:00+02:00</published><updated>2018-07-08T00:00:00+02:00</updated><id>http://localhost:4000/2018-07-08/dev-interview-with-the-non-3-hour-dev</id><content type="html" xml:base="http://localhost:4000/2018-07-08/dev-interview-with-the-non-3-hour-dev">&lt;p&gt;&lt;img src=&quot;/assets/posts/3hrdev/cover.jpeg&quot; alt=&quot;cover&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Japan is awesome.&lt;/p&gt;
+
+&lt;p&gt;We all love Japan.&lt;/p&gt;
+
+&lt;p&gt;I love Japan.&lt;/p&gt;
+
+&lt;p&gt;Non is a Japanese indie developer. Sometime ago, he wrote this &lt;a href=&quot;Link to Non's article&quot;&gt;article&lt;/a&gt; that made some noise in the dev community. &lt;a href=&quot;link to hackernews article&quot;&gt;Here’s the discussion on Hacker News&lt;/a&gt;. The reason is that he wrote about his &lt;strong&gt;3 hour work day&lt;/strong&gt;. Yup! You read that right. He works 3 hours a day, everyday. No wonder devs all around the world reacted to it.&lt;/p&gt;
+
+&lt;p&gt;As I read it, I asked myself some questions.&lt;/p&gt;
+
+&lt;p&gt;Does this method affect productivity? Why? How?&lt;/p&gt;
+
+&lt;p&gt;Is it possible to work only 3 hours everyday and keep the same productivity?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Why&lt;/strong&gt; we should take this into consideration?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;What&lt;/strong&gt;’s behind this?&lt;/p&gt;
+
+&lt;p&gt;And of course: &lt;strong&gt;who the heck&lt;/strong&gt; is Non? :D&lt;/p&gt;
+
+&lt;p&gt;To discover this and more, I flew all the way down to Japan!&lt;/p&gt;
+
+&lt;p&gt;…Nope.&lt;/p&gt;
+
+&lt;p&gt;I wished that.&lt;/p&gt;
+
+&lt;p&gt;I interviewed him via email.&lt;/p&gt;
+
+&lt;p&gt;Oh by the way, this is Non.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/posts/3hrdev/non.jpg&quot; alt=&quot;Non&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And here’s the interview. Enjoy!&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Let’s start! Tell me a bit about yourself&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Hi, I am Non Umemoto, a Japanese indie app developer from Tokyo.
+I make a living by selling my apps on the AppStore and the Playstore.&lt;br /&gt;
+I do everything related to app developments including programming, UI design, and supports.
+P.S. What does your name mean?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;That’s interesting. Tell me more please. How did it all start?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;About 7 years ago, I was a person who always wanted to make a web service, 
+but don’t have programming skill to do that.&lt;/p&gt;
+
+&lt;p&gt;I failed to learn PHP twice at the time but finally succeeded by making what I want and tried to learn based on things just for that purpose.
+After making 3 web services, I wanted to make an app who listen to the web blogs on the go,
+so I started learning iOS programming, then made the first app called Lisgo.&lt;/p&gt;
+
+&lt;p&gt;Since then, I’ve been developing and maintaining several mobile apps.&lt;/p&gt;
+
+&lt;p&gt;PS:
+My name Non is quite unique for Japanese, it means warm in Japanese. :)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Stubbornness is an incredible quality to have Non. In all honesty, I think a person can’t do this profession if he is used to give up on the first fail.&lt;/strong&gt;
+&lt;strong&gt;Could you describe the process you went through to publish and sell Lisgo? Also, could you provide a link for it?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Sure, but Lisgo is not on the AppStore anymore, 
+I made a new app called &lt;a href=&quot;https://itunes.apple.com/app/id1273954643&quot;&gt;Voicepaper&lt;/a&gt; recently which is a new TTS app for Lisgo users.&lt;/p&gt;
+
+&lt;p&gt;Having said that, I started learning iPhone dev using books and the net at first, and 
+I released the first version after around 6 months or so.&lt;/p&gt;
+
+&lt;p&gt;This was an app which I wanted to use myself, so I knew what are most important functions, and something I can add later from the start.
+Actually, I always make apps I use by myself so far, and this is a good and natural advantage as an indie app developer.&lt;/p&gt;
+
+&lt;p&gt;After I released the app, I tried to listen to feedback from users as much as possible to find out what people need and what people don’t need so much as I predicted before.&lt;/p&gt;
+
+&lt;p&gt;I learned a lot from the first app about how I can design and develop apps and how I can monetize it.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;6 months, I’m impressed. Usually, does it take so long to release an app?. And back then, were you already implementing the 3-hour-of-coding principle?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I try to release a first minimal version as fast as I can since you never know if people will like it or not till you release it on the AppStore.
+Especially, you cannot tell if people pay for your app until you release it.&lt;/p&gt;
+
+&lt;p&gt;So, I usually try to release a new app within 3-6 months after I started developing it from scratch.
+After I release the first version, if I see people pay for the app, I will start polishing it based on user feedback.
+It will take more time to upgrade after releasing it anyway if I keep updating it.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;blockquote&gt;
+    &lt;p&gt;were you already implementing the 3-hour-of-coding principle?&lt;br /&gt;
+I worked hard at the first 2 or 3 years, around 6-8 hours programming everyday for a full year, 
+and I burned out after that.&lt;/p&gt;
+  &lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Especially I had sore eyes every time back then, and I decided to make a 3-hour working principle later.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sore eyes are a problem that affected me as well. I had to take some measures to fix that problem, like installing Redlight on Ubuntu, setting dark themes for everything, exercising and so on.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;So this was what made you transition to a 3-hour coding day. Was it a direct transition or it was a gradual change?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I started working up to 6 hours per day at first, but I felt I still have some time when I am not focusing enough while working for 6 hours.
+I mean, if I have enough time for work, I tend to do something not important during my work time like searching for something or checking SNS.&lt;/p&gt;
+
+&lt;p&gt;After trying 6 hours rule per day for about 6 months, I decided to try 3 hours a day rule.
+I found I really think about what I need to do and I shouldn’t do with this rule more than before, and 
+I keep doing this since then.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;What’s your daily routine?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Usually, I start doing my work for 3 hours straight after I wake up since I have the most energy at the time.
+I do everything related to my work including programming, support, marketing stuff and so on for that time, and I will do the rest next day.&lt;/p&gt;
+
+&lt;p&gt;After I finished my working time, I start doing anything related to my life like doing chores, and other things.&lt;/p&gt;
+
+&lt;p&gt;I keep following this routine on holidays too, but sometimes I cannot work at all when I want to do something else with someone, I am traveling or sick.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Damn, that sounds too good Non! Are you really more productive with only 3 hours of daily work? If so, can you give us an example, please?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;If I don’t have a lot of time for work, I really think about what I don’t need to do more than anything, 
+since your time is limited and you really think about what I really need to do compared to other things.
+Also, you can always realize that you cannot do everything, that boosts your productivity always.&lt;/p&gt;
+
+&lt;p&gt;Having said that, if you work on startup or something, I believe you need to work for many hours every day,
+so it depends on how you want to work, and I don’t think this method works for everybody.&lt;/p&gt;
+
+&lt;p&gt;For me, I wanted to have some routine which I can keep doing for the rest of my life without burning out and 
+I ended up having this routine for my small business.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Also, you can always realize that you cannot do everything, that boosts your productivity. Always.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;What do you mean when you say this, applied to web dev?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Yes, it applies to everything, when you have a small amount of time, you should focus on something important to you and ditch other things.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;How do people react when you tell them about your 3-hour work day? I’m curious about this, especially if you consider the Japanese job culture (long working hours).&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Hmm, I am not sure, I’m self-employed so it is a different work style, and I don’t talk so much about my working routine until people ask me about the details anyway.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Oh I see. Aren’t they surprised, even a bit?
+Anyway, how’s the web dev job market in Japan?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Sorry, I am not sure about that, my friends know my work style already, so I don’t remember.&lt;/p&gt;
+
+&lt;p&gt;I don’t know about web dev so much about Japan, but if you are a programmer, you can find jobs easily nowadays, especially in Tokyo.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Don’t worry. What about foreign programmers who want to come working in Japan, say in Tokyo? What are the requirements?&lt;/strong&gt;
+Is Japanese a must-have for this kind of profession? I mean, programming languages use English all over the world.&lt;/p&gt;
+
+&lt;p&gt;Sorry, I don’t know about that things so much, but I know several programmers who don’t speak Japanese but works in Tokyo.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;That’s just amazing, even only the fact that indeed is possible!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;New question: what learning schedule would you advise to a wanna-be dev?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;For me, keep working for a little time everyday worked, but it might not work for others,
+my only advice is that you just try a little first step if you are interested in something.
+You can learn a lot from just doing a little thing when you do something new, and 
+it’s ok even if you can’t keep doing that after that anyway.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;I can see you have a pretty strong philosophy about coding. Do you have life a philosophy as well? If so, tell me about it please&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I am deeply influenced by books of Taleb like Blackswan, Antifragile, and so on, 
+also how you live by Haruki Murakami’s essay.&lt;/p&gt;
+
+&lt;p&gt;Especially, you try to find a way to survive first instead of trying to find a way to success.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;blockquote&gt;
+    &lt;p&gt;you try to find a way to survive first instead of trying to find a way to success.&lt;/p&gt;
+  &lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Interesting perspective. Thank you for mentioning those books :)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;How’s living in Tokyo and what’s your lifestyle?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I like Tokyo since the foods and restaurants are not expensive compared to other developed countries,
+also, it is safe and clean. This is my expression after I traveled other developed and developing countries.
+I like walking around in Tokyo since you can enjoy seeing a lot of places.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Dear Non, thank you very much this opportunity! I learned a lot from you.&lt;/p&gt;
+
+&lt;p&gt;I hope you guys enjoyed this article. Please let me know what you think.&lt;/p&gt;</content><author><name>Davide</name></author><summary type="html"></summary></entry><entry><title type="html">How to make a Dragon Ball memory game - PART 5</title><link href="http://localhost:4000/2018-05-14/how-to-make-a-dragon-ball-based-memory-game-part-5" rel="alternate" type="text/html" title="How to make a Dragon Ball memory game - PART 5" /><published>2018-05-14T00:00:00+02:00</published><updated>2018-05-14T00:00:00+02:00</updated><id>http://localhost:4000/2018-05-14/how-to-make-a-dragon-ball-based-memory-game-part-5</id><content type="html" xml:base="http://localhost:4000/2018-05-14/how-to-make-a-dragon-ball-based-memory-game-part-5">&lt;p&gt;Hey guys! How are you? I hope everything is ok because we’re about to dig into a brand new post of this series.&lt;/p&gt;
+
+&lt;p&gt;It’s been already a month since I started it! I appreciate someone is still reading this far :D&lt;/p&gt;
+
+&lt;p&gt;But enough with the sugar.&lt;/p&gt;
+
+&lt;h2 id=&quot;quick-recap&quot;&gt;Quick recap&lt;/h2&gt;
+
+&lt;p&gt;In &lt;a href=&quot;https://codeburst.io/how-to-make-a-dragon-ball-memory-game-part-1-91f40ba268dd&quot;&gt;PART 1&lt;/a&gt; we handled the logic behind one card.&lt;/p&gt;
+
+&lt;p&gt;In &lt;a href=&quot;https://codeburst.io/how-to-make-a-dragon-ball-memory-game-part-2-5659ff2ee0b9&quot;&gt;PART 2&lt;/a&gt; we focused on building the entire grid of cards.&lt;/p&gt;
+
+&lt;p&gt;In &lt;a href=&quot;https://codeburst.io/how-to-make-a-dragon-ball-memory-game-part-3-cbdb28e2b069&quot;&gt;PART 3&lt;/a&gt; we added two new features: moves counter and a star displayer&lt;/p&gt;
+
+&lt;p&gt;In &lt;a href=&quot;https://codeburst.io/how-to-make-a-dragon-ball-memory-game-part-4-cbdb28e2b069&quot;&gt;PART 4&lt;/a&gt; we implemented a timer&lt;/p&gt;
+
+&lt;p&gt;Today we are implementing a restart button.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-logic-behind&quot;&gt;The logic behind&lt;/h2&gt;
+&lt;p&gt;The idea is to make a button that reloads the page when the user clicks on it. It’s the easiest way because we’re talking about a browser game. &lt;strong&gt;Browsers don’t save state&lt;/strong&gt;. When a page refreshes, the browser rebuilds the website from 0. Hence, all the progress made until the moment we hit refresh is lost.&lt;/p&gt;
+
+&lt;p&gt;There’s an exception to this though, and is provided by&lt;code class=&quot;highlighter-rouge&quot;&gt;localStorage&lt;/code&gt;. This object allows the user to save data locally, but more on that another time.&lt;/p&gt;
+
+&lt;p&gt;So, as of now, when we refresh the page, the game returns to its default state.&lt;/p&gt;
+
+&lt;p&gt;And that’s exactly what we want.&lt;/p&gt;
+
+&lt;p&gt;As the button goes, we’re going to actually use a restart icon. Precisely: Font Awesome’s own &lt;code class=&quot;highlighter-rouge&quot;&gt;fa-redo-alt&lt;/code&gt; icon.&lt;/p&gt;
+
+&lt;p&gt;Page refresh is triggered by clicks on the restart icon, so we’ll need an event listener too.&lt;/p&gt;
+
+&lt;p&gt;To sum it up, these are our &lt;strong&gt;ingredients&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;an icon to represent restart&lt;/li&gt;
+  &lt;li&gt;an event listener on said icon that, on click, triggers the restart&lt;/li&gt;
+  &lt;li&gt;a function that handles page refresh&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;restart-the-code&quot;&gt;Restart: the code&lt;/h2&gt;
+
+&lt;p&gt;We already loaded Font Awesome via CDN previously, in &lt;a href=&quot;https://codeburst.io/how-to-make-a-dragon-ball-memory-game-part-3-cbdb28e2b069&quot;&gt;PART 3&lt;/a&gt;, so we don’t have to do it again.&lt;/p&gt;
+
+&lt;p&gt;We need to pick the icon and wrap it in a &lt;code class=&quot;highlighter-rouge&quot;&gt;button&lt;/code&gt; HTML element. I picked Font Awesome’s &lt;code class=&quot;highlighter-rouge&quot;&gt;fa-redo-alt&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/posts/memory-p5/fa-redo-alt.png&quot; alt=&quot;restart icon&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Create HTML code for the icon.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;bar__restart hoverable&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;restart&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;i&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fas fa-redo-alt fa-2x&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/i&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Insert it into &lt;code class=&quot;highlighter-rouge&quot;&gt;index.html&lt;/code&gt;, in the &lt;code class=&quot;highlighter-rouge&quot;&gt;section&lt;/code&gt; with class &lt;code class=&quot;highlighter-rouge&quot;&gt;bar&lt;/code&gt;. In other words: in the game panel :)&lt;/p&gt;
+
+&lt;p&gt;You can see it at the second line from the bottom.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;section&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;bar&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;bar__score&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+	  &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;bar__span&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Moves:&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
+	  &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;bar__n&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;move-counter&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;0&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
+	  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;bar__stars&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;i&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fa fa-star&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;star-1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/i&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;i&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fa fa-star&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;star-2&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/i&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;i&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fa fa-star&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;star-3&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/i&amp;gt;&lt;/span&gt;
+	  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;bar__time&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;displayed-time&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+	  &lt;span class=&quot;nt&quot;&gt;&amp;lt;time&amp;gt;&lt;/span&gt;
+		00:00:00
+	  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/time&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;bar__restart hoverable&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;restart&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;i&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fas fa-redo-alt fa-2x&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/i&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+	
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;onclick=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;shuffleCards()&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Shuffle&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/section&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;But as of now it’s pretty ugly&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/posts/memory-p5/restart-unstyled.png&quot; alt=&quot;restart icon&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Let’s get rid of the default background and add &lt;code class=&quot;highlighter-rouge&quot;&gt;cursor: pointer&lt;/code&gt; when we hover with the mouse. This way we’ll see the icon with a transparent background. It will have a cleaner look.&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.bar__restart&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nc&quot;&gt;.hoverable&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;cursor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;pointer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I chose to use a &lt;code class=&quot;highlighter-rouge&quot;&gt;.hoverable&lt;/code&gt; class to style hover because we are going to use this again, and I wanted to follow the &lt;strong&gt;DRY&lt;/strong&gt; principle: &lt;strong&gt;don’t repeat yourself&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/posts/memory-p5/restart-styled.png&quot; alt=&quot;restart icon&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And select it from the DOM with JavaScript&lt;/p&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;restartBtn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'restart'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;At this point is quite straight because we need just a function that refreshes the page. We can use the ‘window’ object. To be precise, we’ll use ‘window.location.reload(false)’. This will refresh the page by using the browser’s cache, so reloading will be faster.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// reload page using browser cache&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;restart&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;reload&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The last thing to do is to add an event handler for clicks. Each time there is one on the button, &lt;code class=&quot;highlighter-rouge&quot;&gt;restart()&lt;/code&gt; is triggered, so the page refreshes. We can add &lt;code class=&quot;highlighter-rouge&quot;&gt;onclick='Restart()'&lt;/code&gt; to our &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;button&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	&lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;bar__restart hoverable&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;restart&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;onclick=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Restart()'&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;i&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fas fa-redo-alt fa-2x&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/i&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;See it in action.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/posts/memory-p5/restart.gif&quot; alt=&quot;restart icon&quot; /&gt;
+***&lt;/p&gt;
+
+&lt;p data-height=&quot;265&quot; data-theme-id=&quot;dark&quot; data-slug-hash=&quot;OZmZPm&quot; data-default-tab=&quot;html,result&quot; data-user=&quot;davide2894&quot; data-embed-version=&quot;2&quot; data-pen-title=&quot;Memory Game - p5&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;https://codepen.io/davide2894/pen/OZmZPm/&quot;&gt;Memory Game - p5&lt;/a&gt; by Davide (&lt;a href=&quot;https://codepen.io/davide2894&quot;&gt;@davide2894&lt;/a&gt;) on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;https://static.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Aaaand that’s it for today guys! Thank you for reading this post, from the bottom of my heart!
+If you find this useful, &lt;a href=&quot;http://morningdev.com&quot;&gt;subscribe to my blog&lt;/a&gt;. You will be up to date to every new post I write. I won’t waste your time.&lt;/p&gt;</content><author><name>Davide Iaiunese</name><email>davide.iaiunese@gmail.com</email></author><summary type="html">Hey guys! How are you? I hope everything is ok because we’re about to dig into a brand new post of this series.</summary></entry><entry><title type="html">How to make a Dragon Ball memory game - PART 4</title><link href="http://localhost:4000/2018-04-30/how-to-make-a-dragon-ball-based-memory-game-part-4" rel="alternate" type="text/html" title="How to make a Dragon Ball memory game - PART 4" /><published>2018-04-30T00:00:00+02:00</published><updated>2018-04-30T00:00:00+02:00</updated><id>http://localhost:4000/2018-04-30/how-to-make-a-dragon-ball-based-memory-game-part-4</id><content type="html" xml:base="http://localhost:4000/2018-04-30/how-to-make-a-dragon-ball-based-memory-game-part-4">&lt;p&gt;&lt;img src=&quot;/assets/posts/memory/mockup.webp&quot; alt=&quot;game mockup&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Welcome to the 4th part of this (surprisingly long) walktrhough series! Here we are trying to build a memory game based on Dragon Ball.&lt;/p&gt;
 
@@ -6,7 +326,7 @@
 
 &lt;p&gt;In &lt;a href=&quot;https://codeburst.io/how-to-make-a-dragon-ball-memory-game-part-2-5659ff2ee0b9&quot;&gt;PART 2&lt;/a&gt; we focused on building the entire grid of cards.&lt;/p&gt;
 
-&lt;p&gt;Last week, in &lt;a href=&quot;&quot;&gt;PART 3&lt;/a&gt;, we shook things up. Cards apart, we added two new features:&lt;/p&gt;
+&lt;p&gt;Last week, in &lt;a href=&quot;https://codeburst.io/how-to-make-a-dragon-ball-memory-game-part-3-cbdb28e2b069&quot;&gt;PART 3&lt;/a&gt;, we shook things up. Cards apart, we added two new features:&lt;/p&gt;
 &lt;ol&gt;
   &lt;li&gt;moves counter&lt;/li&gt;
   &lt;li&gt;star displayer&lt;/li&gt;
@@ -240,7 +560,9 @@
 
 &lt;p&gt;Aaaand that’s it for today guys!&lt;/p&gt;
 
-&lt;p&gt;If you find this walkthrough useful, subscribe to my &lt;a href=&quot;http://morningdev.com&quot;&gt;blog&lt;/a&gt;. You will be up to date to every new post I write. I won’t waste your time.&lt;/p&gt;</content><author><name>Davide Iaiunese</name><email>davide.iaiunese@gmail.com</email></author><summary type="html"></summary></entry><entry><title type="html">How to make a Dragon Ball memory game - PART 3</title><link href="http://localhost:4000/2018-04-23/how-to-make-a-dragon-ball-based-memory-game-part-3" rel="alternate" type="text/html" title="How to make a Dragon Ball memory game - PART 3" /><published>2018-04-23T00:00:00+02:00</published><updated>2018-04-23T00:00:00+02:00</updated><id>http://localhost:4000/2018-04-23/how-to-make-a-dragon-ball-based-memory-game-part-3</id><content type="html" xml:base="http://localhost:4000/2018-04-23/how-to-make-a-dragon-ball-based-memory-game-part-3">&lt;p&gt;&lt;img src=&quot;/assets/posts/memory/mockup.webp&quot; alt=&quot;game mockup&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;If you find this walkthrough useful, subscribe to my &lt;a href=&quot;http://morningdev.com&quot;&gt;blog&lt;/a&gt;. You will be up to date to every new post I write. I won’t waste your time.&lt;/p&gt;
+
+&lt;p&gt;*Originally published on &lt;a href=&quot;https://codeburst.io/how-to-make-a-dragon-ball-memory-game-part-4-5ce313de6f43&quot;&gt;Codeburst.io&lt;/a&gt;&lt;/p&gt;</content><author><name>Davide Iaiunese</name><email>davide.iaiunese@gmail.com</email></author><summary type="html"></summary></entry><entry><title type="html">How to make a Dragon Ball memory game - PART 3</title><link href="http://localhost:4000/2018-04-23/how-to-make-a-dragon-ball-based-memory-game-part-3" rel="alternate" type="text/html" title="How to make a Dragon Ball memory game - PART 3" /><published>2018-04-23T00:00:00+02:00</published><updated>2018-04-23T00:00:00+02:00</updated><id>http://localhost:4000/2018-04-23/how-to-make-a-dragon-ball-based-memory-game-part-3</id><content type="html" xml:base="http://localhost:4000/2018-04-23/how-to-make-a-dragon-ball-based-memory-game-part-3">&lt;p&gt;&lt;img src=&quot;/assets/posts/memory/mockup.webp&quot; alt=&quot;game mockup&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;This article is the third part of the Dragon Ball-based, memory game walkthrough series.&lt;/p&gt;
 
@@ -2223,60 +2545,4 @@ Once a reviewer accepts my projects I build my own version. For example, these d
 
 &lt;p&gt;As you can see there are opportunities everywhere if you are serious about coding. Use socials too. That’s how I found out about this scholarship.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Take the risk&lt;/strong&gt;.&lt;/p&gt;</content><author><name>Davide</name></author><summary type="html"></summary></entry><entry><title type="html">Ugh, another coding blog?! Why?!</title><link href="http://localhost:4000/2018-03-06/issue1" rel="alternate" type="text/html" title="Ugh, another coding blog?! Why?!" /><published>2018-03-06T00:00:00+01:00</published><updated>2018-03-06T00:00:00+01:00</updated><id>http://localhost:4000/2018-03-06/issue1</id><content type="html" xml:base="http://localhost:4000/2018-03-06/issue1">&lt;p&gt;&lt;img src=&quot;/assets/posts/issue1/hey-why-not.webp&quot; alt=&quot;Hey, Why not?&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;It’s true.&lt;/p&gt;
-
-&lt;p&gt;This &lt;strong&gt;is&lt;/strong&gt; another coding blog&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;But&lt;/strong&gt; it’s from a regular dude.&lt;/p&gt;
-
-&lt;p&gt;You see, up until not so long ago I was living the average life. I was average. The only thing I wanted was to just play it safe. I’m not proud of that at all, but to be honest I’m grateful I could go through that path because eventually, after living in Hungary in two different years (the first time as an &lt;a href=&quot;https://ec.europa.eu/programmes/erasmus-plus/node_en?raw=true&quot;&gt;Erasmus student&lt;/a&gt;, the second as an &lt;a href=&quot;https://europa.eu/youth/eu/article/46/74_en?raw=true&quot;&gt;EVS volunteer&lt;/a&gt;, it brought me to the best a-ha moment of my life: when I discovered web development. It truly was that good.&lt;/p&gt;
-
-&lt;p&gt;In code, I found what I didn’t elsewhere. I found freedom.&lt;/p&gt;
-
-&lt;h2 id=&quot;family-guy-explains-code&quot;&gt;Family Guy explains code&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/posts/issue1/family-guy-web-dev.webp&quot; alt=&quot;web dev described by Family Guy&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;This picture from Family Guy sums up pretty well what coding is in my own view.
-Because just as Peter and Brian lure James Woods with candies as baits, code lures me (and hopefully you) with its languages and concepts. The only difference is that while James Woods gets trapped in a wooden crate - he stops eating candy - we can keep learning forever (I hope there is internet in Heaven).&lt;/p&gt;
-
-&lt;p&gt;That’s also part of the beauty behind code. When you think you know it all, when you start getting comfortable, that’s the time you start deprecating as a developer and realize there is so much more to learn. It rings a bell for me because I never liked monotony. Code offers the opposite.&lt;/p&gt;
-
-&lt;h2 id=&quot;enjoy-your-job&quot;&gt;Enjoy your job&lt;/h2&gt;
-&lt;p&gt;I came back home last summer, I had no options left but to look for a job.&lt;/p&gt;
-
-&lt;p&gt;I looked at myself: what good could that bring in the long term? What’s the point of working all day long if you don’t enjoy it. 
-I don’t get those who consider work just work: it represents how we spend a significant time of our lives. It’s how we spend most of our days. It must be invested in something we thrive to wake up to every single morning, if not most&lt;/p&gt;
-
-&lt;p&gt;With “those” I don’t address the people who need a job, even if temporary, to escape a difficult situation. I don’t address them because they are the kind of people who have a goal in mind and work towards changing their lives for the good, they know well that their current job is indeed only current. I understand them. I did that too.&lt;/p&gt;
-
-&lt;p&gt;I’m addressing those who work for the mere purpose to make ends met. That’s takes a person to a mental breakdown down the line.&lt;/p&gt;
-
-&lt;h2 id=&quot;mission&quot;&gt;Mission.&lt;/h2&gt;
-&lt;p&gt;So I ditched that. No more. No mas. Finish. &lt;a href=&quot;https://dictionary.cambridge.org/dictionary/italian-english/basta?raw=true&quot;&gt;Basta&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;I did things in the wrong way too many times. I put others’ needs before me too many times.&lt;/p&gt;
-
-&lt;p&gt;That is where I come from. That is where I don’t want to go back anymore.&lt;/p&gt;
-
-&lt;p&gt;My purpose here is to document my journey from solo learner to professional web developer, I want to prove that it’s possible and that everybody can. And while I do it I want to contribute to community (our) learning.&lt;/p&gt;
-
-&lt;p&gt;In September 2017 I decided to stop fouling myself. I decided to take responsibility for my life. I decided to pursue a career in web development.&lt;/p&gt;
-
-&lt;p&gt;A month later I was selected to participate in the Google Developer Scholarship challenge, along with other 20 000 people.&lt;/p&gt;
-
-&lt;p&gt;Recently, in mid-February, I was grateful to be one of the lucky 1% who was selected to receive the full scholarship, a six months long program covering web development widely. It’s teaching me to build responsive websites by using HTML, CSS, JavaScript and its advanced libraries such as jQuery and React.&lt;/p&gt;
-
-&lt;h2 id=&quot;planned-contents&quot;&gt;Planned contents&lt;/h2&gt;
-&lt;p&gt;For this blog I have many ideas in mind, all can be narrowed in the following categories:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;document the scholarship I’m in right now, the Google Developer Scholarship sponsored by Google and taught via Udacity&lt;/li&gt;
-  &lt;li&gt;interviews with professional web developers&lt;/li&gt;
-  &lt;li&gt;my life&lt;/li&gt;
-  &lt;li&gt;tutorials&lt;/li&gt;
-  &lt;li&gt;walkthroughs on projects I built&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;I’m truly excited for what’s to come.&lt;/p&gt;</content><author><name>Davide</name></author><summary type="html"></summary></entry></feed>
+&lt;p&gt;&lt;strong&gt;Take the risk&lt;/strong&gt;.&lt;/p&gt;</content><author><name>Davide</name></author><summary type="html"></summary></entry></feed>

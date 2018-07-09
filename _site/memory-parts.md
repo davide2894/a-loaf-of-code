@@ -17,7 +17,7 @@ v4. use css Grid to display cards as a 4x4 grid (first raw use of Grid)
 v5. add card shuffling on page load
 v6. add move counter
 v7. add stars feature. It's dependent on move counter's value
-8. add timer
+v8. add timer
 9. add restart button
 10. add single match logic (this one can be long). Take it from kioku repo because it's the most updated.
 11. add win conditions (idea: a matchCount var that if === 8 triggers end of game)
